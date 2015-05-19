@@ -1,19 +1,19 @@
 require 'bundler/capistrano'
 require 'rvm/capistrano'
 set :db_local_clean, true
-set :deploy_to, '/home/deploy/projects/test/tellum'
+set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
 set :keep_releases, 5
-set :rvm_ruby_string, '1.9.3-p545@tellum'
-set :rvm_type, :system
-server "192.241.214.145", :web, :app, :db, :primary => true
+set :rvm_ruby_string, 'ruby-1.9.3-p551@tellum'
+set :rvm_type, :user
+server "52.25.164.35", :web, :app, :db, :primary => true
 set :application, 'tellum'
 set :scm        , :git
-set :repository , 'https://ali_hassan_mirza:dazzlermirza123@bitbucket.org/ali_hassan_mirza/tellum.git'
+set :repository , 'git@bitbucket.org:tellumapp/tellum_server.git'
 set :branch, "test"
-set :user       , 'deploy'
+set :user       , 'ubuntu'
 set :default_shell, "/bin/bash -l"
 set :use_sudo   , false
-
+before 'deploy:setup', 'rvm:install_rvm'
 namespace :paths do
   desc "Link paths of required files"
   task :link_paths do
