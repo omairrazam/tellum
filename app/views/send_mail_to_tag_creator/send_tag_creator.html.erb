@@ -1,0 +1,45 @@
+<%if @c_user%>
+
+    You’ve got action!
+    <br>
+    <br>
+    <%if @anonymous_rating_flag.to_i == 1%>
+        <%if @tellum_host == "tellumapp.com"%>
+            An anonymous user just dropped into your box, <%=link_to "#{@tag_line.tag_line}", "tellum://box?box_id=#{@tag_line.id}"%>.
+        <%else%>
+            An anonymous user just dropped into your box, <%=link_to "#{@tag_line.tag_line}", "tellumtest://box?box_id=#{@tag_line.id}"%>.
+        <%end%>
+    <%else%>
+        <%if @tellum_host == "tellumapp.com"%>
+            <%=@c_user.full_name%>(<%=link_to "@#{@c_user.user_name}", "tellum://user?user_id=#{@c_user.id}" %>) just dropped into your box, <%=link_to "#{@tag_line.tag_line}", "tellum://box?box_id=#{@tag_line.id}"%>.
+        <%else%>
+            <%=@c_user.full_name%>(<%=link_to "@#{@c_user.user_name}", "tellumtest://user?user_id=#{@c_user.id}" %>) just dropped into your box, <%=link_to "#{@tag_line.tag_line}", "tellumtest://box?box_id=#{@tag_line.id}"%>.        <%end%>
+    <%end%>
+    <br>
+    <br>
+    Check it out by clicking on the link above.
+    <br>
+    <br>
+    <br>
+    Thanks,
+    <br>
+    <br>
+    Team Tellum
+    <br>
+    <br>
+    <br>
+    <br>
+    Question?  Hit us up at <%=link_to "support@tellumapp.com", "#"%>
+    <br>
+    <br>
+    PO Box 25846
+    <br>
+    Richmond, VA 23260
+    <br>
+    <br>
+    If you’d like to stop receiving emails from Tellum, please email us at <%=link_to "optout@tellumapp.com", "#"%>
+
+<%end%>
+
+
+

@@ -1,0 +1,1 @@
+PUSH_CONFIG = YAML.load_file("#{Rails.root}/config/push_notification.yml")[Rails.env]

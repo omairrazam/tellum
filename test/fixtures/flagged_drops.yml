@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  is_flagged: false
+  user_id: 1
+  rating_id: 1
+
+two:
+  is_flagged: false
+  user_id: 1
+  rating_id: 1

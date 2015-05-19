@@ -1,0 +1,5 @@
+<p>Welcome <%= @user.full_name %>!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

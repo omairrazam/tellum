@@ -1,0 +1,32 @@
+<%if @user == true %>
+    <%if @tellum_host == "tellumapp.com"%>
+        <%=@c_full_name%> (<%=link_to "@#{@c_user_name}", "tellum://follower/#{@c_user_id}" %>) now follows you on Tellum.
+    <%else%>
+        <%=@c_full_name%> (<%=link_to "@#{@c_user_name}", "tellumtest://follower/#{@c_user_id}" %>) now follows you on Tellum.
+    <%end%>
+    <br>
+    <br>
+    PO Box 25846
+    <br>
+    Richmond, VA 23260
+    <br>
+    <br>
+    If you’d like to stop receiving emails from Tellum, please email us at <%=link_to "optout@tellumapp.com", "#"%>
+<%else%>
+    <%if @tellum_host == "tellumapp.com"%>
+        <%=@c_full_name%> (<%=link_to "@#{@c_user_name}", "tellum://follower/#{@c_user_id}" %>) has requested to follow you on Tellum.
+    <%else%>
+        <%=@c_full_name%> (<%=link_to "@#{@c_user_name}", "tellumtest://follower/#{@c_user_id}" %>) has requested to follow you on Tellum.
+    <%end%>
+    <br>
+    <br>
+    PO Box 25846
+    <br>
+    Richmond, VA 23260
+    <br>
+    <br>
+    If you’d like to stop receiving emails from Tellum, please email us at <%=link_to "optout@tellumapp.com", "#"%>
+<%end%>
+
+
+

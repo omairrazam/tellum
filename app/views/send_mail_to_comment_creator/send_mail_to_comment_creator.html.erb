@@ -1,0 +1,57 @@
+<%if @c_user && @ratings%>
+
+    You’ve got action!
+    <br>
+    <br>
+    <%if @anonymous_rating_flag == true%>
+        <%if @tellum_host == "tellumapp.com"%>
+            An anonymous user just commented on your <%=link_to "drop", "tellum://comments?rating_id=#{@ratings.id}&is_anonymous_rating=#{@ratings.is_anonymous_rating}&rating_user_id=#{@ratings.user_id}&rating_tagline=#{@tagline.tag_line}&rating_rating=#{@ratings.rating}&rating_hashtag=#{@ratings.sub_rating}"%> into box, <%=link_to "#{@tagline.tag_line}", "tellum://boxdetail?box_id=#{@ratings.tag_id}"%>.
+        <%else%>
+            An anonymous user just commented on your <%=link_to "drop", "tellumtest://comments?rating_id=#{@ratings.id}&is_anonymous_rating=#{@ratings.is_anonymous_rating}&rating_user_id=#{@ratings.user_id}&rating_tagline=#{@tagline.tag_line}&rating_rating=#{@ratings.rating}&rating_hashtag=#{@ratings.sub_rating}"%> into box, <%=link_to "#{@tagline.tag_line}", "tellumtest://boxdetail?box_id=#{@ratings.tag_id}"%>.
+        <%end%>
+    <%else%>
+        <%if @tellum_host == "tellumapp.com"%>
+            <%=@c_user.full_name%>(<%=link_to "@#{@c_user.user_name}", "tellum://user?user_id=#{@current_user_id}" %>) just commented on your <%=link_to "drop", "tellum://comments?rating_id=#{@ratings.id}&is_anonymous_rating=#{@ratings.is_anonymous_rating}&rating_user_id=#{@ratings.user_id}&rating_tagline=#{@tagline.tag_line}&rating_rating=#{@ratings.rating}&rating_hashtag=#{@ratings.sub_rating}"%> into box, <%=link_to "#{@tagline.tag_line}", "tellum://boxdetail?box_id=#{@ratings.tag_id}"%>.
+        <%else%>
+            <%=@c_user.full_name%>(<%=link_to "@#{@c_user.user_name}", "tellumtest://user?user_id=#{@current_user_id}" %>) just commented on your <%=link_to "drop", "tellumtest://comments?rating_id=#{@ratings.id}&is_anonymous_rating=#{@ratings.is_anonymous_rating}&rating_user_id=#{@ratings.user_id}&rating_tagline=#{@tagline.tag_line}&rating_rating=#{@ratings.rating}&rating_hashtag=#{@ratings.sub_rating}"%> into box, <%=link_to "#{@tagline.tag_line}", "tellumtest://boxdetail?box_id=#{@ratings.tag_id}"%>.
+        <%end%>
+    <%end%>
+    <br>
+    <br>
+    Check it out by clicking on the link above.
+    <br>
+    <br>
+    <br>
+    Thanks,
+    <br>
+    <br>
+    Team Tellum
+    <br>
+    <br>
+    <br>
+    <br>
+    Question?  Hit us up at <%=link_to "support@tellumpapp.com", "#"%>
+
+    <br>
+    <br>
+    PO Box 25846
+    <br>
+    Richmond, VA 23260
+    <br>
+    <br>
+    If you’d like to stop receiving emails from Tellum, please email us at <%=link_to "optout@tellumapp.com", "#"%>
+<%else%>
+    User is not authenticated!
+    <br>
+    <br>
+    PO Box 25846
+    <br>
+    Richmond, VA 23260
+    <br>
+    <br>
+    If you’d like to stop receiving emails from Tellum, please email us at <%=link_to "optout@tellumapp.com", "#"%>
+
+<%end%>
+
+
+

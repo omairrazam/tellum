@@ -1,0 +1,20 @@
+development:
+  host: "gateway.sandbox.push.apple.com"
+  file: "tellumdev.pem"
+  port: "2195"
+  pass: "1234"
+staging:
+  host: "gateway.sandbox.push.apple.com"
+  file: "ck.pem"
+  port: "2195"
+  pass: "1234"
+staging2:
+  host: "gateway.push.apple.com"
+  file: "ck.pem"
+  port: "2195"
+  pass: "1234"
+production:
+  host: "gateway.push.apple.com"
+  file: "ck.pem"
+  port: "2195"
+  pass: "1234"
