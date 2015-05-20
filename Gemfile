@@ -33,14 +33,18 @@ gem 'carrierwave'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
 
 # To use debugger
 #gem 'debugger'
 gem 'therubyracer'
 gem 'devise' , '3.0.2'
 gem "meta_search"  # Last officially released gem
-gem 'rvm-capistrano'
+gem 'capistrano', '~> 3.2.0'
+gem 'capistrano-ssh-doctor', '~> 1.0'
+gem 'capistrano-rvm'
+gem 'capistrano-rails',   require: false
+gem 'capistrano-bundler', require: false
+gem 'capistrano3-puma',   require: false
 #gem 'debugger'
 gem 'activeadmin', github: 'activeadmin', branch: '0-6-stable'
 gem 'jquery-rails', '~> 2.3.0'
