@@ -3,7 +3,7 @@ lock '3.2.1'
 set :rvm_require_role, :app
 
 set :application, 'tellum_server'
-set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
+# set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
 set :rvm_ruby_version, 'ruby-1.9.3-p551@tellum_server'
