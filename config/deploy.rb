@@ -2,15 +2,13 @@
 lock '3.2.1'
 set :rvm_require_role, :app
 
-set :application, 'branching_minds'
-set :repo_url, 'git@github.com:Branching-Minds/branching-minds-api.git'
+set :application, 'tellum_server'
+set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
-set :rvm_ruby_version, 'ruby-1.9.3-p551tellum'
+set :rvm_ruby_version, 'ruby-1.9.3-p551@tellum_server'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
-before 'deploy', 'rvm:install_rvm'  # install/update RVM
-before 'deploy', 'rvm:install_ruby'
 # puma configuration
 # set :puma_bind,       "unix:///tmp/branching_minds_puma.sock"
 # set :puma_state,      "/tmp/branching_minds_puma.state"

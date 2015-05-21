@@ -122,17 +122,19 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v3.2.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.2.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activeadmin (v0.6.6@15649e, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.2.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.2.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="apns (v1.0.0, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="arbre (v1.0.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v3.0.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.10, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt-ruby (v3.1.5, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bourbon (v3.2.4, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.4, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.7.6, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capistrano (v3.4.0, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-bundler (v1.1.4, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rails (v1.1.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rvm (v0.1.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
@@ -145,12 +147,16 @@
     <orderEntry type="library" scope="PROVIDED" name="devise (v3.0.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.5.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="formtastic (v2.3.1, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="has_scope (v0.6.0, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.1, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="inherited_resources (v1.6.0, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.2.16, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="journey (v1.0.4, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v2.3.0, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.8.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.16.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kgio (v2.9.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.7, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.5.4, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
@@ -173,6 +179,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.12.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ref (v1.0.5, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="responders (v1.1.2, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.13, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v3.2.6, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.2.3, RVM: ruby-1.9.3-p551 [tellum]) [gem]" level="application" />
