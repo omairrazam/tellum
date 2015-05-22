@@ -5,7 +5,7 @@ set :rvm_require_role, :app
 set :application, 'tellum_server'
 # set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
+# set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
 set :rvm_ruby_version, 'ruby-1.9.3-p551@tellum_server'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}

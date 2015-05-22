@@ -20,15 +20,15 @@ Tellum::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = { :host => '198.199.65.232:6900' }
+  config.action_mailer.default_url_options = { :host => '52.25.164.35:6900' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address              => 'smtp.gmail.com',
       :port                 => 587,
       :domain               => 'gmail.com',
-      :user_name            => 'vf.tellum@gmail.com',
-      :password             => 'vf12345678',
+      :user_name            => 'Tellumtest@gmail.com',
+      :password             => 'Tellum2014',
       :authentication       => 'login',
       :enable_starttls_auto => true
   }
