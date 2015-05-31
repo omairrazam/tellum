@@ -23,8 +23,12 @@ class Api::TagsController < Api::ApplicationController
     end
   end
   def check_tag_expiry
-    @tag = Tag.find(params[:id])
-    @expiry_time = check_expiry(@tag)
+    if params[:auth_token] && params[:tag_id]
+      @tag = Tag.find(params[:tag_id])
+      @expiry_time = check_expiry(@tag)
+    else
+      @invalid_request = "Invalid"
+    end
   end
   def tag_detail
     if params[:auth_token] && params[:tag_id]
