@@ -39,8 +39,8 @@
       <file leaf-file-name="tags_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/tags_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7781885" vertical-offset="19424" max-vertical-offset="20025">
-              <caret line="1323" column="6" selection-start-line="1323" selection-start-column="6" selection-end-line="1323" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.7504621" vertical-offset="19424" max-vertical-offset="20025">
+              <caret line="1322" column="7" selection-start-line="1322" selection-start-column="7" selection-end-line="1322" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -787,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/tags_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7781885" vertical-offset="19424" max-vertical-offset="20025">
-          <caret line="1323" column="6" selection-start-line="1323" selection-start-column="6" selection-end-line="1323" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.7504621" vertical-offset="19424" max-vertical-offset="20025">
+          <caret line="1322" column="7" selection-start-line="1322" selection-start-column="7" selection-end-line="1322" selection-end-column="42" />
           <folding />
         </state>
       </provider>
