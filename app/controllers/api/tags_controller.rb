@@ -22,6 +22,10 @@ class Api::TagsController < Api::ApplicationController
       return render_response
     end
   end
+  def check_tag_expiry
+    @tag = Tag.find(params[:id])
+    @expiry_time = check_expiry(@tag)
+  end
   def tag_detail
     if params[:auth_token] && params[:tag_id]
       current_user = User.find_by_authentication_token(params[:auth_token])
@@ -1307,6 +1311,15 @@ class Api::TagsController < Api::ApplicationController
       @tags_and_ratings = tag.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( fuck_the_fuckers: t.fuck_the_fuckers , average_rating: t.average_rating, total_rating: t.total_rating, user: t.user)}
     else
       []
+    end
+  end
+  def check_expiry tag
+    time = ((Time.now - tag.try(:created_at))/ 1.hour).round
+    expiry_time = ((tag.try(:expiry_time) - time)/ 1.hour).round
+    if ( time < tag.try(:expiry_time))
+      expiry_time
+    else
+      expiry_time = "expired"
     end
   end
 end
