@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
   attr_accessible :tag_line, :tag_title, :tag_description, :open_date, :close_date, :is_private,
-                  :is_allow_anonymous, :is_post_to_wall, :user_id, :is_locked, :updated_time, :rating_id
+                  :is_allow_anonymous, :is_post_to_wall, :user_id, :is_locked, :updated_time, :rating_id, :expiry_time
   attr_accessor :total_rating, :average_rating, :is_tag_line
   belongs_to :user
   has_many :ratings, dependent: :destroy
