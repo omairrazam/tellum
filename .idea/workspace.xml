@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae92bbd7-bba0-41bd-8252-533875eda4db" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb" afterPath="$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/tags_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/tags_controller.rb" />
     </list>
     <ignored path="tellum_server.iws" />
@@ -38,8 +41,8 @@
       <file leaf-file-name="tags_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/tags_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6908127" vertical-offset="19424" max-vertical-offset="20025">
-              <caret line="1321" column="34" selection-start-line="1321" selection-start-column="34" selection-end-line="1321" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.7227357" vertical-offset="19424" max-vertical-offset="20025">
+              <caret line="1321" column="39" selection-start-line="1321" selection-start-column="39" selection-end-line="1321" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -85,6 +88,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="20150527174513_add_expiry_time_to_tags.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -104,10 +117,10 @@
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/config/push_notification.yml" />
         <option value="$PROJECT_DIR$/config/environments/staging.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/Capfile" />
         <option value="$PROJECT_DIR$/app/views/api/tags/check_tag_expiry.json.jbuilder" />
+        <option value="$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/tags_controller.rb" />
       </list>
     </option>
@@ -772,14 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.050933786" vertical-offset="0" max-vertical-offset="589">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
@@ -796,10 +801,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20150527174513_add_expiry_time_to_tags.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/tags_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6908127" vertical-offset="19424" max-vertical-offset="20025">
-          <caret line="1321" column="34" selection-start-line="1321" selection-start-column="34" selection-end-line="1321" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.7227357" vertical-offset="19424" max-vertical-offset="20025">
+          <caret line="1321" column="39" selection-start-line="1321" selection-start-column="39" selection-end-line="1321" selection-end-column="39" />
           <folding />
         </state>
       </provider>

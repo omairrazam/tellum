@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20150527174513) do
     t.datetime "updated_time"
     t.integer  "rating_id"
     t.boolean  "is_flagged",         :default => false
-    t.datetime "expiry_time"
+    t.float    "expiry_time"
   end
 
   add_index "tags", ["rating_id"], :name => "index_tags_on_rating_id"
