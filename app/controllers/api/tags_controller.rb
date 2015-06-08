@@ -1318,10 +1318,11 @@ class Api::TagsController < Api::ApplicationController
     end
   end
   def check_expiry tag
-    time = ((Time.now - tag.try(:created_at))/ 1.hour).round
-    expiry_time = (tag.try(:expiry_time) - time.to_i) if tag.try(:expiry_time).present?
+    time = Time.now - tag.try(:created_at)
+    expiry_time = (tag.try(:expiry_time) - time) if tag.try(:expiry_time).present?
     if ( time || 0 < tag.try(:expiry_time))
-      expiry_time
+      # developing the time format for the expiry time handling.
+      Time.at(expiry_time.to_i.abs).utc.strftime "%H:%M:%S"
     else
       expiry_time = "expired"
     end
