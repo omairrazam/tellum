@@ -3,7 +3,7 @@ json.response do
     json.status 'ok'
     json.code 200
     json.message "Successfully got total drops."
-    json.box_description @total_drops
+    json.total_drops @total_drops
   else
     json.status 'not found'
     json.code 404
