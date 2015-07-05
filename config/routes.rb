@@ -30,6 +30,7 @@ Tellum::Application.routes.draw do
       member do
         get :tag_detail
         get :get_box_description
+        get :get_total_drops
         get :check_tag_expiry
         post :lock_tag
         post :check_flag

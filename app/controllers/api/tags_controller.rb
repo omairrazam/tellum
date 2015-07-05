@@ -61,6 +61,9 @@ class Api::TagsController < Api::ApplicationController
   def get_box_description
     @box_detail = Tag.find_by_id(params[:tag_id]) if params[:auth_token].present?
   end
+  def get_total_drops
+    @total_drops = Tag.find_by_id(params[:tag_id]).try(:ratings).try(:count) if params[:auth_token].present? && params[:tag_id]
+  end
   def tag_line_including_locked
     if params[:auth_token].nil?
       get_api_message "501","Invalid Request"
