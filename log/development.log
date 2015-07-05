@@ -4362,3 +4362,112 @@ Migrating to AddExpiryTimeToTags (20150527174513)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.9ms)
+
+Sent mail to admin@example.com (6646ms)
+Date: Sun, 05 Jul 2015 20:15:49 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: admin@example.com
+Message-ID: <55994a253630f_174e43f314247c9@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome ali hassan!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=ssrXFqAMZ8uGnYnbA9ra">Confirm my account</a></p>
+
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:18:12 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (15.9ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2015-07-05 15:18:12', `current_sign_in_at` = '2015-07-05 15:18:12', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2015-07-05 15:18:12' WHERE `users`.`id` = 1[0m
+  [1m[35m (44.9ms)[0m  COMMIT
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (35.4ms)
+Completed 200 OK in 199ms (Views: 42.5ms | ActiveRecord: 66.9ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:18:23 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (1.1ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=2" for 127.0.0.1 at 2015-07-05 20:18:43 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.3ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2015-07-05 20:19:00 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` IS NULL LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.2ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:34:01 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.8ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:37:43 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.3ms)
+Completed 200 OK in 74ms (Views: 6.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:38:12 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.2ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:39:12 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.7ms)
+Completed 200 OK in 53ms (Views: 4.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/tags/get_box_description.json?auth_token=rTBnYufApbg1HSqexu3S&tag_id=1" for 127.0.0.1 at 2015-07-05 20:47:10 +0500
+Processing by Api::TagsController#get_box_description as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/tags/get_box_description.json.jbuilder (0.4ms)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.4ms)
