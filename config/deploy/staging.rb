@@ -32,7 +32,7 @@ server '52.25.164.35',
        roles: %w{web app},
        ssh_options: {
            user: 'root', # overrides user setting above
-           keys: %w(/home/ali/.ssh/id_rsa),
+           keys: %w(/Users/AHMirza/.ssh/id_rsa),
            forward_agent: false,
            auth_methods: %w(publickey password)
            # password: 'please use keys'
