@@ -64,6 +64,11 @@ class Api::TagsController < Api::ApplicationController
   def get_total_drops
     @total_drops = Tag.find_by_id(params[:tag_id]).try(:ratings).try(:count) if params[:auth_token].present? && params[:tag_id]
   end
+  def get_top_boxes
+    user = User.find_by_authentication_token params[:auth_token]
+    @total_drops =
+        Tag.find_by_id(params[:tag_id]).try(:ratings).try(:count) if params[:auth_token].present? && params[:tag_id]
+  end
   def tag_line_including_locked
     if params[:auth_token].nil?
       get_api_message "501","Invalid Request"
@@ -129,6 +134,10 @@ class Api::TagsController < Api::ApplicationController
         end
       end
     end
+  end
+  def search_tagline_exectmatch_with_status
+    @tag = Tag.where("tag_line = ?", CGI::unescape(params[:tag_line])) if params[:tag_line].present?
+    @tag_line = params[:tag_line]
   end
   def search_tagline_title_contains
     if params[:auth_token].nil? && params[:tag_line].nil?

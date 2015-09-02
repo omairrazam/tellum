@@ -64,6 +64,7 @@ Tellum::Application.routes.draw do
         get :taglines_and_ratings_by_user
         get :tagslines_by_user_PTR
         get :ratings_by_user_PTR
+        get :search_tagline_exectmatch_with_status
         get :taglines_and_ratings_by_user_PTR
         get :ratings_of_a_tag_ordered_by_most_popular
         get :taglines_and_ratings_by_followings_and_me
