@@ -169,6 +169,9 @@ class Api::TagsController < Api::ApplicationController
       end
     end
   end
+  def box_time_line
+    @user = User.find_by_authentication_token params[:auth_token]
+  end
   def search_tagline_any_where
     if params[:auth_token].nil? && params[:tag_line].nil?
       get_api_message "501","Invalid Request"

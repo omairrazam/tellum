@@ -48,6 +48,15 @@ class User < ActiveRecord::Base
     tmp_file.write(Base64.decode64(p))
     super(ActionDispatch::Http::UploadedFile.new(tempfile: tmp_file, filename: "user_avatar_#{SecureRandom.hex(5)}.jpg" ))
   end
+  def user_created_box
+    self.try(:tags).collect{|tag| tag.try(:attributes).merge({ratings: tag.try(:ratings).limit(3)})}
+  end
+  def user_follow_boxes
+    UserFollow.where(follow_id: self.id).collect{|user| user.try(:user).try(:attributes).merge!(tags: user.try(:user).try(:tags).where(is_private: false).collect{|tag| tag.try(:attributes).merge!(ratings: tag.try(:ratings).limit(3))})}
+  end
+  def user_not_follow_boxes
+    UserFollow.where("follow_id != ?", self.id).collect{|user| user.try(:user).try(:attributes).merge!(tags: user.try(:user).try(:tags).where(is_private: false).collect{|tag| tag.try(:attributes).merge!(ratings: tag.try(:ratings).limit(1))})}
+  end
 
   def email_required?
     super && skip_password_form.blank?
