@@ -20,9 +20,11 @@ class Rating < ActiveRecord::Base
     self.comments.count + self.rating_like_count
   end
   def as_json(options=nil)
-    s = super(options.reverse_merge(except: :audio))
-    s[:audio] = custom_audio_url
-    s
+    if options.present?
+      s = super(options.reverse_merge(except: :audio))
+      s[:audio] = custom_audio_url
+      s
+    end
   end
 
   def custom_audio_url
