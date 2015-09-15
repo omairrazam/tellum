@@ -49,13 +49,13 @@ class User < ActiveRecord::Base
     super(ActionDispatch::Http::UploadedFile.new(tempfile: tmp_file, filename: "user_avatar_#{SecureRandom.hex(5)}.jpg" ))
   end
   def user_created_box
-    self.try(:tags).collect{|tag| tag.try(:attributes).merge({ratings: tag.try(:ratings).limit(3)})}
+    self.try(:tags).collect{|tag| {box_name: tag.tag_line, box_title: tag.tag_title, box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_creator_user_id: drop.try(:user).try(:user_name), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count}}})}
   end
   def user_follow_boxes
-    UserFollow.where(follow_id: self.id).collect{|user| user.try(:user).try(:attributes).merge!(tags: user.try(:user).try(:tags).where(is_private: false).collect{|tag| tag.try(:attributes).merge!(ratings: tag.try(:ratings).limit(3))})}
+    UserFollow.where(follow_id: self.id).collect{|user| user.try(:user).try(:attributes).merge!(tags: user.try(:user).try(:tags).where(is_private: false).collect{|tag| {box_name: tag.tag_line, box_title: tag.tag_title, box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_creator_user_id: drop.try(:user).try(:user_name), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count}}})})}
   end
   def user_not_follow_boxes
-    UserFollow.where("follow_id != ?", self.id).collect{|user| user.try(:user).try(:attributes).merge!(tags: user.try(:user).try(:tags).where(is_private: false).collect{|tag| tag.try(:attributes).merge!(ratings: tag.try(:ratings).limit(1))})}
+    UserFollow.where("follow_id != ?", self.id).collect{|user| user.try(:user).try(:attributes).merge!(tags: user.try(:user).try(:tags).where(is_private: false).collect{|tag| {box_name: tag.tag_line, box_title: tag.tag_title, box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_creator_user_id: drop.try(:user).try(:user_name), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count}}})})}
   end
 
   def email_required?
