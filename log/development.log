@@ -4667,3 +4667,4 @@ Processing by Api::TagsController#box_time_line as JSON
   Rendered api/tags/box_time_line.json.jbuilder (16.1ms)
 Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 1.3ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
