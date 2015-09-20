@@ -4668,3 +4668,16 @@ Processing by Api::TagsController#box_time_line as JSON
 Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 1.3ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/search_tagline_exectmatch_with_status.json?tag_line=%22tagline%22" for 127.0.0.1 at 2015-09-20 20:59:28 +0500
+Processing by Api::TagsController#search_tagline_exectmatch_with_status as JSON
+  Parameters: {"tag_line"=>"\"tagline\""}
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in.json" for 127.0.0.1 at 2015-09-20 20:59:28 +0500
+Processing by SessionsController#new as JSON
+Completed 406 Not Acceptable in 39ms (ActiveRecord: 3.0ms)
