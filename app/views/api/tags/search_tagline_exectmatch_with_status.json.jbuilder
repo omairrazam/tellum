@@ -1,12 +1,12 @@
 if @tag.present?
   if @tag.close_date.nil?
-    json.status "ok"
+    json.status true
     json.tag_line @tag_line
   else
-    json.status "no"
+    json.status false
     json.tag_line @tag_line
   end
 else
-  json.status "ok"
+  json.status false
   json.tag_line @tag_line
 end
