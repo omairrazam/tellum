@@ -1,5 +1,5 @@
 if @tag.present?
-  if @tag.close_date.nil?
+  if @tag.try(:close_date).nil?
     json.status true
     json.tag_line @tag_line
   else

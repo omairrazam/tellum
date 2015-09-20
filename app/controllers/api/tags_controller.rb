@@ -136,7 +136,7 @@ class Api::TagsController < Api::ApplicationController
     end
   end
   def search_tagline_exectmatch_with_status
-    @tag = Tag.where("tag_line = ?", params[:tag_line]) if params[:tag_line].present?
+    @tag = Tag.where("tag_line = ?", CGI::unescape(params[:tag_line])) if params[:tag_line].present?
     @tag_line = params[:tag_line]
   end
   def search_tagline_title_contains
