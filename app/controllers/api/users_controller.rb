@@ -139,7 +139,7 @@ class Api::UsersController < Api::ApplicationController
           format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
         end
       elsif @user.is_password_blank == false
-        get_api_message "201","Please complete your profile first."
+        get_api_message "200","Please complete your profile first."
         @user.update_attributes(twitter_user_id: params[:request][:user][:twitter_user_id]) if params[:request][:user][:twitter_user_id].present?
         respond_to do |format|
           format.html { redirect_to @user, notice: 'Complete your profile.' }
@@ -155,7 +155,7 @@ class Api::UsersController < Api::ApplicationController
     else
       @user = User.new(params[:request][:user].merge!({skip_password_form: true}))
       if @user.save
-        get_api_message "201","User Created but complete your profile first."
+        get_api_message "200","User Created but complete your profile first."
         respond_to do |format|
           format.html { redirect_to @user, notice: 'User was successfully created complete your profile.' }
           format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
