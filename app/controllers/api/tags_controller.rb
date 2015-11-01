@@ -22,6 +22,10 @@ class Api::TagsController < Api::ApplicationController
       return render_response
     end
   end
+  def get_all_taglines
+    @user = User.find_by_authentication_token params[:auth_token]
+    @tags = get_all_tags if @user.present?
+  end
   def check_tag_expiry
     if params[:auth_token] && params[:tag_id]
       @tag = Tag.find(params[:tag_id])
@@ -1343,6 +1347,16 @@ class Api::TagsController < Api::ApplicationController
       Time.at(expiry_time.to_i.abs).utc.strftime "%H:%M:%S"
     else
       expiry_time = "expired"
+    end
+  end
+  def get_all_tags
+    @tags = Array.new
+    Tag.where("close_date is NULL OR close_date >= ?", Date.today).each do |tag|
+      time = Time.now - tag.try(:created_at)
+      expiry_time = (tag.try(:expiry_time) - time) if tag.try(:expiry_time).present?
+      if ( time || 0 < tag.try(:expiry_time))
+        @tags << tag
+      end
     end
   end
 end
