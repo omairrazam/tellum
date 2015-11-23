@@ -5116,3 +5116,100 @@ Processing by Api::TagsController#get_all_taglines as JSON
   [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE (close_date is NULL OR close_date >= '2015-11-01')
   Rendered api/tags/get_all_taglines.json.jbuilder (0.5ms)
 Completed 200 OK in 60ms (Views: 3.9ms | ActiveRecord: 6.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2015-11-23 20:07:42 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (28.1ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2015-11-01 10:47:45', `current_sign_in_at` = '2015-11-23 15:07:42', `sign_in_count` = 17, `updated_at` = '2015-11-23 15:07:42' WHERE `users`.`id` = 1[0m
+  [1m[35m (66.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (28.8ms)
+Completed 500 Internal Server Error in 461ms
+
+ActionView::Template::Error (undefined method `llect' for #<User:0x000000050f0668>):
+    3:     json.status 'Ok'
+    4:     json.code 200
+    5:     json.message "Successfully Fetched relevant boxes..."
+    6:     json.boxes @user.user_created_box + @user.user_follow_boxes + @user.user_not_follow_boxes
+    7:   else
+    8:     json.status 'not found'
+    9:     json.code 404
+  app/models/user.rb:52:in `user_created_box'
+  app/views/api/tags/box_time_line.json.jbuilder:6:in `block in _app_views_api_tags_box_time_line_json_jbuilder___486831172673243980_42129140'
+  app/views/api/tags/box_time_line.json.jbuilder:1:in `_app_views_api_tags_box_time_line_json_jbuilder___486831172673243980_42129140'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2015-11-23 20:08:20 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2015-11-23 15:07:42', `current_sign_in_at` = '2015-11-23 15:08:21', `sign_in_count` = 18, `updated_at` = '2015-11-23 15:08:21' WHERE `users`.`id` = 1
+  [1m[36m (49.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 LIMIT 3[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`rating_id` = 2
+  Rendered api/tags/box_time_line.json.jbuilder (97.1ms)
+Completed 500 Internal Server Error in 196ms
+
+ActionView::Template::Error (undefined method `id' for 2:Fixnum):
+    3:     json.status 'Ok'
+    4:     json.code 200
+    5:     json.message "Successfully Fetched relevant boxes..."
+    6:     json.boxes @user.user_created_box + @user.user_follow_boxes + @user.user_not_follow_boxes
+    7:   else
+    8:     json.status 'not found'
+    9:     json.code 404
+  app/models/user.rb:52:in `block (2 levels) in user_created_box'
+  app/models/user.rb:52:in `block in user_created_box'
+  app/models/user.rb:52:in `user_created_box'
+  app/views/api/tags/box_time_line.json.jbuilder:6:in `block in _app_views_api_tags_box_time_line_json_jbuilder___486831172673243980_42129140'
+  app/views/api/tags/box_time_line.json.jbuilder:1:in `_app_views_api_tags_box_time_line_json_jbuilder___486831172673243980_42129140'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2015-11-23 20:09:09 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2015-11-23 15:08:21', `current_sign_in_at` = '2015-11-23 15:09:10', `sign_in_count` = 19, `updated_at` = '2015-11-23 15:09:10' WHERE `users`.`id` = 1[0m
+  [1m[35m (61.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 LIMIT 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`rating_id` = 2[0m
+  [1m[35mUserRating Load (0.7ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2 LIMIT 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3 LIMIT 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE (follow_id != 1)
+  Rendered api/tags/box_time_line.json.jbuilder (135.5ms)
+Completed 200 OK in 249ms (Views: 126.3ms | ActiveRecord: 79.4ms)
