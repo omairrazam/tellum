@@ -69,7 +69,7 @@ class Api::RatingsController < Api::ApplicationController
             Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "like rating", sender_id: current_user.id)
           end
         else
-          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) - 1))
+          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) - 1)) unless @rating.rating_like_count == 0
         end
         if @user_rating.save
           get_api_message "200","Created"
