@@ -44,7 +44,7 @@ class Api::RatingsController < Api::ApplicationController
       @rating = Rating.find params[:request][:rating][:rating_id]
       if @user_rating.present?
         @user_rating.update_attributes(is_like: params[:request][:rating][:is_like])
-        if params[:request][:rating][:is_like] == true
+        if params[:request][:rating][:is_like] == "true"
           # badge_count = @rating.try(:user).try(:badge_count) + 1
           # @rating.try(:user).update_attributes badge_count: badge_count
           @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
@@ -62,7 +62,7 @@ class Api::RatingsController < Api::ApplicationController
         end
       else
         @user_rating = UserRating.new user_id: current_user.id, rating_id: params[:request][:rating][:rating_id], is_like: params[:request][:rating][:is_like]
-        if params[:request][:rating][:is_like] == true
+        if params[:request][:rating][:is_like] == "true"
           @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
           unless @rating.try(:user).try(:id) == current_user.id
             APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} liked #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )

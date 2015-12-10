@@ -5793,3 +5793,125 @@ Processing by Api::RatingsController#like_rating as JSON
   [1m[35m (12.7ms)[0m  COMMIT
   [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
 Completed 200 OK in 34ms (Views: 0.8ms | ActiveRecord: 14.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:47:08 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  UPDATE `user_ratings` SET `is_like` = 1, `updated_at` = '2015-12-10 19:47:08' WHERE `user_ratings`.`id` = 1
+  [1m[36m (64.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `ratings` SET `rating_like_count` = 1, `updated_at` = '2015-12-10 19:47:08' WHERE `ratings`.`id` = 1[0m
+  [1m[35m (60.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 360ms (Views: 0.4ms | ActiveRecord: 138.3ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:47:12 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `ratings` SET `rating_like_count` = 2, `updated_at` = '2015-12-10 19:47:12' WHERE `ratings`.`id` = 1
+  [1m[36m (51.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 53.4ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:47:15 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `ratings` SET `rating_like_count` = 3, `updated_at` = '2015-12-10 19:47:15' WHERE `ratings`.`id` = 1[0m
+  [1m[35m (45.9ms)[0m  COMMIT
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 57ms (Views: 0.3ms | ActiveRecord: 47.3ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:47:54 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `ratings` SET `rating_like_count` = 4, `updated_at` = '2015-12-10 19:47:54' WHERE `ratings`.`id` = 1
+  [1m[36m (88.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 99ms (Views: 0.4ms | ActiveRecord: 90.0ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:47:57 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `ratings` SET `rating_like_count` = 5, `updated_at` = '2015-12-10 19:47:57' WHERE `ratings`.`id` = 1[0m
+  [1m[35m (70.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 83ms (Views: 0.5ms | ActiveRecord: 71.6ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:48:00 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `ratings` SET `rating_like_count` = 6, `updated_at` = '2015-12-10 19:48:00' WHERE `ratings`.`id` = 1
+  [1m[36m (82.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 93ms (Views: 0.7ms | ActiveRecord: 83.5ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:48:03 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `ratings` SET `rating_like_count` = 7, `updated_at` = '2015-12-10 19:48:03' WHERE `ratings`.`id` = 1[0m
+  [1m[35m (122.8ms)[0m  COMMIT
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 123.8ms)
