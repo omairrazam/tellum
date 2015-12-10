@@ -47,7 +47,7 @@ class Api::RatingsController < Api::ApplicationController
         if params[:request][:rating][:is_like] == true
           # badge_count = @rating.try(:user).try(:badge_count) + 1
           # @rating.try(:user).update_attributes badge_count: badge_count
-          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) + 1))
+          @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
           unless @rating.try(:user).try(:id) == current_user.id
             APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} liked #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
             Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "like rating", sender_id: current_user.id)
@@ -63,7 +63,7 @@ class Api::RatingsController < Api::ApplicationController
       else
         @user_rating = UserRating.new user_id: current_user.id, rating_id: params[:request][:rating][:rating_id], is_like: params[:request][:rating][:is_like]
         if params[:request][:rating][:is_like] == true
-          @rating.update_attribute :rating_like_count, ((@rating.rating_like_count || 0) + 1)
+          @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
           unless @rating.try(:user).try(:id) == current_user.id
             APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} liked #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
             Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "like rating", sender_id: current_user.id)
