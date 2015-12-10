@@ -129,7 +129,7 @@ class Api::UsersController < Api::ApplicationController
     end
   end
   def twitter_login
-    @user = User.find_by_twitter_user_id(params[:request][:user][:twitter_user_id]) || User.find_by_user_name(params[:request][:user][:user_name])
+    @user = User.find_by_twitter_user_id(params[:request][:user][:twitter_user_id])
     if @user.present?
       if @user.is_password_blank == true
         @user.update_attributes(twitter_user_id: params[:request][:user][:twitter_user_id]) if params[:request][:user][:twitter_user_id].present?
@@ -153,18 +153,22 @@ class Api::UsersController < Api::ApplicationController
         end
       end
     else
-      @user = User.new(params[:request][:user].merge!({skip_password_form: true}))
-      if @user.save
-        get_api_message "200","User Created but complete your profile first."
-        respond_to do |format|
-          format.html { redirect_to @user, notice: 'User was successfully created complete your profile.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-        end
-      else
-        get_api_message "404","#{@user.errors}"
-        @errors=get_model_error(@user)
-        return render_errors
+      user = User.find_by_user_name(params[:request][:user][:user_name])
+      user.present? ? ((twitter_user_name = "#{params[:request][:user][:user_name]}#{rand(10)}") && twitter_user_creation(twitter_user_name))  : twitter_user_creation(twitter_user_name)
+    end
+  end
+  def twitter_user_creation twitter_user_name
+    @user = User.new(params[:request][:user].except!(:user_name).merge!({skip_password_form: true, user_name: twitter_user_name}))
+    if @user.save
+      get_api_message "200","User Created but complete your profile first."
+      respond_to do |format|
+        format.html { redirect_to @user, notice: 'User was successfully created complete your profile.' }
+        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
       end
+    else
+      get_api_message "404","#{@user.errors}"
+      @errors=get_model_error(@user)
+      return render_errors
     end
   end
   def profile_completion

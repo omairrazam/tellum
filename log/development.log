@@ -5213,3 +5213,583 @@ Processing by Api::TagsController#box_time_line as JSON
   [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE (follow_id != 1)
   Rendered api/tags/box_time_line.json.jbuilder (135.5ms)
 Completed 200 OK in 249ms (Views: 126.3ms | ActiveRecord: 79.4ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 22:56:48 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rtty7", "user_name"=>"hello"}}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rtty7' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rtty7' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 346ms (Views: 0.6ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 22:57:09 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rtty7", "user_name"=>"hello", "full_name"=>"hey"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rtty7' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rtty7' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 22:57:30 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rtty7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rtty7' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rtty7' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'qckMfKG3uF2zaTpinEBA' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '1xx9Vkns9gFpPvQ3Cxxx' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'qckMfKG3uF2zaTpinEBA', 0, NULL, '2015-12-10 17:57:30', '1xx9Vkns9gFpPvQ3Cxxx', NULL, '2015-12-10 17:57:30', NULL, NULL, 'iphone 6s', '', '', NULL, 'hey', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '1234rtty7', NULL, '2015-12-10 17:57:30', 'hello')[0m
+  [1m[35m (49.4ms)[0m  COMMIT
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 2 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 2 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 127ms (Views: 1.2ms | ActiveRecord: 53.8ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 22:57:42 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rtty7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rtty7' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'hello' AND `users`.`id` != 2) LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY '1234rtty7' AND `users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 2 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 2 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:02:48 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdddy7' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdddy7' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 55ms (Views: 0.3ms | ActiveRecord: 8.9ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:04:55 +0500
+
+SyntaxError (/home/ahmirza/Projects/new/tellum_server/app/controllers/api/users_controller.rb:157: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('):
+  activesupport (3.2.13) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:612:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:35:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1078245075682051818__call__3012630361302460841__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-2.1.2/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:08:42 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'bJuXpjxDTCNiwPB7mBey' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'YWcYnS6s4rgaLP4RiXyx' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'bJuXpjxDTCNiwPB7mBey', 0, NULL, '2015-12-10 18:08:43', 'YWcYnS6s4rgaLP4RiXyx', NULL, '2015-12-10 18:08:43', NULL, NULL, 'iphone 6s', '', '', NULL, 'hey', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '1234rttdddy7', NULL, '2015-12-10 18:08:43', 'hello1')
+  [1m[36m (57.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 3 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 3 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 149ms (Views: 1.3ms | ActiveRecord: 65.1ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:08:48 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdddy7' LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'hello1' AND `users`.`id` != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY '1234rttdddy7' AND `users`.`id` != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 3 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 3 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 17ms (Views: 1.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:08:59 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcccddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcccddy7' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:09:09 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:09:36 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 130ms (Views: 0.4ms | ActiveRecord: 3.6ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:37:21 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 135ms (Views: 0.4ms | ActiveRecord: 6.4ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-10 23:59:29 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 38063ms (Views: 0.8ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:00:47 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello1' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 219416ms (Views: 0.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:04:33 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello5' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'JbHjpp1BrPD7Hiwxasdt' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'rzL3wizxAysunqZNq98v' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'JbHjpp1BrPD7Hiwxasdt', 0, NULL, '2015-12-10 19:04:35', 'rzL3wizxAysunqZNq98v', NULL, '2015-12-10 19:04:35', NULL, NULL, 'iphone 6s', '', '', NULL, 'hey', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '1234rttdcvvvccddy7', NULL, '2015-12-10 19:04:35', 'hello5')[0m
+  [1m[35m (55.2ms)[0m  COMMIT
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 4 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 4 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 1751ms (Views: 2.5ms | ActiveRecord: 67.9ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:04:43 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"1234rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '1234rttdcvvvccddy7' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'hello5' AND `users`.`id` != 4) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY '1234rttdcvvvccddy7' AND `users`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 4 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 4 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 32ms (Views: 3.1ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:04:49 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"123dd4rttdcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123dd4rttdcvvvccddy7' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello9' LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '123dd4rttdcvvvccddy7' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'tCVnyzmWEiLckUWMVyre' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'UDwrBbnhordQg3hyHmmu' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'tCVnyzmWEiLckUWMVyre', 0, NULL, '2015-12-10 19:04:50', 'UDwrBbnhordQg3hyHmmu', NULL, '2015-12-10 19:04:50', NULL, NULL, 'iphone 6s', '', '', NULL, 'hey', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '123dd4rttdcvvvccddy7', NULL, '2015-12-10 19:04:50', 'hello9')[0m
+  [1m[35m (56.7ms)[0m  COMMIT
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 5 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 5 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 1649ms (Views: 2.0ms | ActiveRecord: 62.3ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:05:02 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"123dd4rttdfffcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123dd4rttdfffcvvvccddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'hello' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'hello6' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '123dd4rttdfffcvvvccddy7' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'TySvxzH5AxXXNyepH9pf' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'FJzajyEAUK2jyXWJQxpF' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'TySvxzH5AxXXNyepH9pf', 0, NULL, '2015-12-10 19:05:04', 'FJzajyEAUK2jyXWJQxpF', NULL, '2015-12-10 19:05:04', NULL, NULL, 'iphone 6s', '', '', NULL, 'hey', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '123dd4rttdfffcvvvccddy7', NULL, '2015-12-10 19:05:04', 'hello6')
+  [1m[36m (54.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 6 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 6 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 2072ms (Views: 2.0ms | ActiveRecord: 60.6ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:05:27 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"123dd4rttdfffcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123dd4rttdfffcvvvccddy7' LIMIT 1
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'hello6' AND `users`.`id` != 6) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY '123dd4rttdfffcvvvccddy7' AND `users`.`id` != 6) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 6 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 6 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 123ms (Views: 2.3ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-11 00:05:33 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"123dd4rttdfffcvvvccddy7", "user_name"=>"hello", "full_name"=>"hey", "device_token"=>"iphone 6s"}}, "user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123dd4rttdfffcvvvccddy7' LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'hello6' AND `users`.`id` != 6) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY '123dd4rttdfffcvvvccddy7' AND `users`.`id` != 6) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 6 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 6 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 30ms (Views: 4.9ms | ActiveRecord: 2.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:22:03 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>true}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (1.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (61.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2015-11-26 18:40:33', `current_sign_in_at` = '2015-12-10 19:22:04', `sign_in_count` = 23, `updated_at` = '2015-12-10 19:22:04' WHERE `users`.`id` = 1
+  [1m[36m (77.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.6ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.0ms)[0m  UPDATE `ratings` SET `rating_like_count` = 6, `updated_at` = '2015-12-10 19:22:05' WHERE `ratings`.`id` = 1
+  [1m[36m (75.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 605ms (Views: 0.5ms | ActiveRecord: 230.6ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:22:43 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `user_ratings` SET `is_like` = 0, `updated_at` = '2015-12-10 19:22:43' WHERE `user_ratings`.`id` = 1[0m
+  [1m[35m (47.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `ratings` SET `rating_like_count` = 5, `updated_at` = '2015-12-10 19:22:43' WHERE `ratings`.`id` = 1
+  [1m[36m (56.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 136ms (Views: 0.9ms | ActiveRecord: 106.0ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:22:47 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `ratings` SET `rating_like_count` = 4, `updated_at` = '2015-12-10 19:22:47' WHERE `ratings`.`id` = 1
+  [1m[36m (62.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 84ms (Views: 0.5ms | ActiveRecord: 63.7ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:22:59 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `ratings` SET `rating_like_count` = 3, `updated_at` = '2015-12-10 19:22:59' WHERE `ratings`.`id` = 1
+  [1m[36m (55.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 74ms (Views: 0.5ms | ActiveRecord: 57.2ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:02 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `ratings` SET `rating_like_count` = 2, `updated_at` = '2015-12-10 19:23:02' WHERE `ratings`.`id` = 1
+  [1m[36m (42.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 64ms (Views: 0.4ms | ActiveRecord: 43.6ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:05 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (1.7ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `ratings` SET `rating_like_count` = 1, `updated_at` = '2015-12-10 19:23:05' WHERE `ratings`.`id` = 1
+  [1m[36m (59.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 82ms (Views: 0.4ms | ActiveRecord: 62.8ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:08 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `ratings` SET `rating_like_count` = 0, `updated_at` = '2015-12-10 19:23:08' WHERE `ratings`.`id` = 1
+  [1m[36m (54.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 74ms (Views: 0.7ms | ActiveRecord: 55.9ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:17 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:20 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 15ms (Views: 0.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:34 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:38 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/ratings/like_rating.json" for 127.0.0.1 at 2015-12-11 00:23:41 +0500
+Processing by Api::RatingsController#like_rating as JSON
+  Parameters: {"request"=>{"rating"=>{"rating_id"=>1, "is_like"=>false}}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "rating"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`rating_id` = 1 AND `user_ratings`.`user_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (12.7ms)[0m  COMMIT
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 34ms (Views: 0.8ms | ActiveRecord: 14.0ms)

@@ -45,7 +45,7 @@ gem 'capistrano-rvm'
 gem 'capistrano-rails',   require: false
 gem 'capistrano-bundler', require: false
 gem 'capistrano3-puma',   require: false
-#gem 'debugger'
+gem 'debugger'
 gem 'activeadmin', github: 'activeadmin', branch: '0-6-stable'
 gem 'jquery-rails', '~> 2.3.0'
 gem 'apns'

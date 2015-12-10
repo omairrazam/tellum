@@ -593,7 +593,7 @@ class Api::TagsController < Api::ApplicationController
       @tag = Tag.select("*, (SELECT COUNT(*) FROM ratings WHERE ratings.tag_id = tags.id ) AS tags_ratings_total_count").where("close_date is NOT NULL AND close_date  >= ? AND updated_at BETWEEN  ? AND ?", DateTime.now, params[:date], DateTime.now).order("tags_ratings_total_count DESC")
       @tag = check_followers(@tag, current_user) if @tag.present?
       #@tags_and_ratings = (@tag.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!(average_rating: t.average_rating, total_rating: t.total_rating, user: t.user)} + @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( tag_line: Tag.find_by_id(t.tag_id).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ user: Tag.find_by_id(t.tag_id).user }), comments: t.comments.count, user: t.user, is_like: ( UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false ) )  }).sort do |a, b|
-      #  inner_a =  inner_b = String.new
+      #  inner_a =  inner_b = String.newa
       #  if a["tag_id"]
       ##    inner_a = ( Tag.find_by_id(a["tag_id"]).total_rating + Tag.find_by_id(a["tag_id"]).ratings.map(&:rating_like_count).map(&:to_f).sum + Tag.find_by_id(a["tag_id"]).ratings.map(&:comments).count )
       #  else
