@@ -5915,3 +5915,4 @@ Processing by Api::RatingsController#like_rating as JSON
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
   [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
 Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 123.8ms)
+Connecting to database specified by database.yml
