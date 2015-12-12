@@ -28,7 +28,7 @@ Tellum::Application.configure do
       :port                 => 587,
       :domain               => 'gmail.com',
       :user_name            => 'Tellumtest@gmail.com',
-      :password             => 'Tellum2014',
+      :password             => 'Tellum2015',
       :authentication       => 'login',
       :enable_starttls_auto => true
   }

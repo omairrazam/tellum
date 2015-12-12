@@ -154,7 +154,7 @@ class Api::UsersController < Api::ApplicationController
       end
     else
       user = User.find_by_user_name(params[:request][:user][:user_name])
-      user.present? ? ((twitter_user_name = "#{params[:request][:user][:user_name]}#{rand(10)}") && twitter_user_creation(twitter_user_name))  : twitter_user_creation(twitter_user_name)
+      user.present? ? ((twitter_user_name = "#{params[:request][:user][:user_name]}#{rand(10)}") && twitter_user_creation(twitter_user_name))  : twitter_user_creation(params[:request][:user][:user_name])
     end
   end
   def twitter_user_creation twitter_user_name

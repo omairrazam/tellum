@@ -5916,3 +5916,1253 @@ Processing by Api::RatingsController#like_rating as JSON
   [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
 Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 123.8ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:18:53 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1[0m
+Completed 200 OK in 513ms (Views: 0.3ms | ActiveRecord: 49.5ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:19:11 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx"}}, "user"=>{}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:19:32 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'uc3fem7T3PHZ9KNyCxvs' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'spb3kg4HeqVFuUxwUEqs' LIMIT 1[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'uc3fem7T3PHZ9KNyCxvs', 0, NULL, '2015-12-12 11:19:32', 'spb3kg4HeqVFuUxwUEqs', NULL, '2015-12-12 11:19:32', NULL, NULL, 'iphone6', 'aa@gmail.com', '', 'oooo999iixuucycyyc', 'abcxxx', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:19:32', 'aaa')
+  Rendered devise/mailer/confirmation_instructions.html.erb (36.0ms)
+
+Sent mail to aa@gmail.com (4146ms)
+Date: Sat, 12 Dec 2015 16:19:33 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: aa@gmail.com
+Message-ID: <566c02c5da384_212a36c1e1891733@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=spb3kg4HeqVFuUxwUEqs">Confirm my account</a></p>
+
+  [1m[36m (89.9ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 5624ms
+
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (122.2ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:23:28 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6"}}, "user"=>{}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'aSx3uQrsTp3basqkMq3k' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'pmV9ecjNNdrQJDGzzHA1' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'aSx3uQrsTp3basqkMq3k', 0, NULL, '2015-12-12 11:23:32', 'pmV9ecjNNdrQJDGzzHA1', NULL, '2015-12-12 11:23:32', NULL, NULL, 'iphone6', 'aa@gmail.com', '', 'oooo999iixuucycyyc', 'abcxxx', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:23:32', 'aaa')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.7ms)
+
+Sent mail to aa@gmail.com (7033ms)
+Date: Sat, 12 Dec 2015 16:23:32 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: aa@gmail.com
+Message-ID: <566c03b437fae_212a35277749181c@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=pmV9ecjNNdrQJDGzzHA1">Confirm my account</a></p>
+
+  [1m[35m (44.7ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 10359ms
+
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  app/controllers/api/users_controller.rb:95:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.7ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:26:26 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'DrhENT3Ft5eYbLBJYPqt' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 's6rmzPtGyBLV2snHWkM3' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'DrhENT3Ft5eYbLBJYPqt', 0, NULL, '2015-12-12 11:26:36', 's6rmzPtGyBLV2snHWkM3', NULL, '2015-12-12 11:26:36', NULL, NULL, 'iphone6', 'aa@gmail.com', '', 'oooo999iixuucycyyc', 'abcxxx', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:26:36', 'aaa')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.3ms)
+
+Sent mail to aa@gmail.com (4570ms)
+Date: Sat, 12 Dec 2015 16:26:37 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: aa@gmail.com
+Message-ID: <566c046d7e74b_22fa337fdb86177d@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=s6rmzPtGyBLV2snHWkM3">Confirm my account</a></p>
+
+  [1m[36m (56.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'oDjwiUQHgX6szGZgaNaP' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'DrhENT3Ft5eYbLBJYPqt', 0, NULL, '2015-12-12 11:27:29', 'oDjwiUQHgX6szGZgaNaP', NULL, '2015-12-12 11:26:36', NULL, NULL, 'iphone6', 'aa@gmail.com', '', 'oooo999iixuucycyyc', 'abcxxx', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:26:36', 'aaa')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.6ms)
+
+Sent mail to aa@gmail.com (849ms)
+Date: Sat, 12 Dec 2015 16:27:29 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: aa@gmail.com
+Message-ID: <566c04a14f25c_22fa337fdb86187f@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=oDjwiUQHgX6szGZgaNaP">Confirm my account</a></p>
+
+  [1m[36m (384.9ms)[0m  [1mCOMMIT[0m
+Completed 401 Unauthorized in 63483ms
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:27:41 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6"}}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' AND `users`.`id` != 10) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 212ms (Views: 0.4ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:27:58 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' AND `users`.`id` != 10) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:28:26 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' AND `users`.`id` != 10) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:29:34 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixuucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixuucycyyc' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixuucycyyc' AND `users`.`id` != 10) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 328ms (Views: 0.5ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:29:56 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixdddduucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixdddduucycyyc' AND `users`.`id` != 10) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 94ms (Views: 3.6ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:30:07 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixdddduucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixdddduucycyyc' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 37ms (Views: 3.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:30:11 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixdddduucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixdddduucycyyc' AND `users`.`id` != 10) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 27ms (Views: 2.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:30:14 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixdddduucycyyc", "email"=>"aa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'aa@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (15.0ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'aa@gmail.com' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaa' AND `users`.`id` != 10) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'oooo999iixdddduucycyyc' AND `users`.`id` != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 45ms (Views: 1.8ms | ActiveRecord: 16.1ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:31:06 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"oooo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'oooo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'oooo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1[0m
+Completed 200 OK in 2489ms (Views: 0.7ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:31:20 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaa", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaa' LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 2200ms (Views: 0.7ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:31:34 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'EK6vcVt8hUpJcKf1d65j' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'JACk8fVAURyXDu3soRja' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'EK6vcVt8hUpJcKf1d65j', 0, NULL, '2015-12-12 11:31:36', 'JACk8fVAURyXDu3soRja', NULL, '2015-12-12 11:31:36', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:31:36', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (4.1ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (5032ms)
+Date: Sat, 12 Dec 2015 16:31:37 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c05998c3f3_235a37735c888ed@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=JACk8fVAURyXDu3soRja">Confirm my account</a></p>
+
+  [1m[36m (53.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 8108ms
+
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  app/controllers/api/users_controller.rb:95:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:32:54 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'F9VidNEivQDpGNJj4DLM' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'TcQeU5Zkbb4gwhrkpDun' LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'F9VidNEivQDpGNJj4DLM', 0, NULL, '2015-12-12 11:32:54', 'TcQeU5Zkbb4gwhrkpDun', NULL, '2015-12-12 11:32:54', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:32:54', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.3ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (3523ms)
+Date: Sat, 12 Dec 2015 16:32:55 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c05e76b6e7_23b23295678929df@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://192.241.214.145:6900/users/confirmation?confirmation_token=TcQeU5Zkbb4gwhrkpDun">Confirm my account</a></p>
+
+  [1m[36m (61.4ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 4747ms
+
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.7ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:34:18 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'MMbiiSWCggT12b1XyCkG' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'u7LdqZ5KVr9shW8HsuYf' LIMIT 1[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'MMbiiSWCggT12b1XyCkG', 0, NULL, '2015-12-12 11:34:18', 'u7LdqZ5KVr9shW8HsuYf', NULL, '2015-12-12 11:34:18', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:34:18', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.5ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (5640ms)
+Date: Sat, 12 Dec 2015 16:34:19 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c063bc1ddb_23da30869a4993c3@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=u7LdqZ5KVr9shW8HsuYf">Confirm my account</a></p>
+
+  [1m[36m (55.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 6871ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbtPq
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:35:14 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'BPd9hxsuz2RmtMrTTmG4' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'Yyqavb6XaZuE8KsZSNTo' LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'BPd9hxsuz2RmtMrTTmG4', 0, NULL, '2015-12-12 11:35:14', 'Yyqavb6XaZuE8KsZSNTo', NULL, '2015-12-12 11:35:14', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:35:14', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.4ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (8015ms)
+Date: Sat, 12 Dec 2015 16:35:15 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c06739a907_23fa388c95051487@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=Yyqavb6XaZuE8KsZSNTo">Confirm my account</a></p>
+
+  [1m[36m (48.0ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 9250ms
+
+Net::SMTPAuthenticationError (535 Authentication Failed for admin@tellumapp.com
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:36:14 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'hSoM9zyvUukvbThKaWTb' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'Tppvvs5FeyGXsLLuzvCS' LIMIT 1[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'hSoM9zyvUukvbThKaWTb', 0, NULL, '2015-12-12 11:36:14', 'Tppvvs5FeyGXsLLuzvCS', NULL, '2015-12-12 11:36:15', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:36:15', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.5ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (3400ms)
+Date: Sat, 12 Dec 2015 16:36:16 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c06b09418_241c2b78bec32591@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=Tppvvs5FeyGXsLLuzvCS">Confirm my account</a></p>
+
+  [1m[36m (53.4ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 4616ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbuO8
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:38:48 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'phxtKkSgYBpuTVpVx3RB' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'PaktzNHRZEyYKropY2EK' LIMIT 1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'phxtKkSgYBpuTVpVx3RB', 0, NULL, '2015-12-12 11:38:49', 'PaktzNHRZEyYKropY2EK', NULL, '2015-12-12 11:38:49', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:38:49', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.6ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (10801ms)
+Date: Sat, 12 Dec 2015 16:38:50 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c074a19165_244f38b40545924@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=PaktzNHRZEyYKropY2EK">Confirm my account</a></p>
+
+  [1m[36m (55.7ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 12038ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbtYo
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:46:10 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'jP9zP5ypc5ePJNKaXExP' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'Fy1bsSTNphieq7bER2h4' LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'jP9zP5ypc5ePJNKaXExP', 0, NULL, '2015-12-12 11:46:11', 'Fy1bsSTNphieq7bER2h4', NULL, '2015-12-12 11:46:11', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:46:11', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.3ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (7102ms)
+Date: Sat, 12 Dec 2015 16:46:12 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c090419f08_257e368341052ab@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=Fy1bsSTNphieq7bER2h4">Confirm my account</a></p>
+
+  [1m[36m (50.7ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 8340ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbuCm
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:47:51 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '5XN8GoJsanJd1LqGENdE' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'jpcERY5jW3hhqQAGvf9q' LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, '5XN8GoJsanJd1LqGENdE', 0, NULL, '2015-12-12 11:47:51', 'jpcERY5jW3hhqQAGvf9q', NULL, '2015-12-12 11:47:51', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:47:51', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.3ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (11717ms)
+Date: Sat, 12 Dec 2015 16:47:52 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c0968ace4b_25b12d7262881576@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=jpcERY5jW3hhqQAGvf9q">Confirm my account</a></p>
+
+  [1m[36m (50.6ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 12937ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbs0_
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:48:48 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '2qezpxuGMxwWkPUKLAzM' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'uwBgApqqn9YqJB2fgncz' LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, '2qezpxuGMxwWkPUKLAzM', 0, NULL, '2015-12-12 11:48:48', 'uwBgApqqn9YqJB2fgncz', NULL, '2015-12-12 11:48:48', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:48:48', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.9ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (7234ms)
+Date: Sat, 12 Dec 2015 16:48:49 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c09a1cbfc7_25d52a0da14158a8@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+  [1m[36m (56.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 8470ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbv3E
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:49:58 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Gc2xvw5edDEYKQSBwS9x' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'YBK8x3uuMipFmaVYq4kW' LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'Gc2xvw5edDEYKQSBwS9x', 0, NULL, '2015-12-12 11:49:58', 'YBK8x3uuMipFmaVYq4kW', NULL, '2015-12-12 11:49:58', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:49:58', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.4ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (12ms)
+Date: Sat, 12 Dec 2015 16:49:59 +0500
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c09e780492_260031d23e439747@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://52.25.164.35:6900/users/confirmation?confirmation_token=YBK8x3uuMipFmaVYq4kW">Confirm my account</a></p>
+
+  [1m[36m (49.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 1229ms
+
+ArgumentError (An SMTP From address is required to send a message. Set the message smtp_envelope_from, return_path, sender, or from address.):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.2ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 16:59:42 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'q6FT2x5KFdJVpeuigksC' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'ycuzxGx8YZmjbofAdoNm' LIMIT 1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'q6FT2x5KFdJVpeuigksC', 0, NULL, '2015-12-12 11:59:42', 'ycuzxGx8YZmjbofAdoNm', NULL, '2015-12-12 11:59:42', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 11:59:42', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.4ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (12617ms)
+Date: Sat, 12 Dec 2015 16:59:43 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c0c2fe4a2d_27432da06b88747a@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ycuzxGx8YZmjbofAdoNm">Confirm my account</a></p>
+
+  [1m[36m (62.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 13855ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbsIV
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.9ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 17:01:36 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'yhySuoYo5uaNqaBXWsjm' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'MTGwqVJfqPGheqXdEkNU' LIMIT 1[0m
+  [1m[35mSQL (25.3ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'yhySuoYo5uaNqaBXWsjm', 0, NULL, '2015-12-12 12:01:36', 'MTGwqVJfqPGheqXdEkNU', NULL, '2015-12-12 12:01:36', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 12:01:36', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.5ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (10022ms)
+Date: Sat, 12 Dec 2015 17:01:38 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c0ca28ba6_27f3378145c17de@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=MTGwqVJfqPGheqXdEkNU">Confirm my account</a></p>
+
+  [1m[36m (53.9ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 11289ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbsvp
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.9ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 17:04:22 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'yWqHgikGHmiCvREsFpW1' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '5Vw1ixzmZyWczv9RcJsq' LIMIT 1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'yWqHgikGHmiCvREsFpW1', 0, NULL, '2015-12-12 12:04:22', '5Vw1ixzmZyWczv9RcJsq', NULL, '2015-12-12 12:04:22', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 12:04:22', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.4ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (11505ms)
+Date: Sat, 12 Dec 2015 17:04:23 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c0d47ca3c2_286829952e4758a6@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=5Vw1ixzmZyWczv9RcJsq">Confirm my account</a></p>
+
+  [1m[36m (57.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 12748ms
+
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/ContinueSignIn?sarp=1&scc=1&plt=AKgnsbv6C
+):
+  app/controllers/api/users_controller.rb:94:in `facebook_login'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.8ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 17:09:09 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aaddda' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'czGT5hepiEy1wyqKFQmH' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'k2AvYpQwuomDLXMfs4jV' LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'czGT5hepiEy1wyqKFQmH', 0, NULL, '2015-12-12 12:09:09', 'k2AvYpQwuomDLXMfs4jV', NULL, '2015-12-12 12:09:09', NULL, NULL, 'iphone6', 'ali.hassan.mirzaa@gmail.com', '', 'ooodddo999iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 12:09:09', 'aaddda')
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.5ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (19126ms)
+Date: Sat, 12 Dec 2015 17:09:10 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <566c0e66b20fa_28c72ff997888011@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=k2AvYpQwuomDLXMfs4jV">Confirm my account</a></p>
+
+  [1m[36m (63.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 24 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 24 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 20433ms (Views: 0.6ms | ActiveRecord: 79.4ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 17:11:03 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aaddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodddo999iixdddduucycyyc' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' AND `users`.`id` != 24) LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'ali.hassan.mirzaa@gmail.com' AND `users`.`id` != 24) LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaddda' AND `users`.`id` != 24) LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'ooodddo999iixdddduucycyyc' AND `users`.`id` != 24) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 24 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 24 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 161ms (Views: 2.2ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 17:11:12 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodbbbddo999iixdddduucycyyc", "email"=>"ali.hassan.mirzaa@gmail.com", "user_name"=>"aabbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodbbbddo999iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'ali.hassan.mirzaa@gmail.com' AND `users`.`id` != 24) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'ali.hassan.mirzaa@gmail.com' AND `users`.`id` != 24) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aaddda' AND `users`.`id` != 24) LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`facebook_user_id` = BINARY 'ooodbbbddo999iixdddduucycyyc' AND `users`.`id` != 24) LIMIT 1[0m
+  [1m[35m (906.9ms)[0m  UPDATE `users` SET `facebook_user_id` = 'ooodbbbddo999iixdddduucycyyc', `updated_at` = '2015-12-12 12:11:12' WHERE `users`.`id` = 24
+  [1m[36m (355.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 24 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 24 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 1285ms (Views: 0.8ms | ActiveRecord: 1265.3ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2015-12-12 17:11:26 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"facebook_user_id"=>"ooodbbbddo9nn99iixdddduucycyyc", "email"=>"ali.hassan.mirza786@gmail.com", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = 'ooodbbbddo9nn99iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirza786@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirza786@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirza786@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY 'ooodbbbddo9nn99iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'xmMXkruJexZrS4rn4Ch5' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'fy2B1UxLecSfyyxy4ysh' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'xmMXkruJexZrS4rn4Ch5', 0, NULL, '2015-12-12 12:11:26', 'fy2B1UxLecSfyyxy4ysh', NULL, '2015-12-12 12:11:26', NULL, NULL, 'iphone6', 'ali.hassan.mirza786@gmail.com', '', 'ooodbbbddo9nn99iixdddduucycyyc', 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2015-12-12 12:11:26', 'aabbbbddda')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (33.9ms)
+
+Sent mail to ali.hassan.mirza786@gmail.com (28731ms)
+Date: Sat, 12 Dec 2015 17:11:27 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirza786@gmail.com
+Message-ID: <566c0eef6623c_290a2b425ec2861e@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=fy2B1UxLecSfyyxy4ysh">Confirm my account</a></p>
+
+  [1m[35m (59.7ms)[0m  COMMIT
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 25 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 29848ms (Views: 1.6ms | ActiveRecord: 64.2ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:12:23 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nn99iixdddduucycyyc", "email"=>"ali.hassan.mirza786@gmail.com", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nn99iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirza786@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirza786@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda1' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbddo9nn99iixdddduucycyyc' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:12:32 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nn99iixdddduucycyyc", "email"=>"ali.hassan.mirza786+0@gmail.com", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nn99iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirza786+0@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirza786+0@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda5' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbddo9nn99iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'bDeque1uYC6gCFpstbFZ' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'UBvbzupkp7FQSxBR6uAQ' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'bDeque1uYC6gCFpstbFZ', 0, NULL, '2015-12-12 12:12:32', 'UBvbzupkp7FQSxBR6uAQ', NULL, '2015-12-12 12:12:32', NULL, NULL, 'iphone6', 'ali.hassan.mirza786+0@gmail.com', '', NULL, 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'ooodbbbddo9nn99iixdddduucycyyc', NULL, '2015-12-12 12:12:32', 'aabbbbddda5')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.5ms)
+
+Sent mail to ali.hassan.mirza786+0@gmail.com (13560ms)
+Date: Sat, 12 Dec 2015 17:12:32 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirza786+0@gmail.com
+Message-ID: <566c0f30b47f1_290a2b425ec2872c@ali-pc.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome abcxxx!</p>
+
+<p>Welcome to Tellum!  Please confirm your email by clicking on the link below.</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=UBvbzupkp7FQSxBR6uAQ">Confirm my account</a></p>
+
+  [1m[35m (63.9ms)[0m  COMMIT
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 26 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 26 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 13662ms (Views: 0.5ms | ActiveRecord: 66.7ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:13:04 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nsssn99iixdddduucycyyc", "email"=>"ali.hassan.mirza786+0@gmail.com", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nsssn99iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ali.hassan.mirza786+0@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ali.hassan.mirza786+0@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda6' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbddo9nsssn99iixdddduucycyyc' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:14:04 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nsssn99iixdddduucycyyc", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nsssn99iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda5' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbddo9nsssn99iixdddduucycyyc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:14:12 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nsssn9bb9iixdddduucycyyc", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nsssn9bb9iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda3' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbddo9nsssn9bb9iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'Y1x4c1c4uxUmsPz3PFNn' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '175JZt4QiNHpp9gz1kcd' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'Y1x4c1c4uxUmsPz3PFNn', 0, NULL, '2015-12-12 12:14:12', '175JZt4QiNHpp9gz1kcd', NULL, '2015-12-12 12:14:12', NULL, NULL, 'iphone6', '', '', NULL, 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'ooodbbbddo9nsssn9bb9iixdddduucycyyc', NULL, '2015-12-12 12:14:12', 'aabbbbddda3')
+  [1m[36m (52.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 27 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 65ms (Views: 0.5ms | ActiveRecord: 55.3ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:14:26 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nsssn9bb9iixdddduucycyyc", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nsssn9bb9iixdddduucycyyc' LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aabbbbddda3' AND `users`.`id` != 27) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY 'ooodbbbddo9nsssn9bb9iixdddduucycyyc' AND `users`.`id` != 27) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 27 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:14:32 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbddo9nsssn9bb9iixdddduucycyyc", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbddo9nsssn9bb9iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = 'aabbbbddda3' AND `users`.`id` != 27) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`twitter_user_id` = BINARY 'ooodbbbddo9nsssn9bb9iixdddduucycyyc' AND `users`.`id` != 27) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 27 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:15:01 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbsssddo9nsssn9bb9iixdddduucycyyc", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbsssddo9nsssn9bb9iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda4' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbsssddo9nsssn9bb9iixdddduucycyyc' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '9wD1BHVNpKEuLEgneyWW' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '7uq4YjFUDCNtrZgkCEnC' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, '9wD1BHVNpKEuLEgneyWW', 0, NULL, '2015-12-12 12:15:01', '7uq4YjFUDCNtrZgkCEnC', NULL, '2015-12-12 12:15:01', NULL, NULL, 'iphone6', '', '', NULL, 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'ooodbbbsssddo9nsssn9bb9iixdddduucycyyc', NULL, '2015-12-12 12:15:01', 'aabbbbddda4')[0m
+  [1m[35m (51.0ms)[0m  COMMIT
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 28 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 28 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 28 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 64ms (Views: 0.5ms | ActiveRecord: 54.2ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2015-12-12 17:15:19 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"twitter_user_id"=>"ooodbbbsssdmmmmdo9nsssn9bb9iixdddduucycyyc", "user_name"=>"aabbbbddda", "full_name"=>"abcxxx", "device_token"=>"iphone6", "gender"=>"male"}}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = 'ooodbbbsssdmmmmdo9nsssn9bb9iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'aabbbbddda' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'aabbbbddda8' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY 'ooodbbbsssdmmmmdo9nsssn9bb9iixdddduucycyyc' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'qimnUsqo8qXx82ysHppt' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'AXZsb3JYS56XuzKgsbux', 0, NULL, '2015-12-12 12:15:19', 'qimnUsqo8qXx82ysHppt', NULL, '2015-12-12 12:15:19', NULL, NULL, 'iphone6', '', '', NULL, 'abcxxx', 'male', 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'ooodbbbsssdmmmmdo9nsssn9bb9iixdddduucycyyc', NULL, '2015-12-12 12:15:19', 'aabbbbddda8')
+  [1m[36m (55.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 77ms (Views: 1.9ms | ActiveRecord: 59.1ms)
