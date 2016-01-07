@@ -49,18 +49,30 @@ class User < ActiveRecord::Base
     super(ActionDispatch::Http::UploadedFile.new(tempfile: tmp_file, filename: "user_avatar_#{SecureRandom.hex(5)}.jpg" ))
   end
   def user_created_box
-    self.try(:tags).collect{|tag| {box_id: tag.id,box_creator_name: tag.try(:user).try(:full_name), is_drop_story: true, box_name: tag.tag_line, box_created_at: tag.created_at, box_title: tag.tag_title, is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self),box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(1).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, is_anonymous_rating: drop.is_anonymous_rating, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false )}}})}
+    self.try(:tags).collect{|tag| {box_id: tag.id,box_creator_name: tag.try(:user).try(:full_name), box_name: tag.tag_line, box_created_at: tag.created_at, box_title: tag.tag_title, is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self),box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, is_anonymous_rating: drop.is_anonymous_rating, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false )}}})}
+  end
+  def user_created_drops
+    debugger
+    self.try(:ratings).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name),
+                                       drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
+                                       drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating,
+                                       is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }.merge(box: {box_id: drop.try(:tag).try(:id), box_name: drop.try(:tag).try(:tag_line),
+                                                                                                                                                           box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.tag.try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
+                                                                                                                                                           is_locked: drop.tag.try(:is_locked), is_post_to_wall: drop.tag.try(:is_post_to_wall), is_private: drop.tag.try(:is_private), open_date: drop.try(:tag).try(:open_date),
+                                                                                                                                                           close_date: drop.tag.try(:close_date), box_creator_id: drop.tag.try(:user_id), box_creator_image: drop.tag.try(:user).try(:photo).try(:url),
+                                                                                                                                                           box_creator_name: drop.tag.try(:user).try(:full_name), box_creator_user_name: drop.tag.try(:user).try(:user_name), is_follower: check_user(drop.try(:tag).try(:user), self),
+                                                                                                                                                           box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)})}
   end
   def user_follow_boxes
     users = UserFollow.where(follow_id: self.id)
-    collect_data_for_drops users
+    collect_data users
     #UserFollow.where(follow_id: self.id).collect{|user| user.try(:user).try(:tags).where(is_private: false).collect{|tag| {box_name: tag.tag_line, box_title: tag.tag_title, box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_creator_user_id: drop.try(:user).try(:user_name), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count}}})}}
   end
-  # def user_follow_drops
-  #   users = UserFollow.where(follow_id: self.id)
-  #   collect_drops users
-  #   #UserFollow.where(follow_id: self.id).collect{|user| user.try(:user).try(:tags).where(is_private: false).collect{|tag| {box_name: tag.tag_line, box_title: tag.tag_title, box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_creator_user_id: drop.try(:user).try(:user_name), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count}}})}}
-  # end
+  def user_follow_drops
+    users = UserFollow.where(follow_id: self.id)
+    collect_drops users
+    #UserFollow.where(follow_id: self.id).collect{|user| user.try(:user).try(:tags).where(is_private: false).collect{|tag| {box_name: tag.tag_line, box_title: tag.tag_title, box_description: tag.tag_description, box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_creator_user_id: drop.try(:user).try(:user_name), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count}}})}}
+  end
   def user_not_follow_boxes
     users=UserFollow.where("follow_id != ?", self.id)
     collect_data users
@@ -71,42 +83,31 @@ class User < ActiveRecord::Base
     if users.present?
       users.each do |user|
         user.try(:user).try(:tags).where(is_private: false).each do |tag|
-          array << { box_id: tag.id, box_name: tag.tag_line, is_drop_story: false, box_description: tag.tag_description, is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self), box_created_at: tag.created_at, box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating, is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }}})
+          array << { box_id: tag.id, box_name: tag.tag_line, box_description: tag.tag_description, is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self), box_created_at: tag.created_at, box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(3).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating, is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }}})
         end
       end
     end
     array
   end
-  def collect_data_for_drops users
+  def collect_drops users
     array = Array.new
     if users.present?
       users.each do |user|
-        user.try(:user).try(:tags).where(is_private: false).each do |tag|
-          array << { box_id: tag.id, box_name: tag.tag_line, is_drop_story: true, box_description: tag.tag_description, is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_creator_id: tag.user_id, box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self), box_created_at: tag.created_at, box_expiry: tag.expiry_time, box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).limit(1).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url), drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating, is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }}})
+        user.try(:user).try(:ratings).each do |drop|
+          array << {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name),
+                    drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
+                    drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating,
+                    is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }.merge(box: {box_id: drop.try(:tag).id, box_name: drop.try(:tag).try(:tag_line),
+                                                                                                                                        box_description: drop.tag.try(:tag_description), is_allow_anonymous: drop.tag.try(:is_allow_anonymous), is_flagged: drop.tag.try(:is_flagged),
+                                                                                                                                        is_locked: drop.tag.try(:is_locked), is_post_to_wall: drop.tag.try(:is_post_to_wall), is_private: drop.tag.try(:is_private), open_date: drop.tag.try(:open_date),
+                                                                                                                                        close_date: drop.tag.try(:close_date), box_creator_id: drop.try(:tag).try(:user_id), box_creator_image: drop.tag.try(:user).try(:photo).try(:url),
+                                                                                                                                        box_creator_name: drop.try(:tag).try(:user).try(:full_name), box_creator_user_name: drop.try(:tag).try(:user).try(:user_name), is_follower: check_user(drop.try(:tag).try(:user), self),
+                                                                                                                                        box_created_at: drop.tag.try(:created_at), box_expiry: drop.tag.try(:expiry_time), box_total_drops: drop.tag.try(:ratings).try(:count)})
         end
       end
     end
     array
   end
-  # def collect_drops users
-  #   array = Array.new
-  #   if users.present?
-  #     users.each do |user|
-  #       user.try(:user).try(:ratings).each do |drop|
-  #         array << {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name),
-  #                   drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
-  #                   drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating,
-  #                   is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }.merge(box: {box_id: drop.tag.id, box_name: drop.tag.tag_line,
-  #                     box_description: drop.tag.tag_description, is_allow_anonymous: drop.tag.try(:is_allow_anonymous), is_flagged: drop.tag.try(:is_flagged),
-  #                     is_locked: drop.tag.try(:is_locked), is_post_to_wall: drop.tag.try(:is_post_to_wall), is_private: drop.tag.try(:is_private), open_date: drop.tag.try(:open_date),
-  #                     close_date: drop.tag.try(:close_date), box_creator_id: drop.tag.user_id, box_creator_image: drop.tag.try(:user).try(:photo).try(:url),
-  #                     box_creator_name: drop.tag.try(:user).try(:full_name), box_creator_user_name: drop.tag.try(:user).try(:user_name), is_follower: check_user(drop.tag.try(:user), self),
-  #                     box_created_at: drop.tag.created_at, box_expiry: drop.tag.expiry_time, box_total_drops: drop.tag.try(:ratings).try(:count)})
-  #       end
-  #     end
-  #   end
-  #   array
-  # end
   def email_required?
     super && skip_password_form.blank?
   end
@@ -133,12 +134,14 @@ class User < ActiveRecord::Base
     user_list = User.where('facebook_user_id is not NULL')
   end
   def check_user(user, current_user)
-    following = UserFollow.where(follow_id: current_user.id, user_id: user.id, is_approved: true)
-    puts "user #{user.attributes} and currnet_user #{self.attributes}"
-    if following.present?
-      true
-    else
-      false
+    if user.present?
+      following = UserFollow.where(follow_id: current_user.try(:id), user_id: user.try(:id), is_approved: true)
+      puts "user #{user.try(:attributes)} and currnet_user #{self.try(:attributes)}"
+      if following.present?
+        true
+      else
+        false
+      end
     end
 
   end
