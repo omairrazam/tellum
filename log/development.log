@@ -8079,3 +8079,513 @@ Processing by Api::TagsController#box_time_line as JSON
   Rendered api/tags/box_time_line.json.jbuilder (240.8ms)
 Completed 200 OK in 366ms (Views: 274.0ms | ActiveRecord: 14.1ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:04:13 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.3ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (215.0ms)
+Completed 200 OK in 377ms (Views: 277.3ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:05:10 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUserFollow Load (0.1ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/box_time_line.json.jbuilder (25.5ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:06:36 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (1.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.1ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (123.1ms)
+Completed 200 OK in 171ms (Views: 117.8ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:11:00 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUserFollow Load (0.3ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  Rendered api/tags/box_time_line.json.jbuilder (189.3ms)
+Completed 500 Internal Server Error in 239ms
+
+ActionView::Template::Error (undefined local variable or method `byebug' for #<User:0x00000005cb6e70>):
+    3:     json.status 'Ok'
+    4:     json.code 200
+    5:     json.message "Successfully Fetched relevant boxes..."
+    6:     json.boxes (@user.user_created_box + @user.user_created_box_and_drops + @user.user_follow_boxes + @user.user_follow_boxes_and_drops+ @user.user_follow_drops + @user.user_created_drops).reject(&:blank?)
+    7:     #json.drops @user.user_follow_drops + @user.user_created_drops
+    8:   else
+    9:     json.status 'not found'
+  app/models/user.rb:77:in `user_follow_boxes'
+  app/views/api/tags/box_time_line.json.jbuilder:6:in `block in _app_views_api_tags_box_time_line_json_jbuilder__465650493334936760_69888313484920'
+  app/views/api/tags/box_time_line.json.jbuilder:1:in `_app_views_api_tags_box_time_line_json_jbuilder__465650493334936760_69888313484920'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.9ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:11:11 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUserFollow Load (0.1ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (1.6ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.4ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (66065.9ms)
+Completed 200 OK in 66156ms (Views: 66060.1ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:12:22 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (3.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.3ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/box_time_line.json.jbuilder (4119.8ms)
+Completed 500 Internal Server Error in 4190ms
+
+ActionView::Template::Error (undefined local variable or method `byebug' for #<#<Class:0x000000060fc070>:0x00000006106368>):
+    4:     json.code 200
+    5:     json.message "Successfully Fetched relevant boxes..."
+    6:     json.boxes ((@user.user_created_box + @user.user_follow_boxes).uniq + @user.user_created_box_and_drops + @user.user_follow_boxes_and_drops+ @user.user_follow_drops + @user.user_created_drops).reject(&:blank?)
+    7:     byebug
+    8:     #json.drops @user.user_follow_drops + @user.user_created_drops
+    9:   else
+    10:     json.status 'not found'
+  app/views/api/tags/box_time_line.json.jbuilder:7:in `block in _app_views_api_tags_box_time_line_json_jbuilder__465650493334936760_50891760'
+  app/views/api/tags/box_time_line.json.jbuilder:1:in `_app_views_api_tags_box_time_line_json_jbuilder__465650493334936760_50891760'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.7ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:12:48 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUserFollow Load (0.2ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (2623.5ms)
+Completed 200 OK in 2735ms (Views: 2617.0ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:13:51 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.2ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/box_time_line.json.jbuilder (183.2ms)
+Completed 200 OK in 250ms (Views: 177.1ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:13:54 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUserFollow Load (0.2ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (45.6ms)
+Completed 200 OK in 55ms (Views: 48.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:15:20 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.3ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/box_time_line.json.jbuilder (191.5ms)
+Completed 200 OK in 311ms (Views: 181.0ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:17:04 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mUserFollow Load (0.4ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (14418.7ms)
+Completed 200 OK in 14486ms (Views: 14410.9ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:17:53 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.1ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/box_time_line.json.jbuilder (151.4ms)
+Completed 200 OK in 269ms (Views: 144.3ms | ActiveRecord: 16.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:21:48 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUserFollow Load (0.3ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (93125.6ms)
+Completed 200 OK in 93300ms (Views: 93198.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:24:03 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUserFollow Load (0.3ms)[0m  [1mSELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL)) LIMIT 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/box_time_line.json.jbuilder (2190.9ms)
+Completed 200 OK in 2296ms (Views: 2190.4ms | ActiveRecord: 10.8ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/box_time_line.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-09 23:28:37 +0500
+Processing by Api::TagsController#box_time_line as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mUserFollow Load (0.1ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 1 AND (user_id != 1 AND user_id NOT IN(NULL))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 2 AND (user_id != 1 AND user_id NOT IN(NULL))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `user_follows`.* FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE `ratings`.`tag_id` = 3 AND (user_id != 1 AND user_id NOT IN(NULL))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/tags/box_time_line.json.jbuilder (118.2ms)
+Completed 200 OK in 229ms (Views: 116.8ms | ActiveRecord: 10.9ms)
