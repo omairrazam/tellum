@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
 
   def user_created_drops
     self.try(:ratings).collect{|drop| {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name),
-                                       drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
+                                       drop_created_at: drop.try(:created_at),sort_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
                                        drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating,
                                        is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }.merge(box: {box_id: drop.try(:tag).try(:id), box_name: drop.try(:tag).try(:tag_line),
                                                                                                                                                            box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.tag.try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
@@ -117,7 +117,7 @@ class User < ActiveRecord::Base
       users.each do |user|
         user.try(:user).try(:ratings).each do |drop|
           array << {drop_id: drop.id, drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name),
-                    drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
+                    sort_created_at: drop.try(:created_at), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.user.try(:photo).try(:url),
                     drop_description: drop.comment, drop_like_count: drop.rating_like_count, drop_replies_count: drop.comments.count, is_anonymous_rating: drop.is_anonymous_rating,
                     is_like: ( UserRating.where(user_id: self.id, rating_id: drop.id).try(:last).try(:is_like) || false ) }.merge(box: {box_id: drop.try(:tag).id, box_name: drop.try(:tag).try(:tag_line),
                                                                                                                                         box_description: drop.tag.try(:tag_description), is_allow_anonymous: drop.tag.try(:is_allow_anonymous), is_flagged: drop.tag.try(:is_flagged),
