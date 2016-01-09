@@ -8078,3 +8078,4 @@ Processing by Api::TagsController#box_time_line as JSON
   [1m[36mUserRating Load (0.0ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
   Rendered api/tags/box_time_line.json.jbuilder (240.8ms)
 Completed 200 OK in 366ms (Views: 274.0ms | ActiveRecord: 14.1ms)
+Connecting to database specified by database.yml
