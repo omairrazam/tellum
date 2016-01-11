@@ -59,8 +59,8 @@ class User < ActiveRecord::Base
     self.try(:tags).collect{|tag| {box_id: tag.try(:id),is_drop_story: false,box_creator_name: tag.try(:user).try(:full_name), box_name: tag.try(:tag_line), box_created_at: tag.try(:created_at), sort_created_at: tag.try(:created_at), box_title: tag.try(:tag_title), is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_description: tag.try(:tag_description), box_creator_id: tag.try(:user_id), box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self),box_expiry: tag.try(:expiry_time), box_total_drops: tag.try(:ratings).try(:count), drops: []}}
   end
 
-  def user_created_drops
-    self.try(:ratings).collect{|drop|
+  def user_created_and_following_drops
+    Rating.where("user_id = ? OR user_id IN (?)", self.id, following_users.collect{|user| user.id}).collect{|drop|
       {box_id: drop.try(:tag).try(:id), is_drop_story: true, box_name: drop.try(:tag).try(:tag_line), sort_created_at: drop.try(:created_at),
        box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.try(:tag).try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
        is_locked: drop.try(:tag).try(:is_locked), is_post_to_wall: drop.try(:tag).try(:is_post_to_wall), is_private: drop.try(:tag).try(:is_private), open_date: drop.try(:tag).try(:open_date),
