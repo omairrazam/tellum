@@ -628,6 +628,11 @@ class Api::TagsController < Api::ApplicationController
       end
     end
   end
+  def boxes_and_drops_created_by_me
+    @user = User.find_by_authentication_token(params[:auth_token])
+    @boxes = @user.try(:tags).where("close_date is not NULL")
+    @drops = @user.try(:ratings)
+  end
   def tagslines_by_user
     if params[:auth_token].present? && params[:user_id].present?
       current_user = User.find_by_authentication_token(params[:auth_token])

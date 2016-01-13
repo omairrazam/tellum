@@ -10192,3 +10192,123 @@ Processing by Api::TagsController#tagslines_by_user as JSON
   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1)
   [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
 Completed 200 OK in 163359ms (Views: 1.9ms | ActiveRecord: 17.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/boxes_and_drops_created_by_me.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 01:11:44 +0500
+Processing by Api::TagsController#boxes_and_drops_created_by_me as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.8ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1 AND (close_date is not NULL)[0m
+  [1m[35mRating Load (0.7ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.6ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.6ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.7ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2[0m
+  [1m[35mUserRating Load (0.5ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.6ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 4[0m
+  [1m[35mUserRating Load (0.4ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 4 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.7ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 5
+  [1m[36mUserRating Load (0.4ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 5 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.7ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.8ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 6[0m
+  [1m[35mUserRating Load (0.4ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 6 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 7
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 7 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 8[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 8 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 9
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 9 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 10[0m
+  [1m[35mUserRating Load (0.4ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 10 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 11
+  [1m[36mUserRating Load (0.6ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 11 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 12[0m
+  [1m[35mUserRating Load (0.4ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 12 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 13
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 13 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 14[0m
+  [1m[35mUserRating Load (0.5ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 14 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 15
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 15 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16[0m
+  [1m[35mUserRating Load (0.4ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/tags/boxes_and_drops_created_by_me.json.jbuilder (416.5ms)
+Completed 200 OK in 703ms (Views: 450.8ms | ActiveRecord: 38.3ms)
