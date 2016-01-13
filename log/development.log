@@ -9029,3 +9029,1166 @@ Processing by Api::TagsController#box_time_line as JSON
   [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
   Rendered api/tags/box_time_line.json.jbuilder (48.5ms)
 Completed 200 OK in 55ms (Views: 48.8ms | ActiveRecord: 3.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 00:24:53 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"email”: "ali.hassan.mirzaa@gmail.com"}}}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (65.7ms)
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 00:24:59 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"email”: "ali.hassan.mirzaa@gmail.com"}}}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.7ms)
+Connecting to database specified by database.yml
+
+
+Started PUT "/users/password.json" for 127.0.0.1 at 2016-01-13 00:25:52 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"email”: "ali.hassan.mirzaa@gmail.com"}}}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 00:26:02 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"email”:"ali.hassan.mirzaa@gmail.com"}}}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 00:26:31 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started PUT "/users/password.json" for 127.0.0.1 at 2016-01-13 00:26:35 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/change_password.json" for 127.0.0.1 at 2016-01-13 00:32:59 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1034647371646255194__call__3486025079916440659__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (48.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (57.3ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 00:34:16 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '}
+'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__3977831205548161081__call__1046742061270660453__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (45.4ms)
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 00:34:41 +0500
+Processing by Api::PasswordsController#create as JSON
+  Parameters: {"request"=>{"email"=>"ali.hassan.mirzaa@gmail.com"}, "password"=>{"request"=>{"email"=>"ali.hassan.mirzaa@gmail.com"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`reset_password_token` = 'yrq527QayELz8xypdQuy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  UPDATE `users` SET `reset_password_token` = 'yrq527QayELz8xypdQuy', `reset_password_sent_at` = '2016-01-12 19:34:41', `updated_at` = '2016-01-12 19:34:41' WHERE `users`.`id` = 4
+  [1m[36m (48.6ms)[0m  [1mCOMMIT[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (1.5ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (5931ms)
+Date: Wed, 13 Jan 2016 00:34:43 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <5695555349940_373433042bc7096c@ali-pc.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello ali.hassan.mirzaa@gmail.com</p>
+
+<p>Someone has requested a link to change your Tellum password. Click the link below to change your password:</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=yrq527QayELz8xypdQuy">Change my password</a></p>
+
+<p>If you did not request this, please ignore this email.</p>
+<p>Your password will not change until you update your password using the the link above.</p>
+
+
+
+  [1m[35mMessage Load (0.6ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 7798ms (Views: 0.3ms | ActiveRecord: 58.9ms)
+
+
+Started POST "/users/password.json" for 127.0.0.1 at 2016-01-13 01:27:39 +0500
+Processing by Api::PasswordsController#create as JSON
+  Parameters: {"request"=>{"email"=>"ali.hassan.mirzaa@gmail.com"}, "password"=>{"request"=>{"email"=>"ali.hassan.mirzaa@gmail.com"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'ali.hassan.mirzaa@gmail.com' LIMIT 1[0m
+  Rendered devise/mailer/reset_password_instructions.html.erb (0.7ms)
+
+Sent mail to ali.hassan.mirzaa@gmail.com (14763ms)
+Date: Wed, 13 Jan 2016 01:27:39 +0500
+From: admin@tellum.com
+Reply-To: admin@tellum.com
+To: ali.hassan.mirzaa@gmail.com
+Message-ID: <569561bbdb756_37343574f2471094@ali-pc.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello ali.hassan.mirzaa@gmail.com</p>
+
+<p>Someone has requested a link to change your Tellum password. Click the link below to change your password:</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=yrq527QayELz8xypdQuy">Change my password</a></p>
+
+<p>If you did not request this, please ignore this email.</p>
+<p>Your password will not change until you update your password using the the link above.</p>
+
+
+
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 14790ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:22:16 +0500
+Processing by Api::TagsController#ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE (user_id = 1)[0m
+  [1m[35mRating Load (0.7ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE (user_id = 1)
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 185ms
+
+NoMethodError (undefined method `attributes' for nil:NilClass):
+  app/controllers/api/tags_controller.rb:822:in `block in ratings_by_user'
+  app/controllers/api/tags_controller.rb:822:in `ratings_by_user'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started GET "/api/tags/ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:23:02 +0500
+Processing by Api::TagsController#ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE (user_id = 1)
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE (user_id = 1)[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `attributes' for nil:NilClass):
+  app/controllers/api/tags_controller.rb:822:in `block in ratings_by_user'
+  app/controllers/api/tags_controller.rb:822:in `ratings_by_user'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.9ms)
+
+
+Started GET "/api/tags/ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:24:06 +0500
+Processing by Api::TagsController#ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE (user_id = 1)[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE (user_id = 1)
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 211ms
+
+NoMethodError (undefined method `attributes' for nil:NilClass):
+  app/controllers/api/tags_controller.rb:822:in `block in ratings_by_user'
+  app/controllers/api/tags_controller.rb:822:in `ratings_by_user'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/api/tags/ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:24:25 +0500
+Processing by Api::TagsController#ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `ratings` WHERE (user_id = 1)
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE (user_id = 1)[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 160ms
+
+NoMethodError (undefined method `attributes' for nil:NilClass):
+  app/controllers/api/tags_controller.rb:822:in `block in ratings_by_user'
+  app/controllers/api/tags_controller.rb:822:in `ratings_by_user'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/api/tags/ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:24:53 +0500
+Processing by Api::TagsController#ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `ratings` WHERE (user_id = 1)[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE (user_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.9ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 4
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 4 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.5ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 5[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 5 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 6
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 6 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 7[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 7 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 8
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 8 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 9[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 9 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 10
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 10 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 11[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 11 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 12
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 12 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 13[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 13 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 14
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 14 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 15[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 15 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+Completed 200 OK in 731ms (Views: 22.0ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/api/tags/tagslines_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:32:24 +0500
+Processing by Api::TagsController#tagslines_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1)
+  [1m[36mMessage Load (46.0ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 118ms (Views: 0.4ms | ActiveRecord: 56.9ms)
+
+
+Started GET "/api/tags/taglines_and_ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:33:14 +0500
+Processing by Api::TagsController#taglines_and_ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT `tags`.* FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1) ORDER BY created_at desc
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1 ORDER BY created_at desc[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 15
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 15 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 14[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 14 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 13
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 13 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 12[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 12 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 11
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 11 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 10[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 10 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 8
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 8 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 9[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 9 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 7
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 7 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 6[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 6 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 5
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 5 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 4[0m
+  [1m[35mUserRating Load (0.9ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 4 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 500 Internal Server Error in 224ms
+
+NoMethodError (undefined method `to_datetime' for nil:NilClass):
+  app/controllers/api/tags_controller.rb:747:in `block (3 levels) in taglines_and_ratings_by_user'
+  app/controllers/api/tags_controller.rb:747:in `sort!'
+  app/controllers/api/tags_controller.rb:747:in `block (2 levels) in taglines_and_ratings_by_user'
+  app/controllers/api/tags_controller.rb:745:in `taglines_and_ratings_by_user'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/api/tags/taglines_and_ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:33:40 +0500
+Processing by Api::TagsController#taglines_and_ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1) ORDER BY created_at desc[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1 ORDER BY created_at desc
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 15[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 15 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 14
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 14 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 13[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 13 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 12
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 12 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 11[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 11 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 10
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 10 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 8[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 8 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 9
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 9 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 7[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 7 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 6
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 6 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 5[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 5 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 4
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 4 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3[0m
+  [1m[35mUserRating Load (3.0ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2
+  [1m[36mUserRating Load (3.7ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 432ms (Views: 25.0ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/api/tags/taglines_and_ratings_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:34:27 +0500
+Processing by Api::TagsController#taglines_and_ratings_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1) ORDER BY created_at desc
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`user_id` = 1 ORDER BY created_at desc[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 15
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 15 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 14[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 14 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 13
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 13 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 12[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 12 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 11
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 11 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 10[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 10 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 8
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 8 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 9[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 9 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 7
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 7 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 6[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 6 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 5
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 5 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 4[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 4 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 525ms (Views: 22.6ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/api/tags/tagslines_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:39:51 +0500
+Processing by Api::TagsController#tagslines_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1)[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 181ms (Views: 0.6ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/api/tags/tagslines_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:41:50 +0500
+Processing by Api::TagsController#tagslines_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1)[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 192ms (Views: 0.7ms | ActiveRecord: 8.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/tagslines_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:42:14 +0500
+Processing by Api::TagsController#tagslines_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1)[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 122ms (Views: 0.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/api/tags/tagslines_by_user.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-14 00:42:58 +0500
+Processing by Api::TagsController#tagslines_by_user as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36mTag Load (0.7ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1[0m
+  [1m[35mTag Load (0.9ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1 AND (close_date is not NULL)
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`user_id` = 1 AND (close_date is NULL)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (close_date is NOT NULL AND user_id = 1)
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1[0m
+Completed 200 OK in 163359ms (Views: 1.9ms | ActiveRecord: 17.0ms)

@@ -650,14 +650,14 @@ class Api::TagsController < Api::ApplicationController
     else
       if params[:auth_token].present?
         current_user = User.find_by_authentication_token(params[:auth_token])
-        @tag = Tag.where("close_date is NOT NULL AND user_id = ?", current_user.id)
+        @tag = current_user.tags.where("close_date is not NULL")
         if @tag.present?
-          @tag = check_followers(@tag, current_user) if @tag.present?
-          @tags = (@tag.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!(average_rating: t.average_rating, total_rating: t.total_rating, user: t.user)}).sort! { |a ,b| b["created_at"].to_datetime <=> a["created_at"].to_datetime }.first(30)
+          #@tag = check_followers(@tag, current_user) if @tag.present?
+          #@tags = (@tag.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!(average_rating: t.average_rating, total_rating: t.total_rating, user: t.user)}).sort! { |a ,b| b["created_at"].to_datetime <=> a["created_at"].to_datetime }.first(30)
           get_api_message "200","success"
           respond_to do |format|
             format.html { redirect_to @tag, notice: 'tags was successfully sent.' }
-            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :tags =>   @tags } } }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :boxes =>   current_user.box_story_hash_structure(@tag) } } }
           end
         else
           get_api_message "404","no tag found"
@@ -738,13 +738,13 @@ class Api::TagsController < Api::ApplicationController
         current_user = User.find_by_authentication_token(params[:auth_token])
         @rating = Rating.where(user_id: current_user.id).order("created_at desc")
         @tag = Tag.where("close_date is NOT NULL AND  user_id = ?", current_user.id).order("created_at desc")
-        @tag = check_followers(@tag, current_user)
-        @tags_and_ratings = tag_and_ratings @tag, @rating
+        #@tag = check_followers(@tag, current_user)
+        @tags_and_ratings = current_user.box_story_hash_structure(@tag) + current_user.drop_story_hash_structure(@rating)
         if @tags_and_ratings.present?
           get_api_message "200","success"
           respond_to do |format|
             format.html { redirect_to @tag, notice: 'tags was successfully sent.' }
-            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :tags_and_ratings =>   @tags_and_ratings.sort! { |a ,b| b["created_at"].to_datetime <=> a["created_at"].to_datetime }.first(30)  } } }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :boxes_and_drops =>   @tags_and_ratings  } } }
           end
         else
           get_api_message "404","no tag found"
@@ -819,11 +819,11 @@ class Api::TagsController < Api::ApplicationController
         current_user = User.find_by_authentication_token(params[:auth_token])
         @rating = Rating.where("user_id = ?", current_user.id,)
         if @rating.present?
-          @rating = @rating.collect { |t| t.attributes.keep_if { |k, v| !["tag_id", "user_id"].include?(k)  }.merge!(tag_line: Tag.find_by_id(t.tag_id).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(t.tag_id).average_rating, total_rating: Tag.find_by_id(t.tag_id).total_rating, user: check_user(Tag.find_by_id(t.tag_id).user, current_user) }), comments: t.comments.count, user: t.user, is_like: ( UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false )  )}.sort! { |a ,b| b["created_at"].to_datetime <=> a["created_at"].to_datetime }.first(30)
+          #@rating = @rating.collect { |t| t.try(:attributes).keep_if { |k, v| !["tag_id", "user_id"].include?(k)  }.merge!(tag_line: Tag.find_by_id(t.tag_id).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(t.tag_id).average_rating, total_rating: Tag.find_by_id(t.tag_id).total_rating, user: check_user(Tag.find_by_id(t.tag_id).user, current_user) }), comments: t.comments.count, user: t.user, is_like: ( UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false )  )}.sort! { |a ,b| b["created_at"].to_datetime <=> a["created_at"].to_datetime }.first(30)
           get_api_message "200","success"
           respond_to do |format|
             format.html { redirect_to @tag, notice: 'tags was successfully sent.' }
-            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :ratings =>   @rating } } }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :drops =>   current_user.drop_story_hash_structure(@rating) } } }
           end
         else
           get_api_message "404","no tag found"
