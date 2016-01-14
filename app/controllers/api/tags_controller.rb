@@ -176,6 +176,9 @@ class Api::TagsController < Api::ApplicationController
   def box_time_line
     @user = User.find_by_authentication_token params[:auth_token]
   end
+  def explore_tab
+    @user = User.find_by_authentication_token params[:auth_token]
+  end
   def search_tagline_any_where
     if params[:auth_token].nil? && params[:tag_line].nil?
       get_api_message "501","Invalid Request"
@@ -611,7 +614,7 @@ class Api::TagsController < Api::ApplicationController
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @tag, notice: 'tags was successfully sent.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :tags_and_ratings =>   @tags_and_ratings.sort_by { |argonite| argonite[:fuck_the_fuckers]}.reverse } } }
+          format.json { render json: {:respontimetise => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :tags_and_ratings =>   @tags_and_ratings.sort_by { |argonite| argonite[:fuck_the_fuckers]}.reverse } } }
         end
       else
         get_api_message "404","no tag found"
@@ -630,8 +633,14 @@ class Api::TagsController < Api::ApplicationController
   end
   def boxes_and_drops_created_by_me
     @user = User.find_by_authentication_token(params[:auth_token])
-    @boxes = @user.try(:tags).where("close_date is not NULL")
-    @drops = @user.try(:ratings)
+    @user_id = params[:user_id]
+    if params[:user_id].present?
+      @boxes = User.find(params[:user_id]).try(:tags).where("close_date is not NULL")
+      @drops = User.find(params[:user_id]).try(:ratings)
+    else
+      @boxes = @user.try(:tags).where("close_date is not NULL")
+      @drops = @user.try(:ratings)
+    end
   end
   def tagslines_by_user
     if params[:auth_token].present? && params[:user_id].present?

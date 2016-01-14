@@ -29,6 +29,7 @@ Tellum::Application.routes.draw do
     resource :tags do
       member do
         get :tag_detail
+        get :explore_tab
         get :boxes_and_drops_created_by_me
         get :get_all_taglines
         get :get_box_description
