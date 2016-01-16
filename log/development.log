@@ -10479,3 +10479,92 @@ Processing by Api::TagsController#explore_tab as JSON
   [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 7 ORDER BY rating_like_count desc LIMIT 3
   Rendered api/tags/explore_tab.json.jbuilder (5.0ms)
 Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/users/search_user.json?auth_token=AXZsb3JYS56XuzKgsbux&user_name=abcxxx" for 127.0.0.1 at 2016-01-16 12:48:01 +0500
+Processing by Api::UsersController#search_user as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "user_name"=>"abcxxx"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (user_name like '%abcxxx%' OR full_name like '%abcxxx%')[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 24 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 24 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 25 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 26 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 26 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 27 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 28 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 28 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 28 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1
+Completed 200 OK in 287ms (Views: 31.9ms | ActiveRecord: 20.6ms)
+
+
+Started GET "/api/users/search_user.json?auth_token=AXZsb3JYS56XuzKgsbux&user_name=abcxxx" for 127.0.0.1 at 2016-01-16 12:48:44 +0500
+Processing by Api::UsersController#search_user as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "user_name"=>"abcxxx"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (user_name like '%abcxxx%' OR full_name like '%abcxxx%')[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 24 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 24 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 25 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 26 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 26 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 27 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 28 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 28 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 28 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 29 LIMIT 1
+Completed 200 OK in 70ms (Views: 4.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/users/search_user.json?auth_token=AXZsb3JYS56XuzKgsbux&user_name=@abcxxx" for 127.0.0.1 at 2016-01-16 12:49:38 +0500
+Processing by Api::UsersController#search_user as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "user_name"=>"@abcxxx"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (user_name like '%@abcxxx%')[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/users/search_user.json?auth_token=AXZsb3JYS56XuzKgsbux&user_name=@ali" for 127.0.0.1 at 2016-01-16 12:49:55 +0500
+Processing by Api::UsersController#search_user as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "user_name"=>"@ali"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (user_name like '%@ali%')
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.8ms)

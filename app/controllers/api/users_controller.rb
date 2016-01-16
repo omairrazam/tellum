@@ -249,12 +249,16 @@ class Api::UsersController < Api::ApplicationController
   def search_user
     if params[:auth_token] && params[:user_name]
       current_user = User.find_by_authentication_token params[:auth_token]
-      @user = User.where("user_name like ? OR full_name like ?", "%#{params[:user_name]}%", "%#{params[:user_name]}%")
+      if params[:user_name].include? "@"
+        @user = User.where("user_name like ?", "%#{params[:user_name]}%")
+      else
+        @user = User.where("user_name like ? OR full_name like ?", "%#{params[:user_name]}%", "%#{params[:user_name]}%")
+      end
       if @user
         get_api_message "200","User found"
         respond_to do |format|
           format.html { redirect_to @user, notice: 'Found user successfully.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, user: @user.each { |user| check_user(user, current_user).hide_fields} } } }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, users: @user.each { |user| check_user(user, current_user).hide_fields} } } }
         end
       else
         get_api_message "404","User not found"
