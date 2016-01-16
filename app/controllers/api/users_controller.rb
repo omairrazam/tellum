@@ -250,7 +250,7 @@ class Api::UsersController < Api::ApplicationController
     if params[:auth_token] && params[:user_name]
       current_user = User.find_by_authentication_token params[:auth_token]
       if params[:user_name].include? "@"
-        @user = User.where("user_name like ?", "%#{params[:user_name]}%")
+        @user = User.where("user_name like ?", "%#{params[:user_name].split('@')[1]}%")
       else
         @user = User.where("user_name like ? OR full_name like ?", "%#{params[:user_name]}%", "%#{params[:user_name]}%")
       end
