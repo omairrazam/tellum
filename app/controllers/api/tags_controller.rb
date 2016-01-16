@@ -199,7 +199,7 @@ class Api::TagsController < Api::ApplicationController
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @tag, notice: 'success.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :open_tag_count => @tag.where("is_locked = ? AND close_date > ? " , true, DateTime.now.to_datetime.utc.to_s(:db)).count, :close_tag_count => @tag.where("close_date <= ? " , DateTime.now.to_datetime.utc.to_s(:db)).count, :open_tag_lines => @tag.where("is_locked = ? AND close_date > ? " , true, DateTime.now.to_datetime.utc.to_s(:db)).collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!( {:total_rating=> t.total_rating, :average_rating => t.average_rating }).merge!({ user: check_follower(t, current_user).user })   }, :close_tag_lines => @tag.where("close_date <= ? " , DateTime.now.to_datetime.utc.to_s(:db)).collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!( {:total_rating=> t.total_rating, :average_rating => t.average_rating }).merge!({ user: check_follower(t, current_user).user })   }   } } }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :open_tag_count => current_user.box_story_hash_structure(@tag)} } }
         end
       else
         get_api_message "200"," success"

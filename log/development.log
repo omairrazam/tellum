@@ -10682,3 +10682,34 @@ Processing by Api::UsersController#search_user as JSON
   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 6 AND `user_follows`.`is_approved` = 1[0m
   [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
 Completed 200 OK in 201ms (Views: 15.2ms | ActiveRecord: 17.2ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 20:29:54 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 162ms (Views: 0.5ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 20:40:46 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 20:41:30 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 9.2ms)
