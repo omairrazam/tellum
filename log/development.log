@@ -10713,3 +10713,221 @@ Processing by Api::NotificationsController#all_notifications as JSON
   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
   [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
 Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 9.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:01:40 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.8ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (22.4ms)[0m  [1mUPDATE `notifications` SET `is_seen` = 1, `updated_at` = '2016-01-16 16:01:40' WHERE `notifications`.`id` = 5[0m
+  [1m[35m (70.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `notifications` SET `is_seen` = 1, `updated_at` = '2016-01-16 16:01:40' WHERE `notifications`.`id` = 3
+  [1m[36m (52.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `notifications` SET `is_seen` = 1, `updated_at` = '2016-01-16 16:01:40' WHERE `notifications`.`id` = 4[0m
+  [1m[35m (53.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `notifications` SET `is_seen` = 1, `updated_at` = '2016-01-16 16:01:41' WHERE `notifications`.`id` = 2
+  [1m[36m (53.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `notifications` SET `is_seen` = 1, `updated_at` = '2016-01-16 16:01:41' WHERE `notifications`.`id` = 1[0m
+  [1m[35m (54.0ms)[0m  COMMIT
+Completed 200 OK in 523ms (Views: 48.0ms | ActiveRecord: 319.0ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:01:59 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.8ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 125ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:29:in `merge!'
+  app/controllers/api/notifications_controller.rb:29:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:29:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:27:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:03:40 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.2ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 81ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:29:in `merge!'
+  app/controllers/api/notifications_controller.rb:29:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:29:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:27:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:05:09 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.4ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 65643ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:30:in `merge!'
+  app/controllers/api/notifications_controller.rb:30:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:30:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:28:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:07:00 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count 
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mNotification Load (0.6ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 2221ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:30:in `merge!'
+  app/controllers/api/notifications_controller.rb:30:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:30:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:28:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:07:23 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count 
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mNotification Load (0.3ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 131454ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:30:in `merge!'
+  app/controllers/api/notifications_controller.rb:30:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:30:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:28:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:09:39 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.4ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 2442ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:30:in `merge!'
+  app/controllers/api/notifications_controller.rb:30:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:30:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:28:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:10:13 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.4ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+Completed 500 Internal Server Error in 2051ms
+
+TypeError (can't convert nil into Hash):
+  app/controllers/api/notifications_controller.rb:30:in `merge!'
+  app/controllers/api/notifications_controller.rb:30:in `block (3 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:30:in `block (2 levels) in all_notifications'
+  app/controllers/api/notifications_controller.rb:28:in `all_notifications'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.1ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-16 21:11:34 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) LIMIT 30) subquery_for_count [0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mNotification Load (0.5ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND status is NULL AND is_view is NULL) ORDER BY created_at desc LIMIT 30[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 4259ms (Views: 9.5ms | ActiveRecord: 14.0ms)
