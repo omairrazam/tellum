@@ -3,8 +3,7 @@ if @user.present?
     json.status 'Ok'
     json.code 200
     json.message "Successfully Fetched relevant notifications..."
-    json.notifications do
-      @notifications.collect do |noti|
+    json.notifications @notifications.each do |noti|
         if noti.tag_id.present? && noti.rating_id.present?
           json.user_id noti.user_id
           json.user_profile_picture noti.try(:user).try(:photo).try(:url)
@@ -32,7 +31,6 @@ if @user.present?
           json.notification_created_at noti.try(:created_at)
           json.object_name noti.object_name
         end
-      end
     end
   else
     json.status 'not found'
