@@ -189,17 +189,19 @@ class Api::TagsController < Api::ApplicationController
     else
       current_user = User.find_by_authentication_token(params[:auth_token])
       @tag = Tag.where("tag_line like :query OR tag_title LIKE :query OR tag_description like :query",{ query: "%#{params[:tag_line]}%" })
-      if @tag.where("close_date is not NULL AND close_date >= ?", DateTime.now).present?
+      @tags = @tag.where("close_date is not NULL AND close_date >= ?", DateTime.now)
+      if @tags.present?
         # @tag.collect do |tag|
         #   unless tag.close_date.nil? && tag.open_date.nil?
         #     tag.close_date, tag.open_date = tag.close_date.utc, tag.open_date.utc; tag
         #   end
         # end.reject!(&:blank?)
         #rating = find_rating(@tag)
+        debugger
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @tag, notice: 'success.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :boxes => current_user.box_story_hash_structure(@tag)} } }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :boxes => current_user.box_story_hash_structure(@tags)} } }
         end
       else
         get_api_message "200"," Not found"
