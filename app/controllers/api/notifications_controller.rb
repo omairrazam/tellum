@@ -104,9 +104,9 @@ class Api::NotificationsController < ApplicationController
       {object: Reveal.find(t.try(:reveal_id)).attributes.keep_if { |k, v| !["user_id", "rating_id"].include?(k)  }.merge!(user: Reveal.find(t.try(:reveal_id)).try(:user).try(:hide_fields), rating: rating_hash(t, user))}
     else
       #{object: rating_hash(t, user)}
-      if Rating.find_by_id(t.try(:rating_id)).present?
-        debugger
-        {object: Rating.find(t.rating_id).keep_if { |k, v| !["tag_id", "user_id"].include?(k)}.merge!(tag_line: Tag.find_by_id(Rating.find(t.rating_id).tag_id).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).average_rating, total_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).total_rating, user: check_user(Tag.find_by_id(Rating.find(t.rating_id).tag_id).user, user) }), comments: Rating.find(t.rating_id).comments.count, user: User.find(t.sender_id), is_like: ( UserRating.where(user_id: user.id, rating_id: t.rating_id).try(:last).try(:is_like) || false )  )}
+      if Rating.find_by_id(t.rating_id).present?
+        {object: Rating.find_by_id(t.try(:rating_id)).attributes.keep_if { |k, v| !["tag_id", "user_id"].include?(k)}.merge!(tag_line: Tag.find_by_id(Rating.find(t.rating_id).try(:tag_id)).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).average_rating, total_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).total_rating, user: check_user(Tag.find_by_id(Rating.find(t.rating_id).tag_id).user, user) }), comments: Rating.find(t.rating_id).comments.count)}
+        #{object: Rating.find_by_id(t.try(:rating_id)).attributes.keep_if { |k, v| !["tag_id", "user_id"].include?(k)}.merge!(tag_line: Tag.find_by_id(Rating.find(t.rating_id).try(:tag_id)).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).average_rating, total_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).total_rating, user: check_user(Tag.find_by_id(Rating.find(t.rating_id).tag_id).user, user) }), comments: Rating.find(t.rating_id).comments.count, user: User.find(t.sender_id), is_like: ( UserRating.where(user_id: user.id, rating_id: t.rating_id).try(:last).try(:is_like) || false )  )}
       else
         {object: "not exists"}
       end
