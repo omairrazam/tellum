@@ -10995,3 +10995,216 @@ NoMethodError (undefined method `attributes' for nil:NilClass):
   Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=@al" for 127.0.0.1 at 2016-01-17 13:23:21 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"@al"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (15.8ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-01-07 15:20:43', `current_sign_in_at` = '2016-01-17 08:23:22', `sign_in_count` = 28, `updated_at` = '2016-01-17 08:23:22' WHERE `users`.`id` = 1[0m
+  [1m[35m (69.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like '%@al%' OR tag_title LIKE '%@al%' OR tag_description like '%@al%' AND close_date is not NULL AND close_date >= ?)
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 1: SELECT COUNT(*) FROM `tags`  WHERE (tag_line like '%@al%' OR tag_title LIKE '%@al%' OR tag_description like '%@al%' AND close_date is not NULL AND close_date >= ?)
+Completed 500 Internal Server Error in 319ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 1: SELECT COUNT(*) FROM `tags`  WHERE (tag_line like '%@al%' OR tag_title LIKE '%@al%' OR tag_description like '%@al%' AND close_date is not NULL AND close_date >= ?)):
+  app/controllers/api/tags_controller.rb:192:in `search_tagline_any_where'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.5ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=@al" for 127.0.0.1 at 2016-01-17 13:24:04 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"@al"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-01-17 08:23:22', `current_sign_in_at` = '2016-01-17 08:24:05', `sign_in_count` = 29, `updated_at` = '2016-01-17 08:24:05' WHERE `users`.`id` = 1[0m
+  [1m[35m (67.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+Completed 500 Internal Server Error in 196ms
+
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (2 for 1) in: close_date is not NULL AND close_date >= ? AND tag_line like :query OR tag_title LIKE :query OR tag_description like :query):
+  app/controllers/api/tags_controller.rb:191:in `search_tagline_any_where'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.4ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=@al" for 127.0.0.1 at 2016-01-17 13:24:46 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"@al"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-01-17 08:24:05', `current_sign_in_at` = '2016-01-17 08:24:47', `sign_in_count` = 30, `updated_at` = '2016-01-17 08:24:47' WHERE `users`.`id` = 1
+  [1m[36m (51.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+Completed 500 Internal Server Error in 136ms
+
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (2 for 1) in: close_date >= ? AND tag_line like :query OR tag_title LIKE :query OR tag_description like :query):
+  app/controllers/api/tags_controller.rb:191:in `search_tagline_any_where'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=@al" for 127.0.0.1 at 2016-01-17 13:24:55 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"@al"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-01-17 08:24:47', `current_sign_in_at` = '2016-01-17 08:24:56', `sign_in_count` = 31, `updated_at` = '2016-01-17 08:24:56' WHERE `users`.`id` = 1[0m
+  [1m[35m (70.6ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like :query OR tag_title LIKE :query OR tag_description like :query)
+Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':query OR tag_title LIKE :query OR tag_description like :query)' at line 1: SELECT COUNT(*) FROM `tags`  WHERE (tag_line like :query OR tag_title LIKE :query OR tag_description like :query)
+Completed 500 Internal Server Error in 199ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':query OR tag_title LIKE :query OR tag_description like :query)' at line 1: SELECT COUNT(*) FROM `tags`  WHERE (tag_line like :query OR tag_title LIKE :query OR tag_description like :query)):
+  app/controllers/api/tags_controller.rb:192:in `search_tagline_any_where'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=@al" for 127.0.0.1 at 2016-01-17 13:25:11 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"@al"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-01-17 08:24:56', `current_sign_in_at` = '2016-01-17 08:25:12', `sign_in_count` = 32, `updated_at` = '2016-01-17 08:25:12' WHERE `users`.`id` = 1[0m
+  [1m[35m (76.8ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like '%@al%' OR tag_title LIKE '%@al%' OR tag_description like '%@al%')
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 269ms (Views: 0.4ms | ActiveRecord: 82.5ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=@al" for 127.0.0.1 at 2016-01-17 13:26:09 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"@al"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like '%@al%' OR tag_title LIKE '%@al%' OR tag_description like '%@al%')
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 83ms (Views: 0.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=he" for 127.0.0.1 at 2016-01-17 13:26:46 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"he"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%')
+  [1m[36mTag Load (0.7ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%')[0m
+  [1m[35mTag Load (0.5ms)[0m  SELECT `tags`.* FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%') AND (close_date is not NULL AND close_date >= '2016-01-17 08:27:16')
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 ORDER BY rating_like_count desc LIMIT 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2[0m
+  [1m[35mUserRating Load (0.3ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+Completed 200 OK in 65362ms (Views: 8.8ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=he" for 127.0.0.1 at 2016-01-17 13:27:55 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"he"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%')
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT `tags`.* FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%') AND (close_date is not NULL AND close_date >= '2016-01-17 08:27:58')
+Completed 200 OK in 1461ms (Views: 1.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=he" for 127.0.0.1 at 2016-01-17 13:28:53 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"he"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%') AND (close_date is not NULL AND close_date >= '2016-01-17 08:28:55')[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 143ms (Views: 0.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=he" for 127.0.0.1 at 2016-01-17 13:29:50 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"he"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%') AND (close_date is not NULL AND close_date >= '2016-01-17 08:29:51')[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 ORDER BY rating_like_count desc LIMIT 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2[0m
+  [1m[35mUserRating Load (0.2ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.7ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 8
+  [1m[36mRating Load (0.6ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 8 ORDER BY rating_like_count desc LIMIT 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.7ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 9
+  [1m[36mRating Load (1.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 9 ORDER BY rating_like_count desc LIMIT 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35mRating Load (0.6ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 10
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 10 ORDER BY rating_like_count desc LIMIT 3[0m
+Completed 200 OK in 3966ms (Views: 11.7ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/api/tags/search_tagline_any_where.json?auth_token=rTBnYufApbg1HSqexu3S&tag_line=he" for 127.0.0.1 at 2016-01-17 13:30:13 +0500
+Processing by Api::TagsController#search_tagline_any_where as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S", "tag_line"=>"he"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%') AND (close_date is not NULL AND close_date >= '2016-01-17 08:30:15')
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE (tag_line like '%he%' OR tag_title LIKE '%he%' OR tag_description like '%he%')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 1 ORDER BY rating_like_count desc LIMIT 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 2
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 2 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 3[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 3 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 8[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 8 ORDER BY rating_like_count desc LIMIT 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 9[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 9 ORDER BY rating_like_count desc LIMIT 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 10[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 10 ORDER BY rating_like_count desc LIMIT 3
+Completed 200 OK in 389ms (Views: 16.9ms | ActiveRecord: 9.7ms)
