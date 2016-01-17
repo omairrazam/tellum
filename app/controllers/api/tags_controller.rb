@@ -184,29 +184,31 @@ class Api::TagsController < Api::ApplicationController
       get_api_message "501","Invalid Request"
       respond_to do |format|
         format.html { redirect_to @tag, notice: 'Invalid request.' }
-        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :search_term => params[:search_term], :auth_token => params[:auth_token] } } }
+        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message } } }
       end
     else
       current_user = User.find_by_authentication_token(params[:auth_token])
       @tag = Tag.where("tag_line like :query OR tag_title LIKE :query OR tag_description like :query AND close_date is not NULL AND close_date >= ?", { query: "%#{params[:tag_line]}%" }, DateTime.now)
-      # if @tag.present?
-      #   @tag.collect do |tag|
-      #     unless tag.close_date.nil? && tag.open_date.nil?
-      #       tag.close_date, tag.open_date = tag.close_date.utc, tag.open_date.utc; tag
-      #     end
-      #   end.reject!(&:blank?)
-      #   #rating = find_rating(@tag)
-      get_api_message "200","success"
-      respond_to do |format|
-        format.html { redirect_to @tag, notice: 'success.' }
-        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :open_tag_count => current_user.box_story_hash_structure(@tag)} } }
+      if @tag.present?
+        # @tag.collect do |tag|
+        #   unless tag.close_date.nil? && tag.open_date.nil?
+        #     tag.close_date, tag.open_date = tag.close_date.utc, tag.open_date.utc; tag
+        #   end
+        # end.reject!(&:blank?)
+        #rating = find_rating(@tag)
+        get_api_message "200","success"
+        respond_to do |format|
+          format.html { redirect_to @tag, notice: 'success.' }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :open_tag_count => current_user.box_story_hash_structure(@tag)} } }
+        end
+      else
+        get_api_message "200"," success"
+        respond_to do |format|
+          format.html { redirect_to @tag, notice: 'not found.' }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message } } }
+          #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :open_tag_count => @tag.where("is_locked = ? AND close_date > ?" , true, Date.today.to_time.utc).count, :close_tag_count => @tag.where("close_date <= ?" , Date.today.to_time.utc).count, :open_tag_lines => @tag.where("is_locked = ? AND close_date > ?" , true, Date.today.to_time.utc).collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!( (rating[:rating][:total_rating].present? && rating[:rating][:average_rating].present?) ?  {:total_rating=> find_rating(@tag)[:rating][:total_rating], :average_rating => find_rating(@tag)[:rating][:average_rating] } : {} ).merge!({ user: t.user })   }, :close_tag_lines => @tag.where("close_date <= ?" , Date.today.to_time.utc).collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!( (rating[:rating][:total_rating].present? && rating[:rating][:average_rating].present?) ?  {:total_rating=> find_rating(@tag)[:rating][:total_rating], :average_rating => find_rating(@tag)[:rating][:average_rating] } : {} ).merge!({ user: t.user })   }   } } }
+        end
       end
-      # else
-      #   get_api_message "200"," success"
-      #   respond_to do |format|
-      #     format.html { redirect_to @tag, notice: 'not found.' }
-      #     format.json { render json: {:response => {:status=>@message.status,:code=>@message.code, :message=>@message.custom_message, :open_tag_count => @tag.where("is_locked = ? AND close_date > ?" , true, Date.today.to_time.utc).count, :close_tag_count => @tag.where("close_date <= ?" , Date.today.to_time.utc).count, :open_tag_lines => @tag.where("is_locked = ? AND close_date > ?" , true, Date.today.to_time.utc).collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!( (rating[:rating][:total_rating].present? && rating[:rating][:average_rating].present?) ?  {:total_rating=> find_rating(@tag)[:rating][:total_rating], :average_rating => find_rating(@tag)[:rating][:average_rating] } : {} ).merge!({ user: t.user })   }, :close_tag_lines => @tag.where("close_date <= ?" , Date.today.to_time.utc).collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!( (rating[:rating][:total_rating].present? && rating[:rating][:average_rating].present?) ?  {:total_rating=> find_rating(@tag)[:rating][:total_rating], :average_rating => find_rating(@tag)[:rating][:average_rating] } : {} ).merge!({ user: t.user })   }   } } }        end
-      # end
     end
   end
   def lock_tag
