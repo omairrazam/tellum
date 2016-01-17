@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   #belongs_to :rating
   #belongs_to :follow_user
-  belongs_to :notification
+  has_many :notifications
   validates_presence_of :tag_line
   #validates_uniqueness_of :tag_line
   validates_presence_of :open_date, if: Proc.new { |u| u.is_locked.present? && u.tag_line.blank? }

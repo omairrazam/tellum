@@ -3,43 +3,47 @@ class Api::NotificationsController < ApplicationController
   before_filter :authenticate_user!
 
   def all_notifications
-    user = User.find_by_authentication_token(params[:auth_token])
-    if params[:date].present? && params[:auth_token].present?
-      @reveal = Notification.where("updated_at <= ? AND user_id = ? AND status is NULL AND is_view is NULL", params[:date].to_datetime.to_s(:db), user.id).order("created_at desc").limit(30)
-      #Reveal.where("updated_at <= ? AND user_id = ?", params[:date].to_datetime.to_s(:db), current_user).order("updated_at desc").limit(30)
-      if @reveal.present?
-        get_api_message "200","success"
-        respond_to do |format|
-          format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
-        end
-        @reveal.each do |reveal|
-          reveal.update_attributes is_seen: true
-        end
-      else
-        get_api_message "404","Not Found"
-        return render_response
-      end
-    elsif params[:auth_token].present?
-      @reveal = Notification.where("user_id = ? AND status is NULL AND is_view is NULL", user.id).order("created_at desc").limit(30)
-      if @reveal.present?
-        get_api_message "200","success"
-        respond_to do |format|
-          format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.try(:attributes).keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
-        end
-        @reveal.each do |reveal|
-          reveal.update_attributes is_seen: true
-        end
-      else
-        get_api_message "404","Not Found"
-        return render_response
-      end
-    else
-      get_api_message "501","Invalid Request"
-      return render_response
-    end
+    @user = User.find_by_authentication_token(params[:auth_token])
+    @notifications = Notification.where("user_id = ? AND status is NULL AND is_view is NULL", @user.id).order("created_at desc").limit(30) if @user.present?
   end
+  # def all_notifications
+  #   user = User.find_by_authentication_token(params[:auth_token])
+  #   if params[:date].present? && params[:auth_token].present?
+  #     @reveal = Notification.where("updated_at <= ? AND user_id = ? AND status is NULL AND is_view is NULL", params[:date].to_datetime.to_s(:db), user.id).order("created_at desc").limit(30)
+  #     #Reveal.where("updated_at <= ? AND user_id = ?", params[:date].to_datetime.to_s(:db), current_user).order("updated_at desc").limit(30)
+  #     if @reveal.present?
+  #       get_api_message "200","success"
+  #       respond_to do |format|
+  #         format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
+  #         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
+  #       end
+  #       @reveal.each do |reveal|
+  #         reveal.update_attributes is_seen: true
+  #       end
+  #     else
+  #       get_api_message "404","Not Found"
+  #       return render_response
+  #     end
+  #   elsif params[:auth_token].present?
+  #     @reveal = Notification.where("user_id = ? AND status is NULL AND is_view is NULL", user.id).order("created_at desc").limit(30)
+  #     if @reveal.present?
+  #       get_api_message "200","success"
+  #       respond_to do |format|
+  #         format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
+  #         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.try(:attributes).keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
+  #       end
+  #       @reveal.each do |reveal|
+  #         reveal.update_attributes is_seen: true
+  #       end
+  #     else
+  #       get_api_message "404","Not Found"
+  #       return render_response
+  #     end
+  #   else
+  #     get_api_message "501","Invalid Request"
+  #     return render_response
+  #   end
+  # end
   def all_notifications_PTR
     user = User.find_by_authentication_token(params[:auth_token])
     if params[:date].present? && params[:auth_token].present?
