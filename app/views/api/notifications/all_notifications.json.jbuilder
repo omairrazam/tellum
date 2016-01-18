@@ -5,8 +5,8 @@ if @user.present?
     json.message "Successfully Fetched relevant notifications..."
     json.notifications @notifications.each do |noti|
         sender_pic = User.find_by_id(noti.sender_id).try(:photo).try(:url)
-        sender_user_name = User.find_by_id(noti.sender_id).try(:user).try(:user_name)
-        sender_full_name = User.find_by_id(noti.sender_id).try(:user).try(:full_name)
+        sender_user_name = User.find_by_id(noti.sender_id).try(:user_name)
+        sender_full_name = User.find_by_id(noti.sender_id).try(:full_name)
         if noti.object_name == "Dropped"
           json.user_id noti.sender_id
           json.user_profile_picture sender_pic

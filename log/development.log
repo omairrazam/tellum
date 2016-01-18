@@ -12314,3 +12314,4 @@ Processing by Api::NotificationsController#all_notifications as JSON
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
   Rendered api/notifications/all_notifications.json.jbuilder (213.3ms)
 Completed 200 OK in 220ms (Views: 211.7ms | ActiveRecord: 6.5ms)
+Connecting to database specified by database.yml
