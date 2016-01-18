@@ -22,7 +22,7 @@ class Api::RatingsController < Api::ApplicationController
       else
         APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "#{current_user.try(:full_name)} dropped on #{tag.try(:tag_line)}",badge: badge_count, sound: "default" )
       end
-      Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Rating", sender_id: current_user.id) if current_user.id != tag_creator_user_id.id
+      Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Dropped", sender_id: current_user.id) if current_user.id != tag_creator_user_id.id
       get_api_message "200","Created"
       respond_to do |format|
         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.attributes.keep_if { |k, v| k.to_s != "tag_id"  }.keep_if { |k, v| k.to_s != "user_id"  }.merge!({ tag_line: Tag.find(@rating.tag_id).attributes ,user: User.find(@rating.user_id).hide_fields })  } } }
