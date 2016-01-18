@@ -16,6 +16,7 @@ if @user.present?
           json.drop_ratings noti.try(:rating).try(:rating)
           json.notification_id noti.id
           json.notification_created_at noti.try(:created_at)
+          json.is_seen noti.is_seen
           json.object_name noti.object_name
         else
           json.user_id noti.user_id
@@ -29,6 +30,7 @@ if @user.present?
           json.drop_ratings noti.try(:rating).try(:rating)
           json.notification_id noti.id
           json.notification_created_at noti.try(:created_at)
+          json.is_seen noti.is_seen
           json.object_name noti.object_name
         end
     end

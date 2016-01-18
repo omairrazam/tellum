@@ -6,6 +6,10 @@ class Api::NotificationsController < ApplicationController
     @user = User.find_by_authentication_token(params[:auth_token])
     @notifications = Notification.where("user_id = ? AND status is NULL AND is_view is NULL", @user.id).order("created_at desc").limit(30) if @user.present?
   end
+  def update
+    @user = User.find_by_authentication_token params[:auth_token]
+    @notification = Notification.find_by_id(params[:request][:id]) if @user.present?
+  end
   # def all_notifications
   #   user = User.find_by_authentication_token(params[:auth_token])
   #   if params[:date].present? && params[:auth_token].present?
