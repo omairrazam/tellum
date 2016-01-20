@@ -33,6 +33,8 @@ json.response do
             json.object do
               json.box_id noti.try(:tag_id)
               json.box_title noti.try(:tag).try(:tag_line)
+              json.drop_id noti.try(:rating_id)
+              json.drop_comment drop.try(:comment)
             end
             json.notification_id noti.id
             json.notification_created_at noti.try(:created_at)
