@@ -12357,3 +12357,57 @@ Processing by Api::NotificationsController#all_notifications as JSON
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
   Rendered api/notifications/all_notifications.json.jbuilder (177.4ms)
 Completed 200 OK in 336ms (Views: 216.3ms | ActiveRecord: 10.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-20 23:57:20 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND is_seen is false) LIMIT 30) subquery_for_count [0m
+  [1m[35mNotification Load (0.7ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_seen is false) ORDER BY created_at desc LIMIT 30
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  Rendered api/notifications/all_notifications.json.jbuilder (361.7ms)
+Completed 500 Internal Server Error in 751ms
+
+ActionView::Template::Error (undefined method `id' for #<#<Class:0x00000005ed5878>:0x00000005ee63f8>):
+    27:             json.drop_like_count drop.try(:rating_like_count)
+    28:             json.drop_replies_count drop.try(:comments).try(:count)
+    29:             json.is_anonymous_rating drop.try(:is_anonymous_rating)
+    30:             json.is_like ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )
+    31: 
+    32: 
+    33:             json.object do
+  app/views/api/notifications/all_notifications.json.jbuilder:30:in `block (2 levels) in _app_views_api_notifications_all_notifications_json_jbuilder__75913554101289187_51297660'
+  app/views/api/notifications/all_notifications.json.jbuilder:7:in `block in _app_views_api_notifications_all_notifications_json_jbuilder__75913554101289187_51297660'
+  app/views/api/notifications/all_notifications.json.jbuilder:1:in `_app_views_api_notifications_all_notifications_json_jbuilder__75913554101289187_51297660'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (70.2ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-01-20 23:58:45 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM `notifications` WHERE (user_id = 1 AND is_seen is false) LIMIT 30) subquery_for_count [0m
+  [1m[35mNotification Load (0.1ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_seen is false) ORDER BY created_at desc LIMIT 30
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 1
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 1 AND `user_ratings`.`rating_id` = 1 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  Rendered api/notifications/all_notifications.json.jbuilder (742.7ms)
+Completed 200 OK in 753ms (Views: 742.8ms | ActiveRecord: 4.9ms)

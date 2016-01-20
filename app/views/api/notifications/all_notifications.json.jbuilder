@@ -8,6 +8,7 @@ json.response do
           sender_pic = User.find_by_id(noti.sender_id).try(:photo).try(:url)
           sender_user_name = User.find_by_id(noti.sender_id).try(:user_name)
           sender_full_name = User.find_by_id(noti.sender_id).try(:full_name)
+          drop = noti.try(:rating)
           if noti.object_name == "Dropped"
             json.user_id noti.sender_id
             json.user_profile_picture sender_pic
@@ -15,8 +16,19 @@ json.response do
             json.user_full_name sender_full_name
 
             json.drop_id noti.try(:rating_id)
-            json.drop_comment noti.try(:rating).try(:comment)
-            json.drop_ratings noti.try(:rating).try(:rating)
+            json.drop_comment drop.try(:comment)
+            json.drop_ratings drop.try(:rating)
+            json.drop_creator_user_name drop.try(:user).try(:user_name)
+            json.drop_creator_name drop.try(:user).try(:full_name)
+            json.drop_created_at drop.try(:created_at)
+            json.drop_creator_user_id drop.try(:user_id)
+            json.drop_creator_profile_image drop.try(:user).try(:photo).try(:url)
+            json.drop_description drop.try(:comment)
+            json.drop_like_count drop.try(:rating_like_count)
+            json.drop_replies_count drop.try(:comments).try(:count)
+            json.is_anonymous_rating drop.try(:is_anonymous_rating)
+            json.is_like ( UserRating.where(user_id: @user.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )
+
 
             json.object do
               json.box_id noti.try(:tag_id)
@@ -48,11 +60,23 @@ json.response do
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
             json.user_full_name sender_full_name
+            json.box_id noti.try(:tag_id)
+            json.box_title noti.try(:tag).try(:tag_line)
 
             json.object do
               json.drop_id noti.try(:rating_id)
-              json.drop_comment noti.try(:rating).try(:comment)
-              json.drop_ratings noti.try(:rating).try(:rating)
+              json.drop_comment drop.try(:comment)
+              json.drop_ratings drop.try(:rating)
+              json.drop_creator_user_name drop.try(:user).try(:user_name)
+              json.drop_creator_name drop.try(:user).try(:full_name)
+              json.drop_created_at drop.try(:created_at)
+              json.drop_creator_user_id drop.try(:user_id)
+              json.drop_creator_profile_image drop.try(:user).try(:photo).try(:url)
+              json.drop_description drop.try(:comment)
+              json.drop_like_count drop.try(:rating_like_count)
+              json.drop_replies_count drop.try(:comments).try(:count)
+              json.is_anonymous_rating drop.try(:is_anonymous_rating)
+              json.is_like ( UserRating.where(user_id: @user.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )
             end
 
             json.notification_id noti.id
@@ -65,11 +89,23 @@ json.response do
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
             json.user_full_name sender_full_name
+            json.box_id noti.try(:tag_id)
+            json.box_title noti.try(:tag).try(:tag_line)
 
             json.object do
               json.drop_id noti.try(:rating_id)
-              json.drop_comment noti.try(:rating).try(:comment)
-              json.drop_ratings noti.try(:rating).try(:rating)
+              json.drop_comment drop.try(:comment)
+              json.drop_ratings drop.try(:rating)
+              json.drop_creator_user_name drop.try(:user).try(:user_name)
+              json.drop_creator_name drop.try(:user).try(:full_name)
+              json.drop_created_at drop.try(:created_at)
+              json.drop_creator_user_id drop.try(:user_id)
+              json.drop_creator_profile_image drop.try(:user).try(:photo).try(:url)
+              json.drop_description drop.try(:comment)
+              json.drop_like_count drop.try(:rating_like_count)
+              json.drop_replies_count drop.try(:comments).try(:count)
+              json.is_anonymous_rating drop.try(:is_anonymous_rating)
+              json.is_like ( UserRating.where(user_id: @user.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )
             end
 
             json.notification_id noti.id
@@ -81,11 +117,23 @@ json.response do
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
             json.user_full_name sender_full_name
+            json.box_id noti.try(:tag_id)
+            json.box_title noti.try(:tag).try(:tag_line)
 
             json.object do
               json.drop_id noti.try(:rating_id)
-              json.drop_comment noti.try(:rating).try(:comment)
-              json.drop_ratings noti.try(:rating).try(:rating)
+              json.drop_comment drop.try(:comment)
+              json.drop_ratings drop.try(:rating)
+              json.drop_creator_user_name drop.try(:user).try(:user_name)
+              json.drop_creator_name drop.try(:user).try(:full_name)
+              json.drop_created_at drop.try(:created_at)
+              json.drop_creator_user_id drop.try(:user_id)
+              json.drop_creator_profile_image drop.try(:user).try(:photo).try(:url)
+              json.drop_description drop.try(:comment)
+              json.drop_like_count drop.try(:rating_like_count)
+              json.drop_replies_count drop.try(:comments).try(:count)
+              json.is_anonymous_rating drop.try(:is_anonymous_rating)
+              json.is_like ( UserRating.where(user_id: @user.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )
             end
 
             json.notification_id noti.id
