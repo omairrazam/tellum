@@ -4,7 +4,7 @@ class Api::NotificationsController < ApplicationController
 
   def all_notifications
     @user = User.find_by_authentication_token(params[:auth_token])
-    @notifications = Notification.where("user_id = ? AND is_seen is false", @user.id).order("created_at desc") if @user.present?
+    @notifications = Notification.where("user_id = ? AND is_seen is false OR is_seen is NULL", @user.id).order("created_at desc") if @user.present?
   end
   def update
     @user = User.find_by_authentication_token params[:auth_token]
