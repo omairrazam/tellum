@@ -11,7 +11,7 @@ class Api::UserFollowsController < Api::ApplicationController
       @user_follow = UserFollow.new(user_id: params[:request][:user_id], follow_id: current_user.id)
       if User.find_by_id(params[:request][:user_id]).is_public_profile == true
         if @user_follow.save
-          Notification.create(user_id: params[:request][:user_id], object_name: "Follow User", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
+          Notification.create(user_id: params[:request][:user_id], object_name: "Follow User Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
           get_api_message "200","You are following the user."
           respond_to do |format|
             format.html { redirect_to @user_follow, notice: 'You are following the user.' }
@@ -123,6 +123,7 @@ class Api::UserFollowsController < Api::ApplicationController
           @accept_user_request.first.delete
         else
           @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
+          Notification.create(user_id: params[:request][:user_id], object_name: "Accpted Follow User", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
         end
         get_api_message "200","You accepted friend request."
         respond_to do |format|
