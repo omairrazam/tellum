@@ -62,10 +62,10 @@ json.response do
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
             json.user_full_name sender_full_name
-            json.box_id noti.try(:tag_id)
-            json.box_title noti.try(:tag).try(:tag_line)
 
             json.object do
+              json.box_id noti.try(:tag_id)
+              json.box_title noti.try(:tag).try(:tag_line)
               json.drop_id noti.try(:rating_id)
               json.drop_comment drop.try(:comment)
               json.drop_ratings drop.try(:rating)
@@ -91,10 +91,10 @@ json.response do
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
             json.user_full_name sender_full_name
-            json.box_id noti.try(:tag_id)
-            json.box_title noti.try(:tag).try(:tag_line)
 
             json.object do
+              json.box_id noti.try(:tag_id)
+              json.box_title noti.try(:tag).try(:tag_line)
               json.drop_id noti.try(:rating_id)
               json.drop_comment drop.try(:comment)
               json.drop_ratings drop.try(:rating)
@@ -119,10 +119,10 @@ json.response do
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
             json.user_full_name sender_full_name
-            json.box_id noti.try(:tag_id)
-            json.box_title noti.try(:tag).try(:tag_line)
 
             json.object do
+              json.box_id noti.try(:tag_id)
+              json.box_title noti.try(:tag).try(:tag_line)
               json.drop_id noti.try(:rating_id)
               json.drop_comment drop.try(:comment)
               json.drop_ratings drop.try(:rating)
