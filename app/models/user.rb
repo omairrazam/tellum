@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
 
 
   def user_created_and_following_drops
-    Rating.where("user_id = ? OR user_id IN (?)", self.id, following_users.collect{|user| user.id}).collect{|drop|
+    (Rating.where("user_id = ?", self.id) + following_drops_with_is_anonymous_false).collect{|drop|
       {box_id: drop.try(:tag).try(:id), is_drop_story: true, box_name: drop.try(:tag).try(:tag_line), sort_created_at: drop.try(:created_at),
        box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.try(:tag).try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
        is_locked: drop.try(:tag).try(:is_locked), is_post_to_wall: drop.try(:tag).try(:is_post_to_wall), is_private: drop.try(:tag).try(:is_private), open_date: drop.try(:tag).try(:open_date),
@@ -69,6 +69,9 @@ class User < ActiveRecord::Base
        box_creator_name: drop.try(:tag).try(:user).try(:full_name), box_creator_user_name: drop.try(:tag).try(:user).try(:user_name), is_follower: check_user(drop.try(:tag).try(:user), self),
        box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)}.merge({drops: [{drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: (drop.try(:created_at) - 7.minutes), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), sort_created_at: drop.try(:created_at), is_anonymous_rating: drop.try(:is_anonymous_rating), is_like: ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false ) }]})
     }
+  end
+  def following_drops_with_is_anonymous_false
+    Rating.where("user_id IN (?) AND is_anonymous_rating = ?", following_users.collect{|user| user.id}, false)
   end
   def drop_story_hash_structure  drops
     drops.collect{|drop|
