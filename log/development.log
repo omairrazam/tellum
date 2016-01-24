@@ -12475,3 +12475,62 @@ Migrating to AddDefaultValueToIsSeen (20160121175936)
   [1m[36m (142.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160121175936')[0m
   [1m[35m (0.5ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-01-24 16:59:54 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (28.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.5ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  Rendered api/ratings/show.json.jbuilder (39.8ms)
+Completed 500 Internal Server Error in 359ms
+
+ActionView::Template::Error (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+    3:     json.status 'Ok'
+    4:     json.code 200
+    5:     json.message "Successfully Fetched drop"
+    6:     json.extract! @rating, :id, :rating, :tag_id, :sub_rating, :comment, :is_anonymous_rating, :is_post_to_wall,:created_at,
+    7:                   :updated_at, :rating_like_count,:user_id, :audio, :audio_duration, :audio_file_url,:reveal_id,  :is_flagged
+    8:   else
+    9:     json.status 'not found'
+  app/views/api/ratings/show.json.jbuilder:6:in `block in _app_views_api_ratings_show_json_jbuilder___2752099136995579400_56098320'
+  app/views/api/ratings/show.json.jbuilder:1:in `_app_views_api_ratings_show_json_jbuilder___2752099136995579400_56098320'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (43.9ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-01-24 17:00:10 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1[0m
+  [1m[35mRating Load (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1
+  Rendered api/ratings/show.json.jbuilder (215.4ms)
+Completed 200 OK in 223ms (Views: 219.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-01-24 17:05:42 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  Rendered api/ratings/show.json.jbuilder (1.3ms)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-01-24 17:06:56 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1
+  Rendered api/ratings/show.json.jbuilder (1.2ms)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.4ms)

@@ -37,6 +37,10 @@ class Api::RatingsController < Api::ApplicationController
       return render_response
     end
   end
+  def show
+    @user = User.find_by_authentication_token params[:auth_token]
+    @drop = Rating.find_by_id(params[:rating_id]) if @user.present?
+  end
   def like_rating
     if params[:request][:rating][:rating_id]
       current_user = User.find_by_authentication_token params[:auth_token]
