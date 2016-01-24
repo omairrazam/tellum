@@ -33,6 +33,8 @@ json.response do
             json.object do
               json.box_id noti.try(:tag_id)
               json.box_title noti.try(:tag).try(:tag_line)
+              json.class_id noti.try(:rating_id)
+              json.class_secondary_id ""
               json.drop_id noti.try(:rating_id)
               json.drop_comment drop.try(:comment)
             end
@@ -47,6 +49,9 @@ json.response do
             json.sender_user_full_name sender_full_name
 
             json.object do
+              json.class_id ""
+              json.class_secondary_id ""
+              json.box_title ""
               json.user_id noti.user_id
               json.user_profile_picture noti.try(:user).try(:photo).try(:url)
               json.user_name noti.try(:user).try(:user_name)
@@ -64,6 +69,8 @@ json.response do
             json.user_full_name sender_full_name
 
             json.object do
+              json.class_id noti.try(:rating_id)
+              json.class_secondary_id ""
               json.box_id noti.try(:tag_id)
               json.box_title noti.try(:tag).try(:tag_line)
               json.drop_id noti.try(:rating_id)
@@ -93,6 +100,8 @@ json.response do
             json.user_full_name sender_full_name
 
             json.object do
+              json.class_id noti.try(:rating_id)
+              json.class_secondary_id ""
               json.box_id noti.try(:tag_id)
               json.box_title noti.try(:tag).try(:tag_line)
               json.drop_id noti.try(:rating_id)
@@ -121,6 +130,8 @@ json.response do
             json.user_full_name sender_full_name
 
             json.object do
+              json.class_id noti.try(:rating_id)
+              json.class_secondary_id noti.try(:reveal_id)
               json.box_id noti.try(:tag_id)
               json.box_title noti.try(:tag).try(:tag_line)
               json.drop_id noti.try(:rating_id)
