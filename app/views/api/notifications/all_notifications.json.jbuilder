@@ -137,7 +137,7 @@ json.response do
               json.is_anonymous_rating drop.try(:is_anonymous_rating)
               json.is_like ( UserRating.where(user_id: @user.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )
             end
-
+            json.reveal_id noti.try(:reveal_id)
             json.notification_id noti.id
             json.notification_created_at noti.try(:created_at)
             json.is_seen noti.is_seen
