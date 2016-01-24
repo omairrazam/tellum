@@ -640,7 +640,7 @@ class Api::TagsController < Api::ApplicationController
     @user_id = params[:user_id]
     if params[:user_id].present?
       @boxes = User.find(params[:user_id]).try(:tags).where("close_date is not NULL")
-      @drops = User.find(params[:user_id]).try(:ratings)
+      @drops = User.find(params[:user_id]).try(:ratings).where(is_anonymous_rating: false)
     else
       @boxes = @user.try(:tags).where("close_date is not NULL")
       @drops = @user.try(:ratings)
