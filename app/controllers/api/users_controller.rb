@@ -390,7 +390,7 @@ class Api::UsersController < Api::ApplicationController
   end
   def twitter_or_facebook_users
     @user = User.find_by_authentication_token params[:auth_token]
-    params[:request][:facebook_ids] == true ? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
+    params[:request][:facebook_ids] == 1 ? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
   end
   def update_badge_count
     @user = User.find_by_authentication_token(params[:auth_token])

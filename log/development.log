@@ -12609,3 +12609,190 @@ Processing by Api::UsersController#twitter_or_facebook_users as JSON
   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
   Rendered api/users/twitter_or_facebook_users.json.jbuilder (38.6ms)
 Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 2.3ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/api/user_follow/follow_users.json" for 127.0.0.1 at 2016-01-30 19:13:49 +0500
+Processing by Api::UserFollowsController#follow_users as JSON
+  Parameters: {"request"=>{"user_id"=>[3, 4]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user_follow"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (22.1ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-01-18 16:42:56', `current_sign_in_at` = '2016-01-30 14:13:49', `sign_in_count` = 42, `updated_at` = '2016-01-30 14:13:49' WHERE `users`.`id` = 1[0m
+  [1m[35m (68.2ms)[0m  COMMIT
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+Completed 500 Internal Server Error in 72493ms
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/api/user_follows_controller.rb:48:in `[]'
+  app/controllers/api/user_follows_controller.rb:48:in `block in follow_users'
+  app/controllers/api/user_follows_controller.rb:48:in `map'
+  app/controllers/api/user_follows_controller.rb:48:in `follow_users'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.9ms)
+
+
+Started POST "/api/user_follow/follow_users.json" for 127.0.0.1 at 2016-01-30 19:15:29 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (399: unexpected token at '{user_id: 3},{user_id: 4}]},"auth_token":"rTBnYufApbg1HSqexu3S"}'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__3652876817856076300__call__3815945798994916652__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started POST "/api/user_follow/follow_users.json" for 127.0.0.1 at 2016-01-30 19:15:57 +0500
+Processing by Api::UserFollowsController#follow_users as JSON
+  Parameters: {"request"=>{"user_id"=>[{"user_id"=>3}, {"user_id"=>4}]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user_follow"=>{}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-01-30 14:13:49', `current_sign_in_at` = '2016-01-30 14:15:57', `sign_in_count` = 43, `updated_at` = '2016-01-30 14:15:57' WHERE `users`.`id` = 1
+  [1m[36m (59.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 3 AND `user_follows`.`follow_id` = 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (75.3ms)[0m  INSERT INTO `user_follows` (`created_at`, `follow_id`, `is_accepted`, `is_approved`, `updated_at`, `user_id`) VALUES ('2016-01-30 14:15:58', 1, NULL, 1, '2016-01-30 14:15:58', 3)
+  [1m[36m (415.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 4 AND `user_follows`.`follow_id` = 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `user_follows` (`created_at`, `follow_id`, `is_accepted`, `is_approved`, `updated_at`, `user_id`) VALUES ('2016-01-30 14:15:58', 1, NULL, 1, '2016-01-30 14:15:58', 4)[0m
+  [1m[35m (52.5ms)[0m  COMMIT
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 806ms (Views: 0.4ms | ActiveRecord: 615.8ms)
+
+
+Started POST "/api/user_follow/follow_users.json" for 127.0.0.1 at 2016-01-30 19:36:29 +0500
+Processing by Api::UserFollowsController#follow_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["41002384", "41003066", "143867625959452"]}, "auth_token"=>"xQuLY7CKuGuCXZfP6dsM", "user_follow"=>{}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'xQuLY7CKuGuCXZfP6dsM' LIMIT 1[0m
+Completed 500 Internal Server Error in 9ms
+
+NoMethodError (undefined method `map' for nil:NilClass):
+  app/controllers/api/user_follows_controller.rb:47:in `follow_users'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started POST "/api/user_follow/follow_users.json" for 127.0.0.1 at 2016-01-30 19:36:43 +0500
+Processing by Api::UserFollowsController#follow_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["41002384", "41003066", "143867625959452"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user_follow"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `map' for nil:NilClass):
+  app/controllers/api/user_follows_controller.rb:47:in `follow_users'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 19:37:05 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["41002384", "41003066", "143867625959452"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE (twitter_user_id IN ('41002384','41003066','143867625959452'))[0m
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (3.2ms)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 19:37:23 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["41002384", "41003066", "143867625959452"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE (facebook_user_id IN ('41002384','41003066','143867625959452'))[0m
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (3.0ms)
+Completed 200 OK in 174ms (Views: 11.5ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 19:37:56 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["41002384", "41003066", "143867625959452"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE (facebook_user_id IN ('41002384','41003066','143867625959452'))[0m
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (1.7ms)
+Completed 200 OK in 109ms (Views: 6.4ms | ActiveRecord: 5.4ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 19:38:10 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["41002384", "41003066", "143867625959452"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `users` WHERE (facebook_user_id IN ('41002384','41003066','143867625959452'))
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (3.3ms)
+Completed 200 OK in 20624ms (Views: 92.9ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 19:40:08 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"facebook_ids"=>1, "ids"=>["oooo999iixuucycyyc", "ooodbbbddo999iixdddduucycyyc", "ooodbbbddo9nn99iixdddduucycyyc"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `users` WHERE (facebook_user_id IN ('oooo999iixuucycyyc','ooodbbbddo999iixdddduucycyyc','ooodbbbddo9nn99iixdddduucycyyc'))
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (facebook_user_id IN ('oooo999iixuucycyyc','ooodbbbddo999iixdddduucycyyc','ooodbbbddo9nn99iixdddduucycyyc'))[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 10 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 10 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 24 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 24 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 25 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1[0m
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (47.9ms)
+Completed 200 OK in 3424ms (Views: 55.3ms | ActiveRecord: 6.5ms)
