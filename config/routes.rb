@@ -22,6 +22,7 @@ Tellum::Application.routes.draw do
         put :edit_profile
         post :send_confirmation_email_again
         post :check_user_followings
+        post :twitter_or_facebook_users
       end
     end
     post '/users/login', :to => 'sessions#create'

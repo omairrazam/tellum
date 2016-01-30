@@ -388,6 +388,10 @@ class Api::UsersController < Api::ApplicationController
     @user_following = @user.user_following params[:request][:user][:users], params[:auth_token]
     @users = @user_following.collect {|user| user.hide_fields.merge!({is_follower: check_is_follower(user, current_user).is_follower, is_following: check_is_following(user, current_user)})   } if @user_following.present?
   end
+  def twitter_or_facebook_users
+    @user = User.find_by_authentication_token params[:auth_token]
+    params[:request][:facebook_ids] == true ? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
+  end
   def update_badge_count
     @user = User.find_by_authentication_token(params[:auth_token])
     @user.update_attributes badge_count: 0 if @user.present?
