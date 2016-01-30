@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160121175936) do
+ActiveRecord::Schema.define(:version => 20160130174500) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -88,11 +88,12 @@ ActiveRecord::Schema.define(:version => 20160121175936) do
     t.integer  "reveal_id"
     t.boolean  "status"
     t.string   "object_name"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.boolean  "is_seen",     :default => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "is_seen",           :default => false
     t.integer  "sender_id"
     t.boolean  "is_view"
+    t.boolean  "is_anonymous_user", :default => false
   end
 
   create_table "ratings", :force => true do |t|

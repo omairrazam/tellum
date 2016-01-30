@@ -127,7 +127,7 @@ class Api::RatingsController < Api::ApplicationController
     if params[:tag_id].present? &&  params[:auth_token].present? && params[:date].present?
       current_user = User.find_by_authentication_token params[:auth_token]
       #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like =`1`)) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("ratings_comment_counts DESC")
-      @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC").limit(30)
+      @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
       if @rating.present?
         get_api_message "200","Created"
         respond_to do |format|
@@ -176,7 +176,7 @@ class Api::RatingsController < Api::ApplicationController
       @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like ='1')) AS ratings_comment_counts").where("tag_id = ? AND updated_at BETWEEN  ? AND ?", params[:tag_id], params[:date], DateTime.now).order("created_at DESC")
       if @rating.present?
         get_api_message "200","Created"
-        respond_to do |format|
+        respond_to do | format|
           format.html { redirect_to @rating, notice: 'Rating found.' }
           #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!({ user: t.user })   } } } }
           #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({ user: t.user, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user})   } )   } } } }
