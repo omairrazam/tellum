@@ -3,8 +3,9 @@ json.response do
     if @users.present?
       json.status 'Ok'
       json.code 200
+      json.message 'Users Matched Successfully.'
       json.users do
-        @users.collect do |user|
+        json.array! @users do |user|
           json.id user.try(:id)
           json.about_me user.try(:about_me)
           json.badge_count user.try(:badge_count)
@@ -30,7 +31,6 @@ json.response do
           json.reveal_id user.try(:reveal_id)
         end
       end
-      json.message 'Users Matched Successfully.'
     else
       json.status 'not found'
       json.code 404

@@ -12568,3 +12568,44 @@ Processing by Api::UsersController#twitter_or_facebook_users as JSON
   [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `users` WHERE (twitter_user_id IN ('2418247502','63127721','93977672','2448475064','3635073503','3626308273'))
   Rendered api/users/twitter_or_facebook_users.json.jbuilder (2.8ms)
 Completed 200 OK in 74ms (Views: 10.1ms | ActiveRecord: 2.7ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 18:10:23 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"twitter_ids"=>true, "ids"=>["2418247502", "63127721", "93977672", "2448475064", "3635073503", "3626308273"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `users` WHERE (twitter_user_id IN ('2418247502','63127721','93977672','2448475064','3635073503','3626308273'))
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (twitter_user_id IN ('2418247502','63127721','93977672','2448475064','3635073503','3626308273'))[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 25 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 26 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 26 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 28 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 28 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1[0m
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (83.6ms)
+Completed 200 OK in 227ms (Views: 126.6ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/api/users/twitter_or_facebook_users.json" for 127.0.0.1 at 2016-01-30 18:10:32 +0500
+Processing by Api::UsersController#twitter_or_facebook_users as JSON
+  Parameters: {"request"=>{"twitter_ids"=>true, "ids"=>["2418247502", "63127721", "93977672", "2448475064", "3635073503", "3626308273"]}, "auth_token"=>"rTBnYufApbg1HSqexu3S", "user"=>{}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE (twitter_user_id IN ('2418247502','63127721','93977672','2448475064','3635073503','3626308273'))[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (twitter_user_id IN ('2418247502','63127721','93977672','2448475064','3635073503','3626308273'))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 25 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 26 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 26 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 27 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 27 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 28 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 28 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 29 AND `user_follows`.`user_id` = 1 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 29 AND `user_follows`.`is_approved` = 1
+  Rendered api/users/twitter_or_facebook_users.json.jbuilder (38.6ms)
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 2.3ms)
