@@ -11,7 +11,7 @@ json.response do
       json.drop_comment @drop.comment
       json.is_anonymous_rating @drop.is_anonymous_rating
       json.is_post_to_wall @drop.is_post_to_wall
-      json.drop_created_at @drop.created_at
+      json.drop_created_at (@drop.created_at - 9.minutes)
       json.drop_updated_at @drop.updated_at
       json.rating_like_count  @drop.rating_like_count
       json.user_id @drop.user_id

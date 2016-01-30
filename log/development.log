@@ -12796,3 +12796,5 @@ Processing by Api::UsersController#twitter_or_facebook_users as JSON
   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 1 AND `user_follows`.`user_id` = 25 AND `user_follows`.`is_approved` = 1[0m
   Rendered api/users/twitter_or_facebook_users.json.jbuilder (47.9ms)
 Completed 200 OK in 3424ms (Views: 55.3ms | ActiveRecord: 6.5ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml

@@ -35,6 +35,7 @@ json.response do
             json.class_secondary_id ""
 
             json.notification_id noti.id
+            json.is_anonymous_user noti.is_anonymous_user
             json.notification_created_at noti.try(:created_at)
             json.is_seen noti.is_seen
             json.object_name noti.object_name
@@ -54,6 +55,7 @@ json.response do
 
             json.notification_id noti.id
             json.notification_created_at noti.try(:created_at)
+            json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
           elsif noti.object_name == "comment"
@@ -69,6 +71,7 @@ json.response do
 
             json.notification_id noti.id
             json.notification_created_at noti.try(:created_at)
+            json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
 
@@ -85,6 +88,7 @@ json.response do
 
             json.notification_id noti.id
             json.notification_created_at noti.try(:created_at)
+            json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
           else
@@ -101,6 +105,7 @@ json.response do
             json.reveal_id noti.try(:reveal_id)
             json.notification_id noti.id
             json.notification_created_at noti.try(:created_at)
+            json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
           end
