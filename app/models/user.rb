@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
        is_locked: drop.try(:tag).try(:is_locked), is_post_to_wall: drop.try(:tag).try(:is_post_to_wall), is_private: drop.try(:tag).try(:is_private), open_date: drop.try(:tag).try(:open_date),
        close_date: drop.try(:tag).try(:close_date), box_creator_id: drop.try(:tag).try(:user_id), box_creator_image: drop.try(:tag).try(:user).try(:photo).try(:url),
        box_creator_name: drop.try(:tag).try(:user).try(:full_name), box_creator_user_name: drop.try(:tag).try(:user).try(:user_name), is_follower: check_user(drop.try(:tag).try(:user), self),
-       box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)}.merge({drops: [{drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: (drop.try(:created_at) - 7.minutes), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), sort_created_at: drop.try(:created_at), is_anonymous_rating: drop.try(:is_anonymous_rating), is_like: ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false ) }]})
+       box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)}.merge({drops: [{drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at).try(:localtime), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), sort_created_at: drop.try(:created_at), is_anonymous_rating: drop.try(:is_anonymous_rating), is_like: ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false ) }]})
     }
   end
   def following_drops_with_is_anonymous_false
@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
        is_locked: drop.try(:tag).try(:is_locked), is_post_to_wall: drop.try(:tag).try(:is_post_to_wall), is_private: drop.try(:tag).try(:is_private), open_date: drop.try(:tag).try(:open_date),
        close_date: drop.try(:tag).try(:close_date), box_creator_id: drop.try(:tag).try(:user_id), box_creator_image: drop.try(:tag).try(:user).try(:photo).try(:url),
        box_creator_name: drop.try(:tag).try(:user).try(:full_name), box_creator_user_name: drop.try(:tag).try(:user).try(:user_name), is_follower: check_user(drop.try(:tag).try(:user), self),
-       box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)}.merge({drops: [{drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: (drop.try(:created_at) - 7.minutes), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), sort_created_at: drop.try(:created_at), is_anonymous_rating: drop.try(:is_anonymous_rating), is_like: ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false ) }]})
+       box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)}.merge({drops: [{drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at).try(:localtime), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), sort_created_at: drop.try(:created_at), is_anonymous_rating: drop.try(:is_anonymous_rating), is_like: ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false ) }]})
     }
   end
   def following_users
@@ -195,13 +195,6 @@ class User < ActiveRecord::Base
         false
       end
     end
-  end
-  def check_user_following user, current_user
-    following = UserFollow.where(follow_id: current_user.id, user_id: user.id, is_approved: true)
-    following.present? ? true : false
-  end
-  def check_user_follower user, current_user
-    follower = UserFollow.where(follow_id: user.id, user_id: current_user.id, is_approved: true)
-    follower.present? ? true : false
+
   end
 end
