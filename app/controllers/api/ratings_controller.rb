@@ -11,6 +11,7 @@ class Api::RatingsController < Api::ApplicationController
     @user = current_user
     anonymous_rating = params[:request][:rating][:is_anonymous_rating]
     if @rating.save
+      @rating.update_attribute :created_at, @rating.created_at - 9.minutes
       # commented mail section
       # unless tag_creator_user_id.id == current_user.id
       #  SendMailToTagCreator.send_tag_creator(current_user, tag_creator_user_id.id, params[:request][:rating][:tag_id], anonymous_rating, tellum_host).deliver if tag_creator_user_id.email.present?
