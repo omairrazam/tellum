@@ -195,6 +195,25 @@ class User < ActiveRecord::Base
         false
       end
     end
-
+  end
+  def check_user_following(user, current_user)
+    if user.present?
+      following = UserFollow.where(follow_id: current_user.try(:id), user_id: user.try(:id), is_approved: true)
+      if following.present?
+        true
+      else
+        false
+      end
+    end
+  end
+  def check_user_follower(user, current_user)
+    if user.present?
+      following = UserFollow.where(follow_id: current_user.try(:id), user_id: user.try(:id), is_approved: true)
+      if following.present?
+        true
+      else
+        false
+      end
+    end
   end
 end
