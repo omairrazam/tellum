@@ -36,7 +36,7 @@ json.response do
 
             json.notification_id noti.id
             json.is_anonymous_user noti.is_anonymous_user
-            json.notification_created_at noti.try(:created_at)
+            json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_seen noti.is_seen
             json.object_name noti.object_name
           elsif noti.object_name ==  "Follow User"
@@ -54,7 +54,7 @@ json.response do
             json.user_full_name noti.try(:user).try(:full_name)
 
             json.notification_id noti.id
-            json.notification_created_at noti.try(:created_at)
+            json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
@@ -70,7 +70,7 @@ json.response do
 
 
             json.notification_id noti.id
-            json.notification_created_at noti.try(:created_at)
+            json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
@@ -87,7 +87,7 @@ json.response do
             json.box_title noti.try(:tag).try(:tag_line)
 
             json.notification_id noti.id
-            json.notification_created_at noti.try(:created_at)
+            json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
@@ -104,7 +104,7 @@ json.response do
 
             json.reveal_id noti.try(:reveal_id)
             json.notification_id noti.id
-            json.notification_created_at noti.try(:created_at)
+            json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
