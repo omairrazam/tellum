@@ -90,7 +90,8 @@ class Api::UsersController < Api::ApplicationController
           format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
         end
       else
-        @user = User.new params[:request][:user].merge!({skip_password_form: true})
+        user = params[:request][:user][:user_name]
+        user.present? ? (@user=User.new params[:request][:user].except(:user_name).merge!({skip_password_form: true, user_name: "#{params[:request][:user][:user_name]}#{rand(10)}"})) : (@user = User.new params[:request][:user].merge!({skip_password_form: true}))
         if @user.save
           get_api_message "200","Created"
           respond_to do |format|
@@ -109,13 +110,13 @@ class Api::UsersController < Api::ApplicationController
       end
     elsif
       user = User.find_by_user_name(params[:request][:user][:user_name])
-      if @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], user_name: params[:request][:user][:user_name])
+      if user.present?
         get_api_message "200","updated"
         respond_to do |format|
           format.html { redirect_to @user, notice: 'user was successfully updated.' }
           format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
         end
-      elsif user.present?
+      elsif @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], user_name: params[:request][:user][:user_name])
         @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], user_name: "#{params[:request][:user][:user_name]}#{rand(10)}")
         get_api_message "200","updated"
         respond_to do |format|
