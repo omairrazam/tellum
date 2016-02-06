@@ -65,9 +65,12 @@ class Api::RevealsController < ApplicationController
   end
   def revealed_user
     if params[:auth_token].present? && params[:notification_id]
+      current_user = User.find_by_authentication_token params[:auth_token]
       notification = Notification.find_by_id params[:notification_id]
       @reveal = Reveal.find notification.reveal_id
       if @reveal.present?
+        APNS.send_notification(User.find_by_id(notification.try(:sender_id)).try(:device_token), alert: "#{current_user.try(:full_name)} Viewed You.",badge: badge_count, sound: "default" )
+        Notification.create user_id: notification.try(:sender_id), reveal_id: @reveal.id, object_name: "Reveal Viewed", rating_id: notification.rating_id, sender_id: current_user.id
         notification.update_attribute :is_deleted, true if notification.present?
         get_api_message "200","success"
         respond_to do |format|
