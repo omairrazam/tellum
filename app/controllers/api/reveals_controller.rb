@@ -14,7 +14,7 @@ class Api::RevealsController < ApplicationController
         badge_count = receiver_id.try(:user).try(:badge_count) + 1
         receiver_id.try(:user).update_attributes badge_count: badge_count
         APNS.send_notification(receiver_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} revealed on #{receiver_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
-        Notification.create user_id: receiver_id.try(:user_id), reveal_id: @reveal.id, object_name: "reveal viewed", rating_id: params[:request][:rating_id], sender_id: current_user.id
+        Notification.create user_id: receiver_id.try(:user_id), reveal_id: @reveal.id, object_name: "Reveal Viewed", rating_id: params[:request][:rating_id], sender_id: current_user.id
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @reveal, notice: 'Reveal request sent successfully' }
@@ -35,7 +35,7 @@ class Api::RevealsController < ApplicationController
     @notification = Notification.find_by_reveal_id params[:request][:reveal_id]
     if @notification.present?
       if @notification.update_attributes status: params[:request][:status]
-        Notification.create(user_id: @reveal.user_id, reveal_id: @reveal.id, object_name: "reveal request accepted",
+        Notification.create(user_id: @reveal.user_id, reveal_id: @reveal.id, object_name: "Reveal Viewed Accepted",
                             rating_id: @reveal.rating_id, sender_id: @reveal.receiver_id) if params[:request][:status] == true
         badge_count = @reveal.try(:user).try(:badge_count) + 1
         @reveal.try(:user).update_attributes badge_count: badge_count
