@@ -125,13 +125,13 @@ class Api::UserFollowsController < Api::ApplicationController
       @accept_user_request = UserFollow.where(follow_id: params[:request][:user_id], user_id: current_user.id)
       if @accept_user_request.present?
         if params[:request][:is_approved] == false
-          @accept_user_request.first.delete
-          Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").delete_all
+          @accept_user_request.last.update_attribute :is_deleted, true
+          Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
         else
           @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
           Notification.create(user_id: params[:request][:user_id], object_name: "Accpted Follow Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
           APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} is accepted your follow request.",badge: (receiver.badge_count + 1), sound: "default" )
-          Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").delete_all
+          Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
         end
         get_api_message "200","You accepted friend request."
         respond_to do |format|

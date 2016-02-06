@@ -39,7 +39,7 @@ class Api::RevealsController < ApplicationController
         Notification.create(user_id: @reveal.user_id, reveal_id: @reveal.id, object_name: "Reveal Viewed Accepted",
                             rating_id: @reveal.rating_id, sender_id: @reveal.receiver_id) if params[:request][:status] == true
         badge_count = @reveal.try(:user).try(:badge_count) + 1
-        @notification.delete
+        @notification.update_attribute :is_deleted, true
         @reveal.try(:user).update_attributes badge_count: badge_count
         if params[:request][:status] == true
           APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal has been accepted",badge: badge_count, sound: "default" )
@@ -68,7 +68,7 @@ class Api::RevealsController < ApplicationController
       notification = Notification.find_by_id params[:notification_id]
       @reveal = Reveal.find notification.reveal_id
       if @reveal.present?
-        notification.delete if notification.present?
+        notification.update_attribute :is_deleted, true if notification.present?
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @reveal, notice: 'Reveal status updated successfully' }
