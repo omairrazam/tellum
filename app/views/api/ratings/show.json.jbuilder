@@ -3,7 +3,7 @@ json.response do
     json.status 'Ok'
     json.code 200
     json.message "Successfully Fetched drop"
-    json.drop do
+    json.rating do
       json.partial! 'rating_details', drop: @drop
       json.user do
         json.partial! 'user_details', user: @drop.try(:user)
