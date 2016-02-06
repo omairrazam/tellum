@@ -128,7 +128,7 @@ class Api::UserFollowsController < Api::ApplicationController
           @accept_user_request.first.delete
         else
           @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
-          Notification.create(user_id: params[:request][:user_id], object_name: "Accpted Follow User", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
+          Notification.create(user_id: params[:request][:user_id], object_name: "Accpted Follow Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
           APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} is accepted your follow request.",badge: (receiver.badge_count + 1), sound: "default" )
         end
         get_api_message "200","You accepted friend request."

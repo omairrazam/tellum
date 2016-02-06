@@ -13,9 +13,9 @@ class Api::CommentsController < Api::ApplicationController
       unless rating_creator_user_id.try(:user).id == @user
         APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} commented on #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
         if rating_creator_user_id.is_anonymous_rating == true
-          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
+          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
         else
-          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
+          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
         end
       end
       get_api_message "200","Created"

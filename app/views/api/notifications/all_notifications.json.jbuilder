@@ -39,7 +39,7 @@ json.response do
             json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_seen noti.is_seen
             json.object_name noti.object_name
-          elsif noti.object_name ==  "Follow User Request" || noti.object_name ==  "Accpted Follow User" || noti.object_name ==  "New Follower"
+          elsif noti.object_name ==  "Follow User Request" || noti.object_name ==  "Accpted Follow Request" || noti.object_name ==  "New Follower"
             json.sender_user_id noti.sender_id
             json.sender_user_profile_picture sender_pic
             json.sender_user_name sender_user_name
@@ -58,7 +58,7 @@ json.response do
             json.is_anonymous_user noti.is_anonymous_user
             json.is_seen noti.is_seen
             json.object_name noti.object_name
-          elsif noti.object_name == "comment"
+          elsif noti.object_name == "Comment"
             json.user_id noti.sender_id
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
@@ -75,7 +75,7 @@ json.response do
             json.is_seen noti.is_seen
             json.object_name noti.object_name
 
-          elsif noti.object_name == "like rating"
+          elsif noti.object_name == "Like Rating"
             json.user_id noti.sender_id
             json.user_profile_picture sender_pic
             json.user_name sender_user_name
