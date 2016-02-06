@@ -65,10 +65,10 @@ class Api::RevealsController < ApplicationController
   end
   def revealed_user
     if params[:auth_token].present? && params[:notification_id]
-      notification = Notification.find params[:notification_id]
+      notification = Notification.find_by_id params[:notification_id]
       @reveal = Reveal.find notification.reveal_id
       if @reveal.present?
-        notification.delete
+        notification.delete if notification.present?
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @reveal, notice: 'Reveal status updated successfully' }
