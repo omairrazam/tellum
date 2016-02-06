@@ -85,8 +85,8 @@ json.response do
 
             json.class_id noti.try(:rating_id)
             json.class_secondary_id noti.try(:reveal_id)
-            json.box_id noti.try(:tag_id)
-            json.box_title noti.try(:tag).try(:tag_line)
+            json.box_id noti.try(:rating).try(:tag_id)
+            json.box_title noti.try(:rating).try(:tag).try(:tag_line)
 
             json.reveal_id noti.try(:reveal_id)
             json.notification_id noti.id
