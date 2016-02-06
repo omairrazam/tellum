@@ -108,7 +108,7 @@ class Api::UsersController < Api::ApplicationController
           return render_response
         end
       end
-    elsif
+    elsif @user.present?
       user_name = User.find_by_user_name(params[:request][:user][:user_name])
       user = User.find_by_user_name(params[:request][:user][:user_name])
       if user.present? && user.present?
