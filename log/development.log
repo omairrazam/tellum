@@ -15266,3 +15266,62 @@ Processing by Api::RatingsController#show as JSON
   Rendered api/ratings/_user_details.json.jbuilder (0.2ms)
   Rendered api/ratings/show.json.jbuilder (11.9ms)
 Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 1.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:40:26 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  Rendered api/ratings/_rating_details.json.jbuilder (100.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered api/ratings/_user_details.json.jbuilder (0.7ms)
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  Rendered api/ratings/show.json.jbuilder (204.3ms)
+Completed 500 Internal Server Error in 367ms
+
+ActionView::Template::Error (Missing partial api/ratings/tag_deatils, api/application/tag_deatils, application/tag_deatils with {:locale=>[:en], :formats=>[:json], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/ahmirza/Projects/new/tellum_server/app/views"
+  * "/home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/bundler/gems/activeadmin-15649e468167/app/views"
+  * "/home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/kaminari-0.16.3/app/views"
+  * "/home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/devise-3.0.2/app/views"
+):
+    9:         json.partial! 'user_details', user: @drop.try(:user)
+    10:       end
+    11:       json.tag_line do
+    12:         json.partial! 'tag_deatils', tag: @drop.try(:tag)
+    13:         json.user do
+    14:           json.partial! 'user_details', user: @drop.try(:user)
+    15:         end
+  app/views/api/ratings/show.json.jbuilder:12:in `block (3 levels) in _app_views_api_ratings_show_json_jbuilder__3448745392089453218_56353320'
+  app/views/api/ratings/show.json.jbuilder:11:in `block (2 levels) in _app_views_api_ratings_show_json_jbuilder__3448745392089453218_56353320'
+  app/views/api/ratings/show.json.jbuilder:6:in `block in _app_views_api_ratings_show_json_jbuilder__3448745392089453218_56353320'
+  app/views/api/ratings/show.json.jbuilder:1:in `_app_views_api_ratings_show_json_jbuilder__3448745392089453218_56353320'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (45.4ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:40:46 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16[0m
+  [1m[35mUserRating Load (0.1ms)[0m  SELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1
+  Rendered api/ratings/_rating_details.json.jbuilder (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered api/ratings/_user_details.json.jbuilder (0.3ms)
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4[0m
+  Rendered api/ratings/_tag_details.json.jbuilder (3.2ms)
+  Rendered api/ratings/_user_details.json.jbuilder (0.3ms)
+  Rendered api/ratings/show.json.jbuilder (52.4ms)
+Completed 200 OK in 60ms (Views: 56.2ms | ActiveRecord: 0.9ms)
