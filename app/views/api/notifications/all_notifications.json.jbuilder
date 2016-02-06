@@ -65,8 +65,8 @@ json.response do
             json.user_full_name sender_full_name
             json.class_id noti.try(:rating_id)
             json.class_secondary_id ""
-            json.box_id noti.try(:tag_id)
-            json.box_title noti.try(:tag).try(:tag_line)
+            json.box_id noti.try(:rating).try(:tag_id)
+            json.box_title noti.try(:rating).try(:tag).try(:tag_line)
 
 
             json.notification_id noti.id
@@ -83,8 +83,8 @@ json.response do
 
             json.class_id noti.try(:rating_id)
             json.class_secondary_id ""
-            json.box_id noti.try(:tag_id)
-            json.box_title noti.try(:tag).try(:tag_line)
+            json.box_id noti.try(:rating).try(:tag_id)
+            json.box_title noti.try(:rating).try(:tag).try(:tag_line)
 
             json.notification_id noti.id
             json.notification_created_at (noti.try(:created_at) - 9.minutes)
