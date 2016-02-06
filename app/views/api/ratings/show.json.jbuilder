@@ -14,7 +14,7 @@ json.response do
       json.created_at @drop.created_at
       json.updated_at @drop.updated_at
       json.rating_like_count  @drop.rating_like_count
-      json.user_id @drop.user_id
+      #json.user_id @drop.user_id
       json.audio @drop.audio
       json.audio_duration @drop.audio_duration
       json.audio_file_url @drop.audio_file_url
