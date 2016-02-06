@@ -15181,3 +15181,88 @@ Processing by Api::RatingsController#show as JSON
   [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
   Rendered api/ratings/show.json.jbuilder (4.6ms)
 Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:25:39 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.2ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.6ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mRating Load (0.7ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  Rendered api/ratings/show.json.jbuilder (177.8ms)
+Completed 200 OK in 369ms (Views: 254.6ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:29:33 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered api/ratings/_user_details.json.jbuilder (2.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  Rendered api/ratings/_user_details.json.jbuilder (0.4ms)
+  Rendered api/ratings/show.json.jbuilder (38.2ms)
+Completed 200 OK in 46ms (Views: 41.9ms | ActiveRecord: 0.8ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:29:45 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.1ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered api/ratings/_user_details.json.jbuilder (48.0ms)
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  Rendered api/ratings/_user_details.json.jbuilder (0.6ms)
+  Rendered api/ratings/show.json.jbuilder (217.4ms)
+Completed 200 OK in 418ms (Views: 261.1ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:29:46 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.5ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered api/ratings/_user_details.json.jbuilder (1.9ms)
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  Rendered api/ratings/_user_details.json.jbuilder (0.3ms)
+  Rendered api/ratings/show.json.jbuilder (14.1ms)
+Completed 200 OK in 27ms (Views: 18.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/ratings.json?auth_token=AXZsb3JYS56XuzKgsbux&rating_id=16" for 127.0.0.1 at 2016-02-06 14:32:02 +0500
+Processing by Api::RatingsController#show as JSON
+  Parameters: {"auth_token"=>"AXZsb3JYS56XuzKgsbux", "rating_id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'AXZsb3JYS56XuzKgsbux' LIMIT 1
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 16 LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT `comments`.* FROM `comments` WHERE `comments`.`rating_id` = 16
+  [1m[36mUserRating Load (0.3ms)[0m  [1mSELECT `user_ratings`.* FROM `user_ratings` WHERE `user_ratings`.`user_id` = 29 AND `user_ratings`.`rating_id` = 16 ORDER BY `user_ratings`.`id` DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered api/ratings/_user_details.json.jbuilder (0.7ms)
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 4 LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`tag_id` = 4
+  Rendered api/ratings/_user_details.json.jbuilder (0.2ms)
+  Rendered api/ratings/show.json.jbuilder (11.9ms)
+Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 1.6ms)

@@ -24,26 +24,30 @@ json.response do
       json.comments @drop.try(:comments)
       json.is_like (UserRating.where(user_id: @user.try(:id), rating_id: @drop.id).try(:last).try(:is_like) || false)
       json.user do
-        json.id @drop.try(:user_id)
-        json.full_name @drop.try(:user).try(:full_name)
-        json.gender @drop.try(:user).try(:gender)
-        json.user_name @drop.try(:user).try(:user_name)
-        json.device_token @drop.try(:user).try(:device_token)
-        json.facebook_user_id @drop.try(:user).try(:facebook_user_id)
-        json.email @drop.try(:user).try(:email)
-        json.sign_in_count @drop.try(:user).try(:sign_in_count)
-        json.authentication_token @drop.try(:user).try(:authentication_token)
-        json.created_at @drop.try(:user).try(:created_at)
-        json.updated_at @drop.try(:user).try(:updated_at)
-        json.is_public_profile @drop.try(:user).try(:is_public_profile)
-        json.is_following @drop.try(:user).try(:is_following)
-        json.is_follower @drop.try(:user).try(:is_follower)
-        json.is_email_confirmed @drop.try(:user).try(:is_email_confirmed)
-        json.confirmation_token @drop.try(:user).try(:confirmation_token)
-        json.confirmation_sent_at @drop.try(:user).try(:confirmation_sent_at)
-        json.is_password_blank @drop.try(:user).try(:is_password_blank)
-        json.badge_count @drop.try(:user).try(:badge_count)
-        json.photo @drop.try(:user).try(:photo).try(:url)
+        json.partial! 'user_details', user: @drop.try(:user)
+      end
+      json.tag_line do
+        json.id @drop.try(:tag_id)
+        json.tag_line @drop.try(:tag).try(:tag_line)
+        json.tag_title @drop.try(:tag).try(:tag_title)
+        json.tag_description @drop.try(:tag).try(:tag_description)
+        json.open_date @drop.try(:tag).try(:open_date)
+        json.close_date @drop.try(:tag).try(:close_date)
+        json.is_private @drop.try(:tag).try(:is_private)
+        json.is_allow_anonymous @drop.try(:tag).try(:is_allow_anonymous)
+        json.is_post_to_wall @drop.try(:tag).try(:is_post_to_wall)
+        json.created_at @drop.try(:tag).try(:created_at)
+        json.updated_at @drop.try(:tag).try(:updated_at)
+        json.is_locked @drop.try(:tag).try(:is_locked)
+        json.updated_time @drop.try(:tag).try(:updated_time)
+        json.is_flagged @drop.try(:tag).try(:is_flagged)
+        json.expiry_time @drop.try(:tag).try(:expiry_time)
+        json.average_rating @drop.try(:tag).try(:average_rating)
+        json.total_rating @drop.try(:tag).try(:total_rating)
+
+        json.user do
+          json.partial! 'user_details', user: @drop.try(:user)
+        end
       end
 
     end
