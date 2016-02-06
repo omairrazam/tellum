@@ -39,7 +39,7 @@ json.response do
             json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_seen noti.is_seen
             json.object_name noti.object_name
-          elsif noti.object_name ==  "Follow User Request" || noti.object_name ==  "Accpted Follow User"
+          elsif noti.object_name ==  "Follow User Request" || noti.object_name ==  "Accpted Follow User" || noti.object_name ==  "New Follower"
             json.sender_user_id noti.sender_id
             json.sender_user_profile_picture sender_pic
             json.sender_user_name sender_user_name

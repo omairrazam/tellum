@@ -9,11 +9,11 @@ class Api::UserFollowsController < Api::ApplicationController
     @user = UserFollow.where(user_id: params[:request][:user_id], follow_id: current_user.id)
     receiver = User.find_by_id(params[:request][:user_id])
     if !@user.present?
-      @user_follow = UserFollow.new(user_id: params[:request][:user_id], follow_id: current_user.id)
+      @user_follow = UserFollow.new(user_id: params[:request][:user_id], follow_id: current_user.id, is_approved: true)
       if User.find_by_id(params[:request][:user_id]).is_public_profile == true
         if @user_follow.save
           APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} is now following you.",badge: (receiver.badge_count + 1), sound: "default" )
-          Notification.create(user_id: params[:request][:user_id], object_name: "Follow User Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
+          Notification.create(user_id: params[:request][:user_id], object_name: "New Follower", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
           get_api_message "200","You are following the user."
           respond_to do |format|
             format.html { redirect_to @user_follow, notice: 'You are following the user.' }
