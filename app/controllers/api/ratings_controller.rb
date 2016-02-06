@@ -18,7 +18,7 @@ class Api::RatingsController < Api::ApplicationController
       # end
       badge_count = tag_creator_user_id.try(:badge_count) + 1
       tag_creator_user_id.update_attributes badge_count: badge_count
-      if @rating.is_anonymous_rating == true
+      if anonymous_rating == true
         Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Dropped", sender_id: current_user.id, is_anonymous_user: true) if current_user.id != tag_creator_user_id.id
         APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "Anonymous dropped on #{tag.try(:tag_line)}",badge: badge_count, sound: "default" )
       else
