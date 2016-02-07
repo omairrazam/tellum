@@ -141,7 +141,7 @@ class Api::UsersController < Api::ApplicationController
     @user = User.find_by_twitter_user_id(params[:request][:user][:twitter_user_id])
     if @user.present?
       if @user.is_password_blank == true
-        @user.update_attributes(twitter_user_id: params[:request][:user][:twitter_user_id], about_me: params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
+        @user.update_attribute(:about_me, params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
         get_api_message "200","auth_token sent"
         respond_to do |format|
           format.html { redirect_to @user, notice: 'Sent authentication token.' }
@@ -149,7 +149,7 @@ class Api::UsersController < Api::ApplicationController
         end
       elsif @user.is_password_blank == false
         get_api_message "200","Please complete your profile first."
-        @user.update_attributes(twitter_user_id: params[:request][:user][:twitter_user_id], about_me: params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
+        @user.update_attribute(:about_me, params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
         respond_to do |format|
           format.html { redirect_to @user, notice: 'Complete your profile.' }
           format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
