@@ -32,111 +32,72 @@ class Api::UsersController < Api::ApplicationController
     end
   end
   def facebook_login
-    @user = User.find_by_facebook_user_id(params[:request][:user][:facebook_user_id]) #User.find_by_email(params[:request][:user][:email]) &&
-    #if @user.nil?
-    #  if @user.find_with_email(params[:request][:user][:email]).nil?
-    #    User.new params[:request][:user].merge!({blank_password: true})
-    #    if @user.save
-    #      get_api_message "200","Created"
-    #      respond_to do |format|
-    #        format.html { redirect_to @user, notice: 'user was successfully created.' }
-    #        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-    #      end
-    #    else
-    #      if !@user.errors.empty?
-    #        get_api_message "501","Invalid Request"
-    #        @errors=get_model_error(@user)
-    #        return render_errors
-    #      end
-    #      get_api_message "404","Record could not be created"
-    #      return render_response
-    #    end
-    #  else
-    #    @user.update_attributes merged_account: true
-    #    get_api_message "200","Merged Account"
-    #    respond_to do |format|
-    #      format.html { redirect_to @user, notice: 'user was successfully merged.' }
-    #      format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-    #    end
-    #  end
-    #else
-    #  if @user.merged_account == true
-    #    get_api_message "200","login"
-    #    respond_to do |format|
-    #      format.html { redirect_to @user, notice: 'user was successfully created.' }
-    #      format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-    #    end
-    #  elsif @user.blank_password == true
-    #    get_api_message "501","Please complete your profile first"
-    #    respond_to do |format|
-    #      format.html { redirect_to @user, notice: 'please complete your profile first.' }
-    #      format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :user => @user.hide_fields } } }
-    #    end
-    #  else
-    #    get_api_message "200","login"
-    #    respond_to do |format|
-    #      format.html { redirect_to @user, notice: 'user was successfully found.' }
-    #      format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-    #    end
-    #  end
-    #end
-    if @user.nil?
-      if User.find_by_email(params[:request][:user][:email]).present?
-        @user = User.find_by_email(params[:request][:user][:email])
-        @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], device_token: params[:request][:user][:device_token]) if params[:request][:user][:facebook_user_id].present?
-        get_api_message "200","Successful login."
-        respond_to do |format|
-          format.html { redirect_to @user, notice: 'user was successfully created.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-        end
-      else
-        user = User.find_by_user_name(params[:request][:user][:user_name])
-        user.present? ? (@user=User.new params[:request][:user].except(:user_name).merge!({skip_password_form: true, user_name: "#{params[:request][:user][:user_name]}#{rand(10)}"})) : (@user = User.new params[:request][:user].merge!({skip_password_form: true}))
-        if params[:request][:user][:facebook_user_id].present?
-          if @user.save
-            get_api_message "200","Created"
-            respond_to do |format|
-              format.html { redirect_to @user, notice: 'user was successfully created.' }
-              format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+    if params[:request][:user][:facebook_user_id].present?
+      @user = User.find_by_facebook_user_id(params[:request][:user][:facebook_user_id]) #User.find_by_email(params[:request][:user][:email]) &&
+      if @user.nil?
+        if User.find_by_email(params[:request][:user][:email]).present?
+          @user = User.find_by_email(params[:request][:user][:email])
+          @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], device_token: params[:request][:user][:device_token]) if params[:request][:user][:facebook_user_id].present?
+          get_api_message "200","Successful login."
+          respond_to do |format|
+            format.html { redirect_to @user, notice: 'user was successfully created.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+          end
+        else
+          user = User.find_by_user_name(params[:request][:user][:user_name])
+          user.present? ? (@user=User.new params[:request][:user].except(:user_name).merge!({skip_password_form: true, user_name: "#{params[:request][:user][:user_name]}#{rand(10)}"})) : (@user = User.new params[:request][:user].merge!({skip_password_form: true}))
+          if params[:request][:user][:facebook_user_id].present?
+            if @user.save
+              get_api_message "200","Created"
+              respond_to do |format|
+                format.html { redirect_to @user, notice: 'user was successfully created.' }
+                format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+              end
+            else
+              if !@user.errors.empty?
+                get_api_message "501","Invalid Request"
+                @errors=get_model_error(@user)
+                return render_errors
+              end
+              get_api_message "404","Record could not be created"
+              return render_response
             end
-          else
-            if !@user.errors.empty?
-              get_api_message "501","Invalid Request"
-              @errors=get_model_error(@user)
-              return render_errors
-            end
-            get_api_message "404","Record could not be created"
-            return render_response
           end
         end
-      end
-    elsif @user.present?  
-      #user_name = User.find_by_user_name(params[:request][:user][:user_name])
-      user = User.find_by_user_name(params[:request][:user][:user_name])
-      if user.present?
-        @user.update_attribute :device_token, params[:request][:user][:device_token]
-        get_api_message "200","updated"
-        respond_to do |format|
-          format.html { redirect_to @user, notice: 'user was successfully updated.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-        end
-      elsif @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], user_name: "#{params[:request][:user][:user_name]}#{rand(10)}", device_token: params[:request][:user][:device_token])
-        get_api_message "200","updated"
-        respond_to do |format|
-          format.html { redirect_to @user, notice: 'user was successfully updated.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+      elsif @user.present?
+        #user_name = User.find_by_user_name(params[:request][:user][:user_name])
+        user = User.find_by_user_name(params[:request][:user][:user_name])
+        if user.present?
+          @user.update_attribute :device_token, params[:request][:user][:device_token]
+          get_api_message "200","updated"
+          respond_to do |format|
+            format.html { redirect_to @user, notice: 'user was successfully updated.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+          end
+        elsif @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], user_name: "#{params[:request][:user][:user_name]}#{rand(10)}", device_token: params[:request][:user][:device_token])
+          get_api_message "200","updated"
+          respond_to do |format|
+            format.html { redirect_to @user, notice: 'user was successfully updated.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+          end
+        else
+          get_api_message "501","Error"
+          respond_to do |format|
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@user.errors.messages.collect{ |key,value| "#{key.try(:capitalize)} #{value[0]}"  }.join(". ") } } }
+          end
         end
       else
-        get_api_message "501","Error"
+        get_api_message "501","Invalid request"
         respond_to do |format|
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@user.errors.messages.collect{ |key,value| "#{key.try(:capitalize)} #{value[0]}"  }.join(". ") } } }
+          format.html { redirect_to @user, notice: 'Invalid request.' }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message  } } }
         end
       end
     else
       get_api_message "501","Invalid request"
       respond_to do |format|
         format.html { redirect_to @user, notice: 'Invalid request.' }
-        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => { :about_me => @user.about_me, :created_at => @user.created_at, :device_token => @user.device_token, :email => @user.email, :facebook_user_id => @user.facebook_user_id, :full_name => @user.full_name, :gender => @user.gender, :id => @user.id, :location => @user.location, :phone => @user.phone, :photo => @user.photo.url, :twitter_user_id => @user.twitter_user_id, :updated_at => @user.updated_at, :user_name => @user.user_name, :authentication_token => @user.authentication_token } } } }
+        format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message  } } }
       end
     end
   end
