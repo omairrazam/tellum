@@ -108,10 +108,10 @@ class Api::UsersController < Api::ApplicationController
           return render_response
         end
       end
-    elsif @user.present?
-      user_name = User.find_by_user_name(params[:request][:user][:user_name])
+    elsif @user.present?  
+      #user_name = User.find_by_user_name(params[:request][:user][:user_name])
       user = User.find_by_user_name(params[:request][:user][:user_name])
-      if user.present? && user.present?
+      if user.present?
         get_api_message "200","updated"
         respond_to do |format|
           format.html { redirect_to @user, notice: 'user was successfully updated.' }
