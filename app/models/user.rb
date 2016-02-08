@@ -97,7 +97,8 @@ class User < ActiveRecord::Base
   end
 
   def user_created_and_following_boxes
-    Tag.where('close_date is not NULL AND user_id = ? OR user_id IN (?)', self.id, following_users.collect{|user| user.id}).collect do |tag|
+    @tags = Tag.where('close_date is NOT NULL AND user_id = ? OR user_id IN (?)', self.id, following_users.collect{|user| user.id})
+    @tags.map do |tag|
       {box_id: tag.try(:id),is_drop_story: false, box_creator_name: tag.try(:user).try(:full_name), box_name: tag.try(:tag_line), box_created_at: tag.try(:created_at), sort_created_at: tag.try(:created_at), box_title: tag.try(:tag_title), is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged),is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_description: tag.try(:tag_description), box_creator_id: tag.try(:user_id), box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self),box_expiry: tag.try(:expiry_time), box_total_drops: tag.try(:ratings).try(:count)}.merge({drops: tag.try(:ratings).order("rating_like_count desc").limit(3).collect{|drop| {drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), is_anonymous_rating: drop.try(:is_anonymous_rating), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), is_like: ( UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false )}}})
     end
   end
