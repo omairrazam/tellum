@@ -15390,3 +15390,418 @@ Migrating to AddIsDeletedToNotifications (20160206194354)
   [1m[35m (640.3ms)[0m  ALTER TABLE `notifications` ADD `is_deleted` tinyint(1) DEFAULT 0
   [1m[36m (99.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160206194354')[0m
   [1m[35m (0.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+
+
+Started GET "/api/sessions/sign_out.json?auth_token=toB4Pj9dmFkYYTwB78AC" for 127.0.0.1 at 2016-02-09 00:04:55 +0500
+
+ActionController::RoutingError (No route matches [GET] "/api/sessions/sign_out.json"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (32.4ms)
+
+
+Started DELETE "/api/sessions/sign_out.json?auth_token=toB4Pj9dmFkYYTwB78AC" for 127.0.0.1 at 2016-02-09 00:05:02 +0500
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"auth_token"=>"toB4Pj9dmFkYYTwB78AC"}
+  [1m[36mUser Load (61.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'toB4Pj9dmFkYYTwB78AC' LIMIT 1[0m
+  [1m[35mMessage Load (28.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 282ms (Views: 0.3ms | ActiveRecord: 94.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started DELETE "/api/sessions/sign_out.json?auth_token=rTBnYufApbg1HSqexu3S" for 127.0.0.1 at 2016-02-09 00:16:27 +0500
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"auth_token"=>"rTBnYufApbg1HSqexu3S"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'rTBnYufApbg1HSqexu3S' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (74.0ms)[0m  UPDATE `users` SET `authentication_token` = '8RsxLTXHxYnbGN3mvCVy', `updated_at` = '2016-02-08 19:16:27' WHERE `users`.`id` = 1
+  [1m[36m (84.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mUPDATE `users` SET `device_token` = '', `updated_at` = '2016-02-08 19:16:27' WHERE `users`.`id` = 1[0m
+  [1m[35m (59.4ms)[0m  COMMIT
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 500 Internal Server Error in 399ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/api/sessions_controller.rb:34:in `block (2 levels) in destroy'
+  app/controllers/api/sessions_controller.rb:32:in `destroy'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/users/login.json" for 127.0.0.1 at 2016-02-09 00:19:39 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"user"{"user_name":"admin@example.com","password":"password"}}}'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1668493331557606746__call__3458630863520496574__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.3ms)
+
+
+Started POST "/api/users/login.json" for 127.0.0.1 at 2016-02-09 00:19:50 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"user"{"user_name":"admin@example.com","password":"password"}}}'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1668493331557606746__call__3458630863520496574__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started POST "/api/users/login.json" for 127.0.0.1 at 2016-02-09 00:22:01 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+MultiJson::ParseError (795: unexpected token at '{"request":{"user"{"user_name":"admin@example.com","password":"password","device_token":"12345678"}}}'):
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  json (1.8.2) lib/json/common.rb:155:in `parse'
+  multi_json (1.11.0) lib/multi_json/adapters/json_common.rb:14:in `load'
+  multi_json (1.11.0) lib/multi_json/adapter.rb:21:in `load'
+  multi_json (1.11.0) lib/multi_json.rb:119:in `load'
+  activesupport (3.2.13) lib/active_support/json/decoding.rb:15:in `decode'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:47:in `parse_formatted_parameters'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:17:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1668493331557606746__call__3458630863520496574__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started POST "/api/users/login.json" for 127.0.0.1 at 2016-02-09 00:22:19 +0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "password"=>"[FILTERED]", "device_token"=>"12345678"}}, "session"=>{"request"=>{"user"=>{"user_name"=>"admin@example.com", "password"=>"[FILTERED]", "device_token"=>"12345678"}}}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 92ms (Views: 0.5ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/api/users/login.json" for 127.0.0.1 at 2016-02-09 00:23:02 +0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "password"=>"[FILTERED]", "device_token"=>"12345678"}}, "session"=>{"request"=>{"user"=>{"user_name"=>"admin@example.com", "password"=>"[FILTERED]", "device_token"=>"12345678"}}}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1
+Connecting to database specified by database.yml
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'ali.hassan.mirza786@gmail.com' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 108680ms (Views: 0.6ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/api/users/login.json" for 127.0.0.1 at 2016-02-09 00:26:49 +0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "facebook_user_id"=>"123456ttttt"}}, "session"=>{"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "facebook_user_id"=>"123456ttttt"}}}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 404 LIMIT 1
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 6.8ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2016-02-09 00:27:32 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "facebook_user_id"=>"123456ttttt"}}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = '123456ttttt' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (32.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY '123456ttttt' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 501 LIMIT 1
+Completed 200 OK in 571ms (Views: 1.0ms | ActiveRecord: 34.0ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2016-02-09 00:27:49 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "facebook_user_id"=>"123456ttttt", "full_name"=>"ali"}}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = '123456ttttt' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`facebook_user_id` = BINARY '123456ttttt' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'fs2FyXmTgxds1TBL399B' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'Jet1St16hejBZNBHdGe4' LIMIT 1
+  [1m[36mSQL (25.3ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'fs2FyXmTgxds1TBL399B', 0, NULL, '2016-02-08 19:27:49', 'Jet1St16hejBZNBHdGe4', NULL, '2016-02-08 19:27:49', NULL, NULL, '12345678', '', '', '123456ttttt', 'ali', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2016-02-08 19:27:49', 'admin@example.com')[0m
+  [1m[35m (62.2ms)[0m  COMMIT
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 30 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 30 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 30 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 174ms (Views: 1.6ms | ActiveRecord: 93.2ms)
+
+
+Started DELETE "/api/sessions/sign_out.json?auth_token=fs2FyXmTgxds1TBL399B" for 127.0.0.1 at 2016-02-09 00:29:02 +0500
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"auth_token"=>"fs2FyXmTgxds1TBL399B"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'fs2FyXmTgxds1TBL399B' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'pG1MzxroRtwZzg5GCwGY' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `authentication_token` = 'pG1MzxroRtwZzg5GCwGY', `updated_at` = '2016-02-08 19:29:02' WHERE `users`.`id` = 30
+  [1m[36m (45.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `device_token` = '', `updated_at` = '2016-02-08 19:29:02' WHERE `users`.`id` = 30[0m
+  [1m[35m (51.7ms)[0m  COMMIT
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+Completed 200 OK in 115ms (Views: 0.4ms | ActiveRecord: 99.0ms)
+
+
+Started POST "/api/sessions/sign_out.json?auth_token=fs2FyXmTgxds1TBL399B" for 127.0.0.1 at 2016-02-09 00:29:35 +0500
+
+ActionController::RoutingError (No route matches [POST] "/api/sessions/sign_out.json"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/ahmirza/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2016-02-09 00:30:13 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "twitter_user_id"=>"123456ttttt", "full_name"=>"ali"}}, "user"=>{}}
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123456ttttt' LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`user_name` = 'admin@example.com2' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`twitter_user_id` = BINARY '123456ttttt' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'oUoEA8pjy7ucQySmMJwD' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'BJk7FYycr1yzL7wXMr6n' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `users` (`about_me`, `authentication_token`, `badge_count`, `blank_password`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `device_token`, `email`, `encrypted_password`, `facebook_user_id`, `full_name`, `gender`, `is_email_confirmed`, `is_follower`, `is_following`, `is_password_blank`, `is_public_profile`, `last_sign_in_at`, `last_sign_in_ip`, `location`, `merged_account`, `phone`, `photo`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `reveal_id`, `sign_in_count`, `twitter_user_id`, `unconfirmed_email`, `updated_at`, `user_name`) VALUES (NULL, 'oUoEA8pjy7ucQySmMJwD', 0, NULL, '2016-02-08 19:30:22', 'BJk7FYycr1yzL7wXMr6n', NULL, '2016-02-08 19:30:22', NULL, NULL, '12345678', '', '', NULL, 'ali', NULL, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '123456ttttt', NULL, '2016-02-08 19:30:22', 'admin@example.com2')[0m
+  [1m[35m (50.6ms)[0m  COMMIT
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 31 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 31 AND `user_follows`.`is_approved` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 31 AND `user_follows`.`is_approved` = 1
+Completed 200 OK in 8754ms (Views: 1.6ms | ActiveRecord: 65.4ms)
+
+
+Started POST "/api/users/facebook_login.json" for 127.0.0.1 at 2016-02-09 00:41:58 +0500
+Processing by Api::UsersController#facebook_login as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "facebook_user_id"=>"123456ttttt", "full_name"=>"ali"}}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`facebook_user_id` = '123456ttttt' LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`user_name` = 'admin@example.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  UPDATE `users` SET `device_token` = '12345678', `updated_at` = '2016-02-08 19:41:58' WHERE `users`.`id` = 30
+  [1m[36m (46.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 30 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 30 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 30 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 168ms (Views: 2.7ms | ActiveRecord: 58.4ms)
+
+
+Started DELETE "/api/sessions/sign_out.json?auth_token=pG1MzxroRtwZzg5GCwGY" for 127.0.0.1 at 2016-02-09 00:42:39 +0500
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"auth_token"=>"pG1MzxroRtwZzg5GCwGY"}
+  [1m[35mUser Load (2.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'pG1MzxroRtwZzg5GCwGY' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'ZU9CxRhdcu7a94emLXqe' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `users` SET `authentication_token` = 'ZU9CxRhdcu7a94emLXqe', `updated_at` = '2016-02-08 19:42:39' WHERE `users`.`id` = 30[0m
+  [1m[35m (46.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `device_token` = '', `updated_at` = '2016-02-08 19:42:39' WHERE `users`.`id` = 30
+  [1m[36m (63.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+Completed 200 OK in 133ms (Views: 1.1ms | ActiveRecord: 114.9ms)
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2016-02-09 00:43:13 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "twitter_user_id"=>"123456ttttt", "full_name"=>"ali"}}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123456ttttt' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 31 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 31 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 31 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 62ms (Views: 46.6ms | ActiveRecord: 1.1ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/users/twitter_login.json" for 127.0.0.1 at 2016-02-09 00:43:26 +0500
+Processing by Api::UsersController#twitter_login as JSON
+  Parameters: {"request"=>{"user"=>{"user_name"=>"admin@example.com", "device_token"=>"12345678", "twitter_user_id"=>"123456ttttt", "full_name"=>"ali"}}, "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`twitter_user_id` = '123456ttttt' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 31 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 31 AND `user_follows`.`is_approved` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 31 AND `user_follows`.`is_approved` = 1[0m
+Completed 200 OK in 6375ms (Views: 3.4ms | ActiveRecord: 4.5ms)
