@@ -66,9 +66,9 @@ class Api::UsersController < Api::ApplicationController
         end
       elsif @user.present?
         #user_name = User.find_by_user_name(params[:request][:user][:user_name])
-        user = User.find_by_user_name(params[:request][:user][:user_name])
-        if user.present?
-          @user.update_attribute :device_token, params[:request][:user][:device_token]
+        #user = User.find_by_user_name(params[:request][:user][:user_name])
+        if @user.update_attribute :device_token, params[:request][:user][:device_token]
+          #@user.update_attribute :device_token, params[:request][:user][:device_token]
           get_api_message "200","updated"
           respond_to do |format|
             format.html { redirect_to @user, notice: 'user was successfully updated.' }
