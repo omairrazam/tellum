@@ -74,7 +74,7 @@ class Api::UsersController < Api::ApplicationController
             format.html { redirect_to @user, notice: 'user was successfully updated.' }
             format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
           end
-        elsif @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], user_name: "#{params[:request][:user][:user_name]}#{rand(10)}", device_token: params[:request][:user][:device_token])
+        elsif @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], device_token: params[:request][:user][:device_token])
           get_api_message "200","updated"
           respond_to do |format|
             format.html { redirect_to @user, notice: 'user was successfully updated.' }
