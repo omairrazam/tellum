@@ -15805,3 +15805,4 @@ Processing by Api::UsersController#twitter_login as JSON
   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`user_id` = 31 AND `user_follows`.`is_approved` = 1
   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `user_follows` WHERE `user_follows`.`follow_id` = 31 AND `user_follows`.`is_approved` = 1[0m
 Completed 200 OK in 6375ms (Views: 3.4ms | ActiveRecord: 4.5ms)
+Connecting to database specified by database.yml

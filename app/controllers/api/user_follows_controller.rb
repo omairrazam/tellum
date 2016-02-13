@@ -68,7 +68,7 @@ class Api::UserFollowsController < Api::ApplicationController
         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message }} }
       end
     else
-      get_api_message "405","User request has been sent for approval."
+      get_api_message "200","User request has been sent for approval."
       return render_response
     end
   end
@@ -122,10 +122,10 @@ class Api::UserFollowsController < Api::ApplicationController
     if params[:request][:user_id].present? && params[:auth_token].present? && !params[:request][:is_approved].nil?
       current_user = User.find_by_authentication_token(params[:auth_token])
       receiver = User.find_by_id(params[:request][:user_id])
-      @accept_user_request = UserFollow.where(follow_id: params[:request][:user_id], user_id: current_user.id)
+      @accept_user_request = UserFollow.find_by_follow_id_and_user_id(params[:request][:user_id], current_user.id)
       if @accept_user_request.present?
         if params[:request][:is_approved] == false
-          @accept_user_request.last.update_attribute :is_deleted, true
+          @accept_user_request.last.delete
           Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
         else
           @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
