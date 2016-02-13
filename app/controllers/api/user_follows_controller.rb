@@ -125,7 +125,7 @@ class Api::UserFollowsController < Api::ApplicationController
       @accept_user_request = UserFollow.find_by_follow_id_and_user_id(params[:request][:user_id], current_user.id)
       if @accept_user_request.present?
         if params[:request][:is_approved] == false
-          @accept_user_request.last.delete
+          @accept_user_request.delete
           Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
         else
           @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
