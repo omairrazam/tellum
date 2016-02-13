@@ -41,7 +41,7 @@ class Api::UserFollowsController < Api::ApplicationController
         return render_response
       end
     else
-      get_api_message "406","You have already sent a request."
+      get_api_message "200","You have already sent a request."
       return render_response
     end
   end
