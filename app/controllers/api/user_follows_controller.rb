@@ -127,16 +127,21 @@ class Api::UserFollowsController < Api::ApplicationController
         if params[:request][:is_approved] == false
           @accept_user_request.delete
           Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
+          get_api_message "200","You Ignored #{receiver.user_name}'s' friend request."
+          respond_to do |format|
+            format.html { redirect_to @user_follow, notice: 'You accept a request.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user_id => params[:request][:user_id] }} }
+          end
         else
           @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
           Notification.create(user_id: params[:request][:user_id], object_name: "Accpted Follow Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
           APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} is accepted your follow request.",badge: (receiver.badge_count + 1), sound: "default" )
           Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
-        end
-        get_api_message "200","You accepted friend request."
-        respond_to do |format|
-          format.html { redirect_to @user_follow, notice: 'You accept a request.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user_id => params[:request][:user_id] }} }
+          get_api_message "200","You accepted friend request."
+          respond_to do |format|
+            format.html { redirect_to @user_follow, notice: 'You accept a request.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user_id => params[:request][:user_id] }} }
+          end
         end
       else
         get_api_message "404","User not found."
