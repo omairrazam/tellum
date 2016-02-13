@@ -13,7 +13,7 @@ class Api::RevealsController < ApplicationController
       if @reveal.save
         badge_count = receiver_id.try(:user).try(:badge_count) + 1
         receiver_id.try(:user).update_attributes badge_count: badge_count
-        APNS.send_notification(receiver_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} revealed on #{receiver_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
+        APNS.send_notification(receiver_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} requests a reveal for your comment in #{receiver_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
         Notification.create user_id: receiver_id.try(:user_id), reveal_id: @reveal.id, object_name: "Reveal Request", rating_id: params[:request][:rating_id], sender_id: current_user.id
         #"Reveal Viewed"
         get_api_message "200","success"
@@ -42,9 +42,9 @@ class Api::RevealsController < ApplicationController
         @notification.update_attribute :is_deleted, true
         @reveal.try(:user).update_attributes badge_count: badge_count
         if params[:request][:status] == true
-          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal has been accepted",badge: badge_count, sound: "default" )
+          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal request has been accepted",badge: badge_count, sound: "default" )
         else
-          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal has been rejected",badge: badge_count, sound: "default" )
+          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal request has been rejected",badge: badge_count, sound: "default" )
         end
         @reveal.update_attributes status: params[:request][:status]
         get_api_message "200","success"
