@@ -41,7 +41,7 @@ class Api::UserFollowsController < Api::ApplicationController
         return render_response
       end
     else
-      get_api_message "200","You have already sent a request."
+      get_api_message "406","You have already sent a request."
       return render_response
     end
   end
@@ -68,7 +68,7 @@ class Api::UserFollowsController < Api::ApplicationController
         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message }} }
       end
     else
-      get_api_message "200","User request has been sent for approval."
+      get_api_message "405","User request has been sent for approval."
       return render_response
     end
   end
