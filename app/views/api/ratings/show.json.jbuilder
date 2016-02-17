@@ -11,7 +11,7 @@ json.response do
       json.tag_line do
         json.partial! 'tag_details', tag: @drop.try(:tag)
         json.user do
-          json.partial! 'user_details', user: @drop.try(:user)
+          json.partial! 'user_details', user: @drop.try(:tag).try(:user)
         end
       end
 
