@@ -89,6 +89,8 @@ json.response do
             json.box_title noti.try(:rating).try(:tag).try(:tag_line)
 
             json.reveal_id noti.try(:reveal_id)
+            json.is_revealed_viewed noti.try(:is_revealed_viewed) || false
+
             json.notification_id noti.id
             json.notification_created_at (noti.try(:created_at) - 9.minutes)
             json.is_anonymous_user noti.is_anonymous_user
