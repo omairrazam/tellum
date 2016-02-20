@@ -15874,3 +15874,243 @@ Migrating to AddIsRevealedViewedToReveal (20160220163417)
   [1m[35m (564.4ms)[0m  ALTER TABLE `reveals` ADD `is_revealed_viewed` tinyint(1) DEFAULT 0
   [1m[36m (55.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160220163417')[0m
   [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=8RsxLTXHxYnbGN3mvCVy" for 127.0.0.1 at 2016-02-20 21:39:59 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy"}
+  [1m[36mUser Load (20.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.4ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-01-30 14:15:57', `current_sign_in_at` = '2016-02-20 16:39:59', `sign_in_count` = 44, `updated_at` = '2016-02-20 16:39:59' WHERE `users`.`id` = 1
+  [1m[36m (84.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0)[0m
+  [1m[35mNotification Load (0.7ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0) ORDER BY created_at desc
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/notifications/all_notifications.json.jbuilder (202.2ms)
+Completed 500 Internal Server Error in 619ms
+
+ActionView::Template::Error (undefined method `is_revealed_viewed' for #<Notification:0x00000005f8b9c0>):
+    89:             json.box_title noti.try(:rating).try(:tag).try(:tag_line)
+    90: 
+    91:             json.reveal_id noti.try(:reveal_id)
+    92:             json.is_revealed_viewed noti.try(:is_revealed_viewed) || false
+    93: 
+    94:             json.notification_id noti.id
+    95:             json.notification_created_at (noti.try(:created_at) - 9.minutes)
+  app/views/api/notifications/all_notifications.json.jbuilder:92:in `block (2 levels) in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_49466340'
+  app/views/api/notifications/all_notifications.json.jbuilder:7:in `block in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_49466340'
+  app/views/api/notifications/all_notifications.json.jbuilder:1:in `_app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_49466340'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.0ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=8RsxLTXHxYnbGN3mvCVy" for 127.0.0.1 at 2016-02-20 21:40:01 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-02-20 16:39:59', `current_sign_in_at` = '2016-02-20 16:40:01', `sign_in_count` = 45, `updated_at` = '2016-02-20 16:40:01' WHERE `users`.`id` = 1[0m
+  [1m[35m (242.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0)
+  [1m[36mNotification Load (0.1ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0) ORDER BY created_at desc[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  Rendered api/notifications/all_notifications.json.jbuilder (9.5ms)
+Completed 500 Internal Server Error in 269ms
+
+ActionView::Template::Error (undefined method `is_revealed_viewed' for #<Notification:0x00000005bf3f38>):
+    89:             json.box_title noti.try(:rating).try(:tag).try(:tag_line)
+    90: 
+    91:             json.reveal_id noti.try(:reveal_id)
+    92:             json.is_revealed_viewed noti.try(:is_revealed_viewed) || false
+    93: 
+    94:             json.notification_id noti.id
+    95:             json.notification_created_at (noti.try(:created_at) - 9.minutes)
+  app/views/api/notifications/all_notifications.json.jbuilder:92:in `block (2 levels) in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_49466340'
+  app/views/api/notifications/all_notifications.json.jbuilder:7:in `block in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_49466340'
+  app/views/api/notifications/all_notifications.json.jbuilder:1:in `_app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_49466340'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=8RsxLTXHxYnbGN3mvCVy" for 127.0.0.1 at 2016-02-20 21:40:49 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-02-20 16:40:01', `current_sign_in_at` = '2016-02-20 16:40:49', `sign_in_count` = 46, `updated_at` = '2016-02-20 16:40:49' WHERE `users`.`id` = 1
+  [1m[36m (59.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0)[0m
+  [1m[35mNotification Load (0.1ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0) ORDER BY created_at desc
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/notifications/all_notifications.json.jbuilder (21.6ms)
+Completed 500 Internal Server Error in 97ms
+
+ActionView::Template::Error (undefined local variable or method `reveal' for #<#<Class:0x0000000466e348>:0x000000060a2c28>):
+    89:             json.box_title noti.try(:rating).try(:tag).try(:tag_line)
+    90: 
+    91:             json.reveal_id noti.try(:reveal_id)
+    92:             json.is_revealed_viewed noti.try(reveal).try(:is_revealed_viewed) || false
+    93: 
+    94:             json.notification_id noti.id
+    95:             json.notification_created_at (noti.try(:created_at) - 9.minutes)
+  app/views/api/notifications/all_notifications.json.jbuilder:92:in `block (2 levels) in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_50662300'
+  app/views/api/notifications/all_notifications.json.jbuilder:7:in `block in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_50662300'
+  app/views/api/notifications/all_notifications.json.jbuilder:1:in `_app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_50662300'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=8RsxLTXHxYnbGN3mvCVy" for 127.0.0.1 at 2016-02-20 21:40:50 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-02-20 16:40:49', `current_sign_in_at` = '2016-02-20 16:40:50', `sign_in_count` = 47, `updated_at` = '2016-02-20 16:40:50' WHERE `users`.`id` = 1[0m
+  [1m[35m (77.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0)
+  [1m[36mNotification Load (0.1ms)[0m  [1mSELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0) ORDER BY created_at desc[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  Rendered api/notifications/all_notifications.json.jbuilder (53.3ms)
+Completed 500 Internal Server Error in 141ms
+
+ActionView::Template::Error (undefined local variable or method `reveal' for #<#<Class:0x0000000466e348>:0x000000061ea590>):
+    89:             json.box_title noti.try(:rating).try(:tag).try(:tag_line)
+    90: 
+    91:             json.reveal_id noti.try(:reveal_id)
+    92:             json.is_revealed_viewed noti.try(reveal).try(:is_revealed_viewed) || false
+    93: 
+    94:             json.notification_id noti.id
+    95:             json.notification_created_at (noti.try(:created_at) - 9.minutes)
+  app/views/api/notifications/all_notifications.json.jbuilder:92:in `block (2 levels) in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_50662300'
+  app/views/api/notifications/all_notifications.json.jbuilder:7:in `block in _app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_50662300'
+  app/views/api/notifications/all_notifications.json.jbuilder:1:in `_app_views_api_notifications_all_notifications_json_jbuilder___4166080711915951549_50662300'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/api/notifications/all_notifications.json?auth_token=8RsxLTXHxYnbGN3mvCVy" for 127.0.0.1 at 2016-02-20 21:41:37 +0500
+Processing by Api::NotificationsController#all_notifications as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-02-20 16:40:50', `current_sign_in_at` = '2016-02-20 16:41:37', `sign_in_count` = 48, `updated_at` = '2016-02-20 16:41:37' WHERE `users`.`id` = 1
+  [1m[36m (54.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0)[0m
+  [1m[35mNotification Load (0.1ms)[0m  SELECT `notifications`.* FROM `notifications` WHERE (user_id = 1 AND is_deleted = 0) ORDER BY created_at desc
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `ratings`.* FROM `ratings` WHERE `ratings`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  Rendered api/notifications/all_notifications.json.jbuilder (57.4ms)
+Completed 200 OK in 122ms (Views: 59.6ms | ActiveRecord: 56.8ms)
