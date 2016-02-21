@@ -16183,3 +16183,93 @@ Migrating to AddIsBoxLockedToRatings (20160221163109)
   [1m[35m (777.2ms)[0m  ALTER TABLE `ratings` ADD `is_box_locked` tinyint(1) DEFAULT 0
   [1m[36m (56.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160221163109')[0m
   [1m[35m (0.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+
+
+Started POST "/api/ratings.json" for 127.0.0.1 at 2016-02-21 22:12:29 +0500
+Processing by Api::RatingsController#create as JSON
+  Parameters: {"auth_token"=>"hyYjZ6YS3Qhgq4CAz6qq", "request"=>{"rating"=>{"comment"=>"Dropping on locked box. Just for testing.", "is_anonymous_rating"=>0, "is_box_locked"=>1, "is_post_to_wall"=>0, "tag_id"=>1}}, "rating"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = 'hyYjZ6YS3Qhgq4CAz6qq' LIMIT 1[0m
+Completed 401 Unauthorized in 80ms
+
+
+Started GET "/users/sign_in.json" for 127.0.0.1 at 2016-02-21 22:12:29 +0500
+Processing by SessionsController#new as JSON
+  Parameters: {"session"=>{}}
+Completed 406 Not Acceptable in 59ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/ratings.json" for 127.0.0.1 at 2016-02-21 22:12:44 +0500
+Processing by Api::RatingsController#create as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy", "request"=>{"rating"=>{"comment"=>"Dropping on locked box. Just for testing.", "is_anonymous_rating"=>0, "is_box_locked"=>1, "is_post_to_wall"=>0, "tag_id"=>1}}, "rating"=>{}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-02-20 16:41:37', `current_sign_in_at` = '2016-02-21 17:12:44', `sign_in_count` = 49, `updated_at` = '2016-02-21 17:12:44' WHERE `users`.`id` = 1
+  [1m[36m (54.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+Completed 500 Internal Server Error in 134ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: is_box_locked):
+  app/controllers/api/ratings_controller.rb:7:in `new'
+  app/controllers/api/ratings_controller.rb:7:in `create'
+
+
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/ahmirza/.rvm/gems/ruby-1.9.3-p551@tellum/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (59.2ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/api/ratings.json" for 127.0.0.1 at 2016-02-21 22:14:04 +0500
+Processing by Api::RatingsController#create as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy", "request"=>{"rating"=>{"comment"=>"Dropping on locked box. Just for testing.", "is_anonymous_rating"=>0, "is_box_locked"=>1, "is_post_to_wall"=>0, "tag_id"=>1}}, "rating"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (2.1ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2016-02-21 17:12:44', `current_sign_in_at` = '2016-02-21 17:14:05', `sign_in_count` = 50, `updated_at` = '2016-02-21 17:14:05' WHERE `users`.`id` = 1[0m
+  [1m[35m (66.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `ratings` (`audio`, `audio_duration`, `audio_file_url`, `comment`, `created_at`, `is_anonymous_rating`, `is_box_locked`, `is_flagged`, `is_post_to_wall`, `rating`, `rating_like_count`, `reveal_id`, `sub_rating`, `tag_id`, `updated_at`, `user_id`) VALUES (NULL, NULL, NULL, 'Dropping on locked box. Just for testing.', '2016-02-21 17:14:05', 0, 1, 0, 0, NULL, 0, NULL, NULL, 1, '2016-02-21 17:14:05', 1)[0m
+  [1m[35m (43.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `ratings` SET `created_at` = '2016-02-21 17:05:05', `updated_at` = '2016-02-21 17:14:05' WHERE `ratings`.`id` = 30
+  [1m[36m (48.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (31.0ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'admin@example.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'admin@example.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = '@ali' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 637ms (Views: 1.9ms | ActiveRecord: 204.6ms)
+
+
+Started POST "/api/ratings.json" for 127.0.0.1 at 2016-02-21 22:14:37 +0500
+Processing by Api::RatingsController#create as JSON
+  Parameters: {"auth_token"=>"8RsxLTXHxYnbGN3mvCVy", "request"=>{"rating"=>{"comment"=>"Dropping on locked box. Just for testing.", "is_anonymous_rating"=>0, "is_box_locked"=>1, "is_post_to_wall"=>0, "tag_id"=>1}}, "rating"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`authentication_token` = '8RsxLTXHxYnbGN3mvCVy' LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `ratings` (`audio`, `audio_duration`, `audio_file_url`, `comment`, `created_at`, `is_anonymous_rating`, `is_box_locked`, `is_flagged`, `is_post_to_wall`, `rating`, `rating_like_count`, `reveal_id`, `sub_rating`, `tag_id`, `updated_at`, `user_id`) VALUES (NULL, NULL, NULL, 'Dropping on locked box. Just for testing.', '2016-02-21 17:14:37', 0, 1, 0, 0, NULL, 0, NULL, NULL, 1, '2016-02-21 17:14:37', 1)
+  [1m[36m (61.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE `ratings` SET `created_at` = '2016-02-21 17:05:37', `updated_at` = '2016-02-21 17:14:37' WHERE `ratings`.`id` = 31[0m
+  [1m[35m (48.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'admin@example.com' AND `users`.`id` != 1) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = 'admin@example.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM `users` WHERE (`users`.`user_name` = '@ali' AND `users`.`id` != 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`code` = 200 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT `tags`.* FROM `tags` WHERE `tags`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 281ms (Views: 3.1ms | ActiveRecord: 121.1ms)
