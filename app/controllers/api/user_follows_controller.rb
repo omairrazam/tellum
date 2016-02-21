@@ -37,11 +37,11 @@ class Api::UserFollowsController < Api::ApplicationController
         Notification.create(user_id: params[:request][:user_id], object_name: "Follow User Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
         APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} sent you a follow request.",badge: (receiver.badge_count + 1), sound: "default" )
         #FollowUser.follow_user(current_user.id, params[:request][:user_id], tellum_host).deliver if current_user.email.present?
-        get_api_message "200","User request has been sent for approval."
+        get_api_message "405","User request has been sent for approval."
         return render_response
       end
     else
-      get_api_message "200","You have already sent a request."
+      get_api_message "406","You have already sent a request."
       return render_response
     end
   end
