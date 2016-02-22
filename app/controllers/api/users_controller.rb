@@ -369,7 +369,7 @@ class Api::UsersController < Api::ApplicationController
   end
   def update_badge_count
     @user = User.find_by_authentication_token(params[:auth_token])
-    @user.update_attributes badge_count: 0 if @user.present?
+    @user.update_attribute :badge_count, 0 if @user.present?
   end
   private
   def check_user(user, current_user)
