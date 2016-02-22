@@ -12,7 +12,7 @@ class Api::RevealsController < ApplicationController
       @reveal = Reveal.new user_id: current_user.id, rating_id: params[:request][:rating_id], receiver_id: receiver_id.try(:user_id)
       if @reveal.save
         badge_count = receiver_id.try(:user).try(:badge_count) + 1
-        receiver_id.try(:user).update_attributes badge_count: badge_count
+        receiver_id.try(:user).update_attribute :badge_count, badge_count
         APNS.send_notification(receiver_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} requests a reveal for your comment in #{receiver_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
         Notification.create user_id: receiver_id.try(:user_id), reveal_id: @reveal.id, object_name: "Reveal Request", rating_id: params[:request][:rating_id], sender_id: current_user.id
         #"Reveal Viewed"
@@ -38,7 +38,7 @@ class Api::RevealsController < ApplicationController
       if @notification.update_attributes status: params[:request][:status]
         badge_count = @reveal.try(:user).try(:badge_count) + 1
         @notification.update_attribute :is_deleted, true
-        @reveal.try(:user).update_attributes badge_count: badge_count
+        @reveal.try(:user).update_attribute :badge_count, badge_count
         if params[:request][:status] == true
           Notification.create(user_id: @reveal.user_id, reveal_id: @reveal.id, object_name: "Reveal Viewed Accepted",
                               rating_id: @reveal.rating_id, sender_id: @reveal.receiver_id)
@@ -70,7 +70,7 @@ class Api::RevealsController < ApplicationController
       @reveal = Reveal.find notification.reveal_id
       sender = User.find_by_id(notification.try(:sender_id))
       if @reveal.present?
-        APNS.send_notification(sender.try(:device_token), alert: "#{current_user.try(:full_name)} viewed your reveal.",badge: sender.try(:badge_count), sound: "default" )
+        APNS.send_notification(sender.try(:device_token), alert: "#{current_user.try(:full_name)} viewed your reveal.",badge: (sender.try(:badge_count) + 1), sound: "default" )
         Notification.create user_id: notification.try(:sender_id), reveal_id: @reveal.id, object_name: "Reveal Viewed", rating_id: notification.rating_id, sender_id: current_user.id
         notification.update_attribute :is_deleted, true if notification.present?
         @reveal.update_attribute :is_revealed_viewed, true
