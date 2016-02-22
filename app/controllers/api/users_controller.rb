@@ -46,19 +46,18 @@ class Api::UsersController < Api::ApplicationController
         else
           user = User.find_by_user_name(params[:request][:user][:user_name])
           user.present? ? (@user=User.new params[:request][:user].except(:user_name).merge!({skip_password_form: true, user_name: "#{params[:request][:user][:user_name]}#{rand(10)}"})) : (@user = User.new params[:request][:user].merge!({skip_password_form: true}))
-          if params[:request][:user][:facebook_user_id].present?
-            if @user.save
-              get_api_message "200","Created"
-              respond_to do |format|
-                format.html { redirect_to @user, notice: 'user was successfully created.' }
-                format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
-              end
+          if @user.save
+            get_api_message "200","Created"
+            respond_to do |format|
+              format.html { redirect_to @user, notice: 'user was successfully created.' }
+              format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user => @user.hide_fields.merge!({:authentication_token => @user.authentication_token, followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})} } }
+            end
+          else
+            if !@user.errors.empty?
+              get_api_message "501","Invalid Request"
+              @errors=get_model_error(@user)
+              return render_errors
             else
-              if !@user.errors.empty?
-                get_api_message "501","Invalid Request"
-                @errors=get_model_error(@user)
-                return render_errors
-              end
               get_api_message "404","Record could not be created"
               return render_response
             end
