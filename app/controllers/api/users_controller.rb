@@ -35,7 +35,7 @@ class Api::UsersController < Api::ApplicationController
     if params[:request][:user][:facebook_user_id].present?
       @user = User.find_by_facebook_user_id(params[:request][:user][:facebook_user_id]) #User.find_by_email(params[:request][:user][:email]) &&
       if @user.nil?
-        if User.find_by_email(params[:request][:user][:email]).present?
+        if params[:request][:user][:email].present?
           @user = User.find_by_email(params[:request][:user][:email])
           @user.update_attributes(facebook_user_id: params[:request][:user][:facebook_user_id], device_token: params[:request][:user][:device_token]) if params[:request][:user][:facebook_user_id].present?
           get_api_message "200","Successful login."
