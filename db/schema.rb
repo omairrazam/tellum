@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160221163109) do
+ActiveRecord::Schema.define(:version => 20160222181752) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20160221163109) do
     t.integer  "reveal_id"
     t.boolean  "is_flagged",          :default => false
     t.boolean  "is_box_locked",       :default => false
+    t.datetime "sort_date"
   end
 
   create_table "reveals", :force => true do |t|

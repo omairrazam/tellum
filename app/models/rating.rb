@@ -2,7 +2,7 @@ class Rating < ActiveRecord::Base
   mount_uploader :audio, AudioUploader
   attr_accessible :rating, :tag_id, :sub_rating, :comment, :is_anonymous_rating,
                   :is_post_to_wall, :rating_like_count, :rating_unlike_count, :user_id, :audio, :audio_duration, :audio_file_url, :reveal_id,
-                  :is_box_locked
+                  :is_box_locked, :sort_date
   #has_many :tags
   has_many :notifications, dependent: :destroy, foreign_key: :rating_id
   has_many :comments, :dependent => :destroy

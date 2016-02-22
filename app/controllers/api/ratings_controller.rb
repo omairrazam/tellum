@@ -13,6 +13,7 @@ class Api::RatingsController < Api::ApplicationController
     if @rating.save
       @rating.update_attribute :created_at, @rating.created_at - (9.minutes + 42.seconds)
       @rating.update_attribute :is_box_locked, params[:request][:rating][:is_box_locked]
+      @rating.update_attribute :sort_date, @rating.updated_at
       # commented mail section
       # unless tag_creator_user_id.id == current_user.id
       #  SendMailToTagCreator.send_tag_creator(current_user, tag_creator_user_id.id, params[:request][:rating][:tag_id], anonymous_rating, tellum_host).deliver if tag_creator_user_id.email.present?
