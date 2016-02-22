@@ -105,7 +105,7 @@ class Api::UsersController < Api::ApplicationController
     @user = User.find_by_twitter_user_id(params[:request][:user][:twitter_user_id])
     if @user.present?
       if @user.is_password_blank == true
-        @user.update_attribute(:about_me, params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
+        #@user.update_attribute(:about_me, params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
         @user.update_attribute(:gender, params[:request][:user][:gender]) if params[:request][:user][:gender].present?
         get_api_message "200","auth_token sent"
         respond_to do |format|
@@ -114,7 +114,7 @@ class Api::UsersController < Api::ApplicationController
         end
       elsif @user.is_password_blank == false
         get_api_message "200","Please complete your profile first."
-        @user.update_attribute(:about_me, params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
+        #@user.update_attribute(:about_me, params[:request][:user][:about_me]) if params[:request][:user][:twitter_user_id].present?
         @user.update_attribute(:gender, params[:request][:user][:gender]) if params[:request][:user][:gender].present?
         respond_to do |format|
           format.html { redirect_to @user, notice: 'Complete your profile.' }

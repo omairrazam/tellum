@@ -11,7 +11,7 @@ class Api::RatingsController < Api::ApplicationController
     @user = current_user
     anonymous_rating = params[:request][:rating][:is_anonymous_rating]
     if @rating.save
-      @rating.update_attribute :created_at, @rating.created_at - 9.minutes
+      @rating.update_attribute :created_at, @rating.created_at - 10.minutes
       @rating.update_attribute :is_box_locked, params[:request][:rating][:is_box_locked]
       # commented mail section
       # unless tag_creator_user_id.id == current_user.id
@@ -61,7 +61,7 @@ class Api::RatingsController < Api::ApplicationController
           # @rating.try(:user).update_attributes badge_count: badge_count
           @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
           unless @rating.try(:user).try(:id) == current_user.id
-            APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} liked #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
+            APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} like your comment in #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
             Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "Like Rating", sender_id: current_user.id)
           end
         else
