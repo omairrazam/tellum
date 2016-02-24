@@ -11,7 +11,7 @@ class Api::RatingsController < Api::ApplicationController
     @user = current_user
     anonymous_rating = params[:request][:rating][:is_anonymous_rating]
     if @rating.save
-      @rating.update_attribute :created_at, @rating.created_at - (9.minutes + 42.seconds)
+      @rating.update_attribute :created_at, @rating.created_at - (9.minutes + 47.seconds)
       @rating.update_attribute :is_box_locked, params[:request][:rating][:is_box_locked]
       @rating.update_attribute :sort_date, @rating.updated_at
       # commented mail section
