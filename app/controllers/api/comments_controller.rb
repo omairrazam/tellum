@@ -11,7 +11,7 @@ class Api::CommentsController < Api::ApplicationController
       badge_count = rating_creator_user_id.try(:user).try(:badge_count) + 1
       rating_creator_user_id.try(:user).update_attributes badge_count: badge_count
       unless rating_creator_user_id.try(:user).id == @user
-        APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{rating_creator_user_id.try(:user).try(:full_name)} commented on #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
+        APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{rating_creator_user_id.try(:user).try(:full_name)}  replied to your comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
         if rating_creator_user_id.is_anonymous_rating == true
           Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
         else
