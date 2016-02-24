@@ -16342,3 +16342,4 @@ Migrating to AddSortDateToRatings (20160222181752)
   [1m[36m (43.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160222181752')[0m
   [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
