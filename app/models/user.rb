@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
 
 
   def user_created_and_following_drops
-    (Rating.where("user_id = ? AND is_box_locked = ?", self.id, false) + following_drops_with_is_anonymous_false).collect{|drop|
+    (Rating.where("user_id = ?", self.id) + following_drops_with_is_anonymous_false).collect{|drop|
       {box_id: drop.try(:tag).try(:id), is_drop_story: true, box_name: drop.try(:tag).try(:tag_line), sort_created_at: drop.try(:sort_date),
        box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.try(:tag).try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
        is_locked: drop.try(:tag).try(:is_locked), is_post_to_wall: drop.try(:tag).try(:is_post_to_wall), is_private: drop.try(:tag).try(:is_private), open_date: drop.try(:tag).try(:open_date),
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
     }
   end
   def following_drops_with_is_anonymous_false
-    Rating.where("user_id IN (?) AND is_anonymous_rating = ?", following_users, false)
+    Rating.where("user_id IN (?) AND is_box_locked is false AND is_anonymous_rating = ?", following_users, false)
   end
   def drop_story_hash_structure  drops
     drops.collect{|drop|
