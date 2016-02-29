@@ -9,6 +9,8 @@ role :web, %w{ubuntu@52.25.164.35}
 role :db,  %w{ubuntu@52.25.164.35}
 set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
 set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
+set :application, 'tellum_server'
+set :rvm_ruby_version, 'ruby-1.9.3-p551@tellum_server'
 
 
 # Extended Server Syntax
