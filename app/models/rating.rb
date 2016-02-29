@@ -1,7 +1,8 @@
 class Rating < ActiveRecord::Base
   mount_uploader :audio, AudioUploader
   attr_accessible :rating, :tag_id, :sub_rating, :comment, :is_anonymous_rating,
-                  :is_post_to_wall, :rating_like_count, :rating_unlike_count, :user_id, :audio, :audio_duration, :audio_file_url, :reveal_id
+                  :is_post_to_wall, :rating_like_count, :rating_unlike_count, :user_id, :audio, :audio_duration, :audio_file_url, :reveal_id,
+                  :is_box_locked, :sort_date
   #has_many :tags
   has_many :notifications, dependent: :destroy, foreign_key: :rating_id
   has_many :comments, :dependent => :destroy
@@ -20,9 +21,11 @@ class Rating < ActiveRecord::Base
     self.comments.count + self.rating_like_count
   end
   def as_json(options=nil)
-    s = super(options.reverse_merge(except: :audio))
-    s[:audio] = custom_audio_url
-    s
+    if options.present?
+      s = super(options.reverse_merge(except: :audio))
+      s[:audio] = custom_audio_url
+      s
+    end
   end
 
   def custom_audio_url

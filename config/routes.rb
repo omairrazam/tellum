@@ -22,6 +22,7 @@ Tellum::Application.routes.draw do
         put :edit_profile
         post :send_confirmation_email_again
         post :check_user_followings
+        post :twitter_or_facebook_users
       end
     end
     post '/users/login', :to => 'sessions#create'
@@ -29,6 +30,13 @@ Tellum::Application.routes.draw do
     resource :tags do
       member do
         get :tag_detail
+        get :explore_tab
+        get :boxes_and_drops_created_by_me
+        get :get_all_taglines
+        get :get_box_description
+        get :get_total_drops
+        get :box_time_line
+        get :check_tag_expiry
         post :lock_tag
         post :check_flag
         get :tag_line_including_locked
@@ -61,6 +69,7 @@ Tellum::Application.routes.draw do
         get :taglines_and_ratings_by_user
         get :tagslines_by_user_PTR
         get :ratings_by_user_PTR
+        get :search_tagline_exectmatch_with_status
         get :taglines_and_ratings_by_user_PTR
         get :ratings_of_a_tag_ordered_by_most_popular
         get :taglines_and_ratings_by_followings_and_me

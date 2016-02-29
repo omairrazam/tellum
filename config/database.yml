@@ -16,7 +16,8 @@ production:
   <<: *defaults
   database: tellum_production
 
-production:
+staging:
   <<: *defaults
-  database: tellum_stagging
+  database: tellum_production
+
 

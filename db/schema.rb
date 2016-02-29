@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150310090515) do
+ActiveRecord::Schema.define(:version => 20160222181752) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -88,11 +88,13 @@ ActiveRecord::Schema.define(:version => 20150310090515) do
     t.integer  "reveal_id"
     t.boolean  "status"
     t.string   "object_name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.boolean  "is_seen"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "is_seen",           :default => false
     t.integer  "sender_id"
     t.boolean  "is_view"
+    t.boolean  "is_anonymous_user", :default => false
+    t.boolean  "is_deleted",        :default => false
   end
 
   create_table "ratings", :force => true do |t|
@@ -111,15 +113,18 @@ ActiveRecord::Schema.define(:version => 20150310090515) do
     t.string   "audio_file_url"
     t.integer  "reveal_id"
     t.boolean  "is_flagged",          :default => false
+    t.boolean  "is_box_locked",       :default => false
+    t.datetime "sort_date"
   end
 
   create_table "reveals", :force => true do |t|
     t.boolean  "status"
     t.integer  "user_id"
     t.integer  "rating_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "receiver_id"
+    t.boolean  "is_revealed_viewed", :default => false
   end
 
   create_table "tags", :force => true do |t|
@@ -138,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20150310090515) do
     t.datetime "updated_time"
     t.integer  "rating_id"
     t.boolean  "is_flagged",         :default => false
+    t.float    "expiry_time"
   end
 
   add_index "tags", ["rating_id"], :name => "index_tags_on_rating_id"

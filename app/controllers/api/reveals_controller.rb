@@ -12,9 +12,10 @@ class Api::RevealsController < ApplicationController
       @reveal = Reveal.new user_id: current_user.id, rating_id: params[:request][:rating_id], receiver_id: receiver_id.try(:user_id)
       if @reveal.save
         badge_count = receiver_id.try(:user).try(:badge_count) + 1
-        receiver_id.try(:user).update_attributes badge_count: badge_count
-        APNS.send_notification(receiver_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} revealed on #{receiver_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
-        Notification.create user_id: receiver_id.try(:user_id), reveal_id: @reveal.id, object_name: "reveal", rating_id: params[:request][:rating_id], sender_id: current_user.id
+        receiver_id.try(:user).update_attribute :badge_count, badge_count
+        APNS.send_notification(receiver_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} requests a reveal for your comment in #{receiver_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
+        Notification.create user_id: receiver_id.try(:user_id), reveal_id: @reveal.id, object_name: "Reveal Request", rating_id: params[:request][:rating_id], sender_id: current_user.id
+        #"Reveal Viewed"
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @reveal, notice: 'Reveal request sent successfully' }
@@ -35,14 +36,15 @@ class Api::RevealsController < ApplicationController
     @notification = Notification.find_by_reveal_id params[:request][:reveal_id]
     if @notification.present?
       if @notification.update_attributes status: params[:request][:status]
-        Notification.create(user_id: @reveal.user_id, reveal_id: @reveal.id, object_name: "reveal",
-                            rating_id: @reveal.rating_id, sender_id: @reveal.receiver_id) if params[:request][:status] == true
         badge_count = @reveal.try(:user).try(:badge_count) + 1
-        @reveal.try(:user).update_attributes badge_count: badge_count
+        @notification.update_attribute :is_deleted, true
+        @reveal.try(:user).update_attribute :badge_count, badge_count
         if params[:request][:status] == true
-          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal has been accepted",badge: badge_count, sound: "default" )
+          Notification.create(user_id: @reveal.user_id, reveal_id: @reveal.id, object_name: "Reveal Viewed Accepted",
+                              rating_id: @reveal.rating_id, sender_id: @reveal.receiver_id)
+          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal request has been accepted",badge: badge_count, sound: "default" )
         else
-          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal has been rejected",badge: badge_count, sound: "default" )
+          APNS.send_notification(@reveal.user.try(:device_token), alert: "Your reveal request has been rejected",badge: badge_count, sound: "default" )
         end
         @reveal.update_attributes status: params[:request][:status]
         get_api_message "200","success"
@@ -63,9 +65,15 @@ class Api::RevealsController < ApplicationController
   end
   def revealed_user
     if params[:auth_token].present? && params[:notification_id]
-      notification = Notification.find params[:notification_id]
+      current_user = User.find_by_authentication_token params[:auth_token]
+      notification = Notification.find_by_id params[:notification_id]
       @reveal = Reveal.find notification.reveal_id
+      sender = User.find_by_id(notification.try(:sender_id))
       if @reveal.present?
+        APNS.send_notification(sender.try(:device_token), alert: "#{current_user.try(:full_name)} viewed your reveal.",badge: (sender.try(:badge_count) + 1), sound: "default" )
+        Notification.create user_id: notification.try(:sender_id), reveal_id: @reveal.id, object_name: "Reveal Viewed", rating_id: notification.rating_id, sender_id: current_user.id
+        notification.update_attribute :is_deleted, true if notification.present?
+        @reveal.update_attribute :is_revealed_viewed, true
         get_api_message "200","success"
         respond_to do |format|
           format.html { redirect_to @reveal, notice: 'Reveal status updated successfully' }

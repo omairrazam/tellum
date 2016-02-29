@@ -34,16 +34,15 @@ Tellum::Application.configure do
 
   # commented the lines to debug the production mailer issue.
 
-   config.action_mailer.default_url_options = { host: '192.241.214.145:6900' }
-  # ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address              => 'smtp.gmail.com',
       :port                 => 587,
       :domain               => 'gmail.com',
-      :user_name            => 'vf.tellum@gmail.com',
-      :password             => 'vf12345678',
+      :user_name            => 'Tellumtest@gmail.com',
+      :password             => 'Tellum2015',
       :authentication       => 'login',
       :enable_starttls_auto => true
   }

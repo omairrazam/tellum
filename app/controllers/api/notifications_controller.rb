@@ -3,43 +3,51 @@ class Api::NotificationsController < ApplicationController
   before_filter :authenticate_user!
 
   def all_notifications
-    user = User.find_by_authentication_token(params[:auth_token])
-    if params[:date].present? && params[:auth_token].present?
-      @reveal = Notification.where("updated_at <= ? AND user_id = ? AND status is NULL AND is_view is NULL", params[:date].to_datetime.to_s(:db), user.id).order("created_at desc").limit(30)
-      #Reveal.where("updated_at <= ? AND user_id = ?", params[:date].to_datetime.to_s(:db), current_user).order("updated_at desc").limit(30)
-      if @reveal.present?
-        get_api_message "200","success"
-        respond_to do |format|
-          format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
-        end
-        @reveal.each do |reveal|
-          reveal.update_attributes is_seen: true
-        end
-      else
-        get_api_message "404","Not Found"
-        return render_response
-      end
-    elsif params[:auth_token].present?
-      @reveal = Notification.where("user_id = ? AND status is NULL AND is_view is NULL", user.id).order("created_at desc").limit(30)
-      if @reveal.present?
-        get_api_message "200","success"
-        respond_to do |format|
-          format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
-        end
-        @reveal.each do |reveal|
-          reveal.update_attributes is_seen: true
-        end
-      else
-        get_api_message "404","Not Found"
-        return render_response
-      end
-    else
-      get_api_message "501","Invalid Request"
-      return render_response
-    end
+    @user = User.find_by_authentication_token(params[:auth_token])
+    @notifications = Notification.where("user_id = ? AND is_deleted = ?", @user.id, false).order("created_at desc") if @user.present?
   end
+  def update
+    @user = User.find_by_authentication_token params[:auth_token]
+    @notification = Notification.find_by_id(params[:request][:id]) if @user.present?
+  end
+  # def all_notifications
+  #   user = User.find_by_authentication_token(params[:auth_token])
+  #   if params[:date].present? && params[:auth_token].present?
+  #     @reveal = Notification.where("updated_at <= ? AND user_id = ? AND status is NULL AND is_view is NULL", params[:date].to_datetime.to_s(:db), user.id).order("created_at desc").limit(30)
+  #     #Reveal.where("updated_at <= ? AND user_id = ?", params[:date].to_datetime.to_s(:db), current_user).order("updated_at desc").limit(30)
+  #     if @reveal.present?
+  #       get_api_message "200","success"
+  #       respond_to do |format|
+  #         format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
+  #         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
+  #       end
+  #       @reveal.each do |reveal|
+  #         reveal.update_attributes is_seen: true
+  #       end
+  #     else
+  #       get_api_message "404","Not Found"
+  #       return render_response
+  #     end
+  #   elsif params[:auth_token].present?
+  #     @reveal = Notification.where("user_id = ? AND status is NULL AND is_view is NULL", user.id).order("created_at desc").limit(30)
+  #     if @reveal.present?
+  #       get_api_message "200","success"
+  #       respond_to do |format|
+  #         format.html { redirect_to @reveal, notice: 'Reveal found successfully' }
+  #         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :notifications => @reveal.collect { |t| t.try(:attributes).keep_if { |k, v| !["user_id"].include?(k)  }.merge!( build_hash(t,user))}}  } }
+  #       end
+  #       @reveal.each do |reveal|
+  #         reveal.update_attributes is_seen: true
+  #       end
+  #     else
+  #       get_api_message "404","Not Found"
+  #       return render_response
+  #     end
+  #   else
+  #     get_api_message "501","Invalid Request"
+  #     return render_response
+  #   end
+  # end
   def all_notifications_PTR
     user = User.find_by_authentication_token(params[:auth_token])
     if params[:date].present? && params[:auth_token].present?
@@ -100,11 +108,16 @@ class Api::NotificationsController < ApplicationController
     end
   end
   def build_hash(t, user)
-    unless t.reveal_id.nil?
+    unless t.try(:reveal_id).nil?
       {object: Reveal.find(t.try(:reveal_id)).attributes.keep_if { |k, v| !["user_id", "rating_id"].include?(k)  }.merge!(user: Reveal.find(t.try(:reveal_id)).try(:user).try(:hide_fields), rating: rating_hash(t, user))}
     else
       #{object: rating_hash(t, user)}
-      {object: Rating.find(t.rating_id).attributes.keep_if { |k, v| !["tag_id", "user_id"].include?(k)}.merge!(tag_line: Tag.find_by_id(Rating.find(t.rating_id).tag_id).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).average_rating, total_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).total_rating, user: check_user(Tag.find_by_id(Rating.find(t.rating_id).tag_id).user, user) }), comments: Rating.find(t.rating_id).comments.count, user: User.find(t.sender_id), is_like: ( UserRating.where(user_id: user.id, rating_id: t.rating_id).try(:last).try(:is_like) || false )  )}  if Rating.find_by_id(t.rating_id).present?
+      if Rating.find_by_id(t.rating_id).present?
+        {object: Rating.find_by_id(t.try(:rating_id)).attributes.keep_if { |k, v| !["tag_id", "user_id"].include?(k)}.merge!(tag_line: Tag.find_by_id(Rating.find(t.rating_id).try(:tag_id)).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).average_rating, total_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).total_rating, user: check_user(Tag.find_by_id(Rating.find(t.rating_id).tag_id).user, user) }), comments: Rating.find(t.rating_id).comments.count)}
+        #{object: Rating.find_by_id(t.try(:rating_id)).attributes.keep_if { |k, v| !["tag_id", "user_id"].include?(k)}.merge!(tag_line: Tag.find_by_id(Rating.find(t.rating_id).try(:tag_id)).attributes.keep_if { |k, v| !["user_id"].include?(k)  }.merge!({ average_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).average_rating, total_rating: Tag.find_by_id(Rating.find(t.rating_id).tag_id).total_rating, user: check_user(Tag.find_by_id(Rating.find(t.rating_id).tag_id).user, user) }), comments: Rating.find(t.rating_id).comments.count, user: User.find(t.sender_id), is_like: ( UserRating.where(user_id: user.id, rating_id: t.rating_id).try(:last).try(:is_like) || false )  )}
+      else
+        {object: "not exists"}
+      end
     end
   end
 end

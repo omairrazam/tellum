@@ -7,10 +7,13 @@ class Api::UserFollowsController < Api::ApplicationController
     #user = User.find(params[:request][:user_id])
     #tellum_host = request.host
     @user = UserFollow.where(user_id: params[:request][:user_id], follow_id: current_user.id)
+    receiver = User.find_by_id(params[:request][:user_id])
     if !@user.present?
-      @user_follow = UserFollow.new(user_id: params[:request][:user_id], follow_id: current_user.id)
+      @user_follow = UserFollow.new(user_id: params[:request][:user_id], follow_id: current_user.id, is_approved: true)
       if User.find_by_id(params[:request][:user_id]).is_public_profile == true
         if @user_follow.save
+          APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} is now following you.",badge: (receiver.badge_count + 1), sound: "default" )
+          Notification.create(user_id: params[:request][:user_id], object_name: "New Follower", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
           get_api_message "200","You are following the user."
           respond_to do |format|
             format.html { redirect_to @user_follow, notice: 'You are following the user.' }
@@ -31,6 +34,8 @@ class Api::UserFollowsController < Api::ApplicationController
         end
       else
         UserFollow.create(user_id: params[:request][:user_id], follow_id: current_user.id, is_approved: false)
+        Notification.create(user_id: params[:request][:user_id], object_name: "Follow User Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
+        APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} sent you a follow request.",badge: (receiver.badge_count + 1), sound: "default" )
         #FollowUser.follow_user(current_user.id, params[:request][:user_id], tellum_host).deliver if current_user.email.present?
         get_api_message "405","User request has been sent for approval."
         return render_response
@@ -116,17 +121,27 @@ class Api::UserFollowsController < Api::ApplicationController
   def accept_follow_request
     if params[:request][:user_id].present? && params[:auth_token].present? && !params[:request][:is_approved].nil?
       current_user = User.find_by_authentication_token(params[:auth_token])
-      @accept_user_request = UserFollow.where(follow_id: params[:request][:user_id], user_id: current_user.id)
+      receiver = User.find_by_id(params[:request][:user_id])
+      @accept_user_request = UserFollow.find_by_follow_id_and_user_id(params[:request][:user_id], current_user.id)
       if @accept_user_request.present?
         if params[:request][:is_approved] == false
-          @accept_user_request.first.delete
+          @accept_user_request.delete
+          Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
+          get_api_message "200","You Ignored #{receiver.user_name}'s' friend request."
+          respond_to do |format|
+            format.html { redirect_to @user_follow, notice: 'You accept a request.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user_id => params[:request][:user_id] }} }
+          end
         else
-          @accept_user_request.first.update_attributes is_approved: params[:request][:is_approved]
-        end
-        get_api_message "200","You accepted friend request."
-        respond_to do |format|
-          format.html { redirect_to @user_follow, notice: 'You accept a request.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user_id => params[:request][:user_id] }} }
+          @accept_user_request.update_attributes is_approved: params[:request][:is_approved]
+          Notification.create(user_id: params[:request][:user_id], object_name: "Accpted Follow Request", sender_id: current_user.id)  if current_user.id != params[:request][:user_id]
+          APNS.send_notification(receiver.try(:device_token), alert: "#{current_user.try(:full_name)} is accepted your follow request.",badge: (receiver.badge_count + 1), sound: "default" )
+          Notification.where(sender_id: receiver.id, user_id: current_user.id, object_name: "Follow User Request").last.update_attribute :is_deleted, true
+          get_api_message "200","You accepted friend request."
+          respond_to do |format|
+            format.html { redirect_to @user_follow, notice: 'You accept a request.' }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,  :user_id => params[:request][:user_id] }} }
+          end
         end
       else
         get_api_message "404","User not found."

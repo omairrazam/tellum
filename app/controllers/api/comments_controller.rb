@@ -11,11 +11,16 @@ class Api::CommentsController < Api::ApplicationController
       badge_count = rating_creator_user_id.try(:user).try(:badge_count) + 1
       rating_creator_user_id.try(:user).update_attributes badge_count: badge_count
       unless rating_creator_user_id.try(:user).id == @user
-        APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} commented on #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
-        Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "comment", sender_id: @user, rating_id: rating_creator_user_id.id)
+        APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} replied to your comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
+        if params[:is_anonymous_comment] == true
+          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
+        else
+          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
+        end
       end
       get_api_message "200","Created"
       respond_to do |format|
+        @comment.update_attribute :created_at, (@comment.created_at - 9.minutes)
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :comment => @comment.attributes.keep_if { |k, v| k != "user_id"  }.merge!({ user: @comment.user })   } } }
       end
@@ -33,7 +38,7 @@ class Api::CommentsController < Api::ApplicationController
   end
   def comments_rating
     if params[:rating_id].present? &&  params[:auth_token].present? && params[:date].present?
-      @comment = Comment.where("rating_id = ? AND updated_at < ?", params[:rating_id],  params[:date]).order("updated_at desc").limit(30)
+      @comment = Comment.where("rating_id = ? AND updated_at < ?", params[:rating_id],  params[:date]).order("updated_at desc")
       if @comment.present?
         get_api_message "200","Created"
         respond_to do |format|
@@ -49,7 +54,7 @@ class Api::CommentsController < Api::ApplicationController
       end
     else
       if params[:rating_id].present? &&  params[:auth_token].present?
-        @comment = Comment.where(rating_id: params[:rating_id]).order("updated_at desc").limit(30)
+        @comment = Comment.where(rating_id: params[:rating_id]).order("updated_at desc")
         if @comment.present?
           get_api_message "200","Created"
           respond_to do |format|

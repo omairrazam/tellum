@@ -1,12 +1,12 @@
 class Tag < ActiveRecord::Base
   attr_accessible :tag_line, :tag_title, :tag_description, :open_date, :close_date, :is_private,
-                  :is_allow_anonymous, :is_post_to_wall, :user_id, :is_locked, :updated_time, :rating_id
+                  :is_allow_anonymous, :is_post_to_wall, :user_id, :is_locked, :updated_time, :rating_id, :expiry_time
   attr_accessor :total_rating, :average_rating, :is_tag_line
   belongs_to :user
   has_many :ratings, dependent: :destroy
   #belongs_to :rating
   #belongs_to :follow_user
-  belongs_to :notification
+  has_many :notifications
   validates_presence_of :tag_line
   #validates_uniqueness_of :tag_line
   validates_presence_of :open_date, if: Proc.new { |u| u.is_locked.present? && u.tag_line.blank? }

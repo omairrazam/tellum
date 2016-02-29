@@ -25,6 +25,8 @@ class Api::SessionsController < Api::ApplicationController
       @user=User.find_by_authentication_token(params[:auth_token])
       if @user.present?
         @user.reset_authentication_token!
+        @user.update_attribute :device_token, ""
+        reset_session
         get_api_message "200","session deleted successfully"
         respond_to do |format|
           #format.html { redirect_to @user, notice: 'session was successfully deleted.' }

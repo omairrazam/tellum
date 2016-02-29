@@ -11,18 +11,27 @@ class Api::RatingsController < Api::ApplicationController
     @user = current_user
     anonymous_rating = params[:request][:rating][:is_anonymous_rating]
     if @rating.save
+      @rating.update_attribute :created_at, @rating.created_at - (9.minutes + 55.seconds)
+      @rating.update_attribute :is_box_locked, params[:request][:rating][:is_box_locked]
+      @rating.update_attribute :sort_date, @rating.updated_at
       # commented mail section
       # unless tag_creator_user_id.id == current_user.id
       #  SendMailToTagCreator.send_tag_creator(current_user, tag_creator_user_id.id, params[:request][:rating][:tag_id], anonymous_rating, tellum_host).deliver if tag_creator_user_id.email.present?
       # end
       badge_count = tag_creator_user_id.try(:badge_count) + 1
       tag_creator_user_id.update_attributes badge_count: badge_count
-      if @rating.is_anonymous_rating == true
-        APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "Anonymous dropped on #{tag.try(:tag_line)}",badge: badge_count, sound: "default" )
+      if anonymous_rating == 1 || anonymous_rating == true
+        if current_user.id != tag_creator_user_id.id
+          @not=Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Dropped", sender_id: current_user.id, is_anonymous_user: true)
+          @not.update_attribute :is_anonymous_user, true
+          APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "Anonymous dropped on #{tag.try(:tag_line)}",badge: badge_count, sound: "default" )
+        end
       else
-        APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "#{current_user.try(:full_name)} dropped on #{tag.try(:tag_line)}",badge: badge_count, sound: "default" )
+        if current_user.id != tag_creator_user_id.id
+          Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Dropped", sender_id: current_user.id, is_anonymous_user: false)
+          APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "#{current_user.try(:full_name)} dropped on #{tag.try(:tag_line)}",badge: badge_count, sound: "default" )
+        end
       end
-      Notification.create(user_id: tag.user_id, rating_id: @rating.id, object_name: "Rating", sender_id: current_user.id) if current_user.id != tag_creator_user_id.id
       get_api_message "200","Created"
       respond_to do |format|
         format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.attributes.keep_if { |k, v| k.to_s != "tag_id"  }.keep_if { |k, v| k.to_s != "user_id"  }.merge!({ tag_line: Tag.find(@rating.tag_id).attributes ,user: User.find(@rating.user_id).hide_fields })  } } }
@@ -37,6 +46,10 @@ class Api::RatingsController < Api::ApplicationController
       return render_response
     end
   end
+  def show
+    @user = User.find_by_authentication_token params[:auth_token]
+    @drop = Rating.find_by_id(params[:rating_id]) if @user.present?
+  end
   def like_rating
     if params[:request][:rating][:rating_id]
       current_user = User.find_by_authentication_token params[:auth_token]
@@ -44,16 +57,16 @@ class Api::RatingsController < Api::ApplicationController
       @rating = Rating.find params[:request][:rating][:rating_id]
       if @user_rating.present?
         @user_rating.update_attributes(is_like: params[:request][:rating][:is_like])
-        if params[:request][:rating][:is_like] == true
+        if params[:request][:rating][:is_like] == "true"
           # badge_count = @rating.try(:user).try(:badge_count) + 1
           # @rating.try(:user).update_attributes badge_count: badge_count
-          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) + 1))
+          @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
           unless @rating.try(:user).try(:id) == current_user.id
-            APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} liked #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
-            Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "like rating", sender_id: current_user.id)
+            APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} like your comment in #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
+            Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "Like Rating", sender_id: current_user.id)
           end
         else
-          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) - 1))
+          (@rating.rating_like_count == 0) ? @rating.update_attributes(rating_like_count: 0) : @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) - 1))
         end
         get_api_message "200","updated rating"
         respond_to do |format|
@@ -62,14 +75,14 @@ class Api::RatingsController < Api::ApplicationController
         end
       else
         @user_rating = UserRating.new user_id: current_user.id, rating_id: params[:request][:rating][:rating_id], is_like: params[:request][:rating][:is_like]
-        if params[:request][:rating][:is_like] == true
-          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) + 1))
+        if params[:request][:rating][:is_like] == "true"
+          @rating.update_attribute(:rating_like_count, (@rating.rating_like_count + 1))
           unless @rating.try(:user).try(:id) == current_user.id
-            APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} liked #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
-            Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "like rating", sender_id: current_user.id)
+            APNS.send_notification(@rating.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} like your comment in #{@rating.try(:tag).try(:tag_line)}",badge: check_badge_count(@rating), sound: "default" )
+            Notification.create(user_id: @rating.try(:user).try(:id), rating_id: @rating.id, object_name: "Like Rating", sender_id: current_user.id)
           end
         else
-          @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) - 1))
+          (@rating.rating_like_count == 0) ? @rating.update_attributes(rating_like_count: 0) : @rating.update_attributes(rating_like_count: ((@rating.rating_like_count || 0) - 1))
         end
         if @user_rating.save
           get_api_message "200","Created"
@@ -122,12 +135,12 @@ class Api::RatingsController < Api::ApplicationController
     if params[:tag_id].present? &&  params[:auth_token].present? && params[:date].present?
       current_user = User.find_by_authentication_token params[:auth_token]
       #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like =`1`)) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("ratings_comment_counts DESC")
-      @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC").limit(30)
+      @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
       if @rating.present?
         get_api_message "200","Created"
         respond_to do |format|
           format.html { redirect_to @rating, notice: 'rating was successfully found.' }
-          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({comments: t.comments.count, is_like: UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false,   user: t.user.hide_fields, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user.hide_fields,   average_rating: Tag.find(t.tag_id).average_rating, total_rating: Tag.find(t.tag_id).total_rating })   } )   } } } }
+          format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.uniq.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({comments: t.comments.count, is_like: UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false,   user: t.user.hide_fields, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user.hide_fields,   average_rating: Tag.find(t.tag_id).average_rating, total_rating: Tag.find(t.tag_id).total_rating })   } )   } } } }
         end
       else
         get_api_message "404","no rating found for the given rating_id"
@@ -147,7 +160,7 @@ class Api::RatingsController < Api::ApplicationController
             format.html { redirect_to @rating, notice: 'rating was successfully found.' }
             #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!({ user: t.user })   } } } }
             #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({ user: t.user, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user})   } )   } } } }
-            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({comments: t.comments.count, is_like: UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false,   user: t.user.hide_fields, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({ user: Tag.find(t.tag_id).user.hide_fields, average_rating: Tag.find(t.tag_id).average_rating, total_rating: Tag.find(t.tag_id).total_rating })   } )   } } } }
+            format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.uniq.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({comments: t.comments.count, is_like: UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false,   user: t.user.hide_fields, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({ user: Tag.find(t.tag_id).user.hide_fields, average_rating: Tag.find(t.tag_id).average_rating, total_rating: Tag.find(t.tag_id).total_rating })   } )   } } } }
           end
         else
           get_api_message "404","no rating found for the given rating_id"
@@ -171,7 +184,7 @@ class Api::RatingsController < Api::ApplicationController
       @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like ='1')) AS ratings_comment_counts").where("tag_id = ? AND updated_at BETWEEN  ? AND ?", params[:tag_id], params[:date], DateTime.now).order("created_at DESC")
       if @rating.present?
         get_api_message "200","Created"
-        respond_to do |format|
+        respond_to do | format|
           format.html { redirect_to @rating, notice: 'Rating found.' }
           #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!({ user: t.user })   } } } }
           #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({ user: t.user, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user})   } )   } } } }
@@ -244,7 +257,7 @@ class Api::RatingsController < Api::ApplicationController
   end
   def check_badge_count rating
     badge_count = rating.try(:user).try(:badge_count) + 1
-    rating.try(:user).update_attributes badge_count: badge_count
+    rating.try(:user).update_attribute :badge_count, badge_count
     badge_count
   end
 end
