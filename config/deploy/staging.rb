@@ -4,9 +4,15 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{ubuntu@52.25.164.35}
-role :web, %w{ubuntu@52.25.164.35}
-role :db,  %w{ubuntu@52.25.164.35}
+# role :app, %w{ubuntu@52.25.164.35}
+# role :web, %w{ubuntu@52.25.164.35}
+# role :db,  %w{ubuntu@52.25.164.35}
+
+role :app, %w{ubuntu@54.213.18.15}
+role :web, %w{ubuntu@54.213.18.15}
+role :db,  %w{ubuntu@54.213.18.15}
+
+
 set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
 set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
 set :application, 'tellum_server'
@@ -19,7 +25,7 @@ set :rvm_ruby_version, 'ruby-1.9.3-p551@tellum_server'
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'ubuntu@52.25.164.35', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
+server 'ubuntu@54.213.18.15', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
 
 
 # Custom SSH Options
@@ -29,7 +35,7 @@ server 'ubuntu@52.25.164.35', user: 'ubuntu', roles: %w{web app}, my_property: :
 #
 # Global options
 # --------------
-server '52.25.164.35',
+server '54.213.18.15',
        user: 'ubuntu',
        roles: %w{web app},
        ssh_options: {
