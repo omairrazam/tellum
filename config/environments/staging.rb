@@ -20,7 +20,7 @@ Tellum::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = { :host => '52.25.164.35:6900' }
+  config.action_mailer.default_url_options = { :host => '54.213.18.15:6900' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -69,7 +69,7 @@ Tellum::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
-  config.action_controller.asset_host = "http://198.199.65.232:6900"
+  #config.action_controller.asset_host = "http://198.199.65.232:6900"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
@@ -86,6 +86,8 @@ Tellum::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.base_url = 'http://54.213.18.15:6900'
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)

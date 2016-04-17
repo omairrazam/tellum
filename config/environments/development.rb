@@ -68,4 +68,5 @@ Tellum::Application.configure do
   #config.action_controller.asset_host = "http://localhost:3000"
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.base_url = 'http://localhost:3000'
 end

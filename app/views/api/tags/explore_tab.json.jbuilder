@@ -3,7 +3,10 @@ json.response do
     json.status 'Ok'
     json.code 200
     json.message "Successfully Fetched relevant boxes..."
-    json.boxes @user.explore_tab_boxes
+    json.current_page @page
+    json.limit @limit
+    json.boxes @user.explore_tab_boxes @offset, @limit
+    json.total_pages (@user.explore_tab_boxes_count.to_f / @limit).ceil
     #json.drops @user.user_follow_drops + @user.user_created_drops
   else
     json.status 'not found'
