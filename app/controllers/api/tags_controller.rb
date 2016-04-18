@@ -188,14 +188,25 @@ class Api::TagsController < Api::ApplicationController
     @user = User.find_by_authentication_token params[:auth_token]
   end
 
+  #chagned and documented by Kamran (Aesquares)
+  #Explore Tab API call controller method
+  #parameters are page, limit, auth_token
   def explore_tab
+    #getting the page from request params and converting to integer if present
     @page = params[:page].to_i if params[:page]
+    #getting the limit from request params and converting to integer if present
     @limit = params[:limit].to_i if params[:limit]
+    #if page is not present in the request parameters then populating it with default value = 1
     @page ||= 1
+    #if page value is specified and it is less than 1 then changing the value to 1
     @page = 1 if @page < 1
+    #if limit is not specified then assigning the default limit value to 30
     @limit ||= 30
+    # if limit is specified and is less than 1 then changing it to 1
     @limit = 1 if @limit < 1
+    # caluclating the offset for pagination
     @offset = (@page - 1) * @limit
+    #finding the user with the specified auth_token
     @user = User.find_by_authentication_token params[:auth_token]
   end
 

@@ -114,7 +114,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Modified By Kamran (Aesquares)
+  # Populated tags with relational data such as user, drops and comments of drops
+  # @param offset [Integer] Caluclated offset of the pagination
+  # @param limit [Integer] Limit value of the function
+  # @return [Hash]
   def explore_tab_boxes offset = 0, limit = 30
+    #Get the tags and eager load the user and raings with specified limits and offset
     @tags=Tag.includes(:user, :ratings).where("close_date is not NULL AND close_date >= ?", DateTime.now).limit(limit).offset(offset)
     box_story_hash_structure @tags
   end
