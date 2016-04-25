@@ -1,27 +1,43 @@
 class Api::UsersController < Api::ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  #modified by aesquares
+  #signup user
   def create
+    #checking request if the request index/symbol is present and user inside that request is present or not
     if params[:request] && params[:request][:user]
+      #if user is present in the request then populate the model object with parameters
       @user = User.new params[:request][:user]
+      #check if we can save the users
       if @user.save
+        # user created send the response back according to requesting format
         get_api_message "200", "Created"
         respond_to do |format|
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :user => @user.hide_fields.merge!({followers_count: UserFollow.where(user_id: @user.id, is_approved: true).count, followings_count: UserFollow.where(follow_id: @user.id, is_approved: true).count})}} }
         end
       else
+        #check if user has any error message
         if !@user.errors.empty?
+          #getting the api message from database
+          #also apendding the custom message for response
           get_api_message "501", "Invalid Request"
+          #get the errors returned by model validation
           @errors=get_model_error(@user)
+          #this method will render the errors
+          #i think it should send all the errors in response currently it is send only one the first error
           return render_errors
         else
+          #user is unable to get created due to unknown reason and without any error.. really?
           get_api_message "404", "Record could not be created"
+          #send the response back
           return render_response
         end
       end
     else
+      #if there is no parameters specified or user is not present in the request we will consider this as invalid request
       get_api_message "501", "Invalid Request"
+      #send the response back
       return render_response
     end
   end

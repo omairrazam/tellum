@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
   #validates_uniqueness_of :user_name
   validates_uniqueness_of :facebook_user_id, if: Proc.new { |u| u.facebook_user_id.present? }
   validates_uniqueness_of :twitter_user_id, if: Proc.new { |u| u.twitter_user_id.present? }
+
+  #modified by aesquares
+  # commenting this validation check according to the requirement of this ticket TELL-BUG-2016-2 (Sign up - Gender)
+  # url to the ticket is: https://trello.com/c/D8TRhBea/4-tell-bug-2016-2-sign-up-gender
   # validates :gender, :presence => true, if: Proc.new { |u| u.skip_password_form.blank? }
   validates :device_token, :presence => true
   before_save :ensure_authentication_token
