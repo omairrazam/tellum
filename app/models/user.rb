@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   # commenting this validation check according to the requirement of this ticket TELL-BUG-2016-2 (Sign up - Gender)
   # url to the ticket is: https://trello.com/c/D8TRhBea/4-tell-bug-2016-2-sign-up-gender
   # validates :gender, :presence => true, if: Proc.new { |u| u.skip_password_form.blank? }
+  validates :gender, :inclusion => {:in => %w{male female}, :case_sensitive => false, :message => 'gender can be either male or female in lowercase'}, if: Proc.new { |u| u.gender.present? }
   validates :device_token, :presence => true
   before_save :ensure_authentication_token
   before_save { |user| user.is_email_confirmed = true if user.confirmed_at_changed? && !user.new_record? }
