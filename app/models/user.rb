@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   #validates_uniqueness_of :user_name
   validates_uniqueness_of :facebook_user_id, if: Proc.new { |u| u.facebook_user_id.present? }
   validates_uniqueness_of :twitter_user_id, if: Proc.new { |u| u.twitter_user_id.present? }
-  validates :gender, :presence => true, if: Proc.new { |u| u.skip_password_form.blank? }
+  # validates :gender, :presence => true, if: Proc.new { |u| u.skip_password_form.blank? }
   validates :device_token, :presence => true
   before_save :ensure_authentication_token
   before_save { |user| user.is_email_confirmed = true if user.confirmed_at_changed? && !user.new_record? }
@@ -121,7 +121,8 @@ class User < ActiveRecord::Base
   # @return [Hash]
   def explore_tab_boxes offset = 0, limit = 30
     #Get the tags and eager load the user and raings with specified limits and offset
-    @tags=Tag.includes(:user, :ratings).where("close_date is not NULL AND close_date >= ?", DateTime.now).limit(limit).offset(offset)
+    @tags=Tag.includes(:user).where("close_date is not NULL AND close_date >= ?", DateTime.now).limit(limit).offset(offset)
+    #preparing the data to send the response
     box_story_hash_structure @tags
   end
 
