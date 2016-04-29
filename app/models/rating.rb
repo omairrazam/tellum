@@ -11,6 +11,7 @@ class Rating < ActiveRecord::Base
   has_many :user_ratings
   has_one :flagged_drop, foreign_key: :rating_id
   belongs_to :tag
+  has_many :commenters, source: :user, through: :comments
   #validates_presence_of :rating
   #validates_presence_of :sub_rating
   validates :is_anonymous_rating, :inclusion => {:in => [true, false]}
