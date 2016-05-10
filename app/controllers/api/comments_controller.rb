@@ -43,7 +43,7 @@ class Api::CommentsController < Api::ApplicationController
       end
       get_api_message "200", "Created"
       respond_to do |format|
-        @comment.update_attribute :created_at, (@comment.created_at - 9.minutes)
+        #@comment.update_attribute :created_at, (@comment.created_at - 9.minutes)
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :comment => @comment.attributes.keep_if { |k, v| k != "user_id" }.merge!({user: @comment.user})}} }
       end
