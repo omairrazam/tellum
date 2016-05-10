@@ -9,7 +9,7 @@ development:
 #  port: "2195"
 #  pass: "1234"
 staging:
-  host: "gateway.push.apple.com"
+  host: "gateway.sandbox.push.apple.com"
   file: "pushcert.pem"
   port: "2195"
   pass: ""
