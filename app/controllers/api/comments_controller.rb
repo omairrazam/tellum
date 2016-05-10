@@ -11,23 +11,30 @@ class Api::CommentsController < Api::ApplicationController
       rating_creator_user_id = Rating.find(params[:request][:rating_id])
       badge_count = rating_creator_user_id.try(:user).try(:badge_count) + 1
       rating_creator_user_id.try(:user).update_attributes badge_count: badge_count
-      unless rating_creator_user_id.try(:user).id == @user
-        # APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} replied to your comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
-        if params[:is_anonymous_comment] == true
-          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
-        else
-          Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
-        end
-      end
+      # unless rating_creator_user_id.try(:user).id == @user
+      #   # APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} replied to your comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}",badge: badge_count, sound: "default" )
+      #   if params[:is_anonymous_comment] == true
+      #     Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
+      #   else
+      #     Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
+      #   end
+      # end
       #send the notification here in every case
       push_notifications = []
       commenters = rating_creator_user_id.commenters.group(:id)
       commenters.each do |commenter|
         if commenter.id != current_user.id
-          if commenter.id == rating_creator_user_id.try(:user).try(:id)
+          if commenter.id == rating_creator_user_id.try(:user).id
+            Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
             push_notifications << APNS::Notification.new(commenter.try(:device_token), alert: "#{current_user.try(:full_name)} replied to your comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}.", badge: badge_count, sound: "default")
           else
-            push_notifications << APNS::Notification.new(commenter.try(:device_token), alert: "#{current_user.try(:full_name)} also replied to #{rating_creator_user_id.try(:user).try(:full_name)}' comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}.", badge: badge_count, sound: "default")
+            if params[:is_anonymous_comment] == true
+              Notification.create(user_id: commenter.id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
+              push_notifications << APNS::Notification.new(commenter.try(:device_token), alert: "Anonymous also replied to Anonymous' comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}.", badge: badge_count, sound: "default")
+            else
+              Notification.create(user_id: commenter.id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
+              push_notifications << APNS::Notification.new(commenter.try(:device_token), alert: "#{current_user.try(:full_name)} also replied to #{rating_creator_user_id.try(:user).try(:full_name)}' comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}.", badge: badge_count, sound: "default")
+            end
           end
         end
       end

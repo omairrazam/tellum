@@ -15,6 +15,6 @@ staging:
   pass: ""
 production:
   host: "gateway.push.apple.com"
-  file: "pushcert.pem"
+  file: "production_pushcert.pem"
   port: "2195"
   pass: ""
