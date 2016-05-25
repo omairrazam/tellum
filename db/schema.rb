@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160222181752) do
+ActiveRecord::Schema.define(:version => 20160525192942) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(:version => 20160222181752) do
     t.boolean  "is_anonymous_user", :default => false
     t.boolean  "is_deleted",        :default => false
   end
+
+  create_table "rating_hide_bies", :force => true do |t|
+    t.integer  "rating_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "rating_hide_bies", ["rating_id"], :name => "index_rating_hide_bies_on_rating_id"
+  add_index "rating_hide_bies", ["user_id"], :name => "index_rating_hide_bies_on_user_id"
 
   create_table "ratings", :force => true do |t|
     t.integer  "rating"

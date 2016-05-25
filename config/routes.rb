@@ -80,6 +80,7 @@ Tellum::Application.routes.draw do
       member do
         post :like_rating
         post :check_flag
+        post :hide_drop
         post :unlike_rating
         get :likes_list
         get :ratings_of_a_tag
