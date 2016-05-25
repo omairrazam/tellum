@@ -249,38 +249,52 @@ class Api::RatingsController < Api::ApplicationController
   end
 
 
+  # Added By Kamran Hameed(Aesquares)
+  # API call to hide a drop for a user
+  # As per description we need track the who hide the drops
   def hide_drop
-    if params[:auth_token].present? && params[:request][:drop_id].present?
+    # checking the parameters are comming
+    if params[:auth_token].present? && params[:request].present? && params[:request][:drop_id].present?
+      # get the user
       user = User.find_by_authentication_token params[:auth_token]
+      # get the drop
       @rating = Rating.find(params[:request][:drop_id])
+      # check if the rating / drop exists
       if @rating.present?
+        # check if user already hide this drop or not
         rating_hide_by = RatingHideBy.where(rating_id: @rating.id, user_id: user.id).first
         if rating_hide_by.present?
-          get_api_message "404", "you have already hide this drop"
+          # user has already hide the drop so we just need to display the message to the user
+          get_api_message "501", "you have already hide this drop"
           respond_to do |format|
             format.html { redirect_to @rating, notice: 'not found' }
             format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message}} }
           end
         else
+          # ok this is the first time user is hiding the drop so first of all we create a new instance
           rating_hide_by = @rating.rating_hide_by.new
+          #assign the user to the hide by object
           rating_hide_by.user = user
+          # try to save hide drop tracking
           if rating_hide_by.save
+            # ok its saved tell the user that drop is hidden with its tracking
             get_api_message "200", "You have successfully hide this drop"
+            # currently there is no html impelemented but its the default structured followed by previous devs so i did'nt changed it
             respond_to do |format|
               format.html { redirect_to @rating, notice: 'Hide this content.' }
               format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :rating => @rating.attributes.merge({user: @rating.user, drop_hidden_by_users: @rating.drop_hidden_by_users})}} }
             end
-
           else
+            #we are unable to save the object so tell the user that there is something wrong this is an exceptional case
             get_api_message "404", "Unable to hide this drop"
             respond_to do |format|
               format.html { redirect_to @rating, notice: 'not found' }
               format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message}} }
             end
           end
-
         end
       else
+        # tell the user that the drop he / she wants to hide does not exists or there can be some issue from mobile that mobile is sending wrong parameter value
         get_api_message "404", "no drop found"
         respond_to do |format|
           format.html { redirect_to @rating, notice: 'not found' }
@@ -288,6 +302,7 @@ class Api::RatingsController < Api::ApplicationController
         end
       end
     else
+      #send the real parameters dont mess with the api call
       get_api_message "501", "Invalid request"
       respond_to do |format|
         format.html { redirect_to @rating, notice: 'Invalid request.' }
