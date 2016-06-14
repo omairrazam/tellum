@@ -1,6 +1,6 @@
 development:
   host: "gateway.sandbox.push.apple.com"
-  file: "pushcertdev.pem"
+  file: "production_pushcert.pem"
   port: "2195"
   pass: ""
 #staging:

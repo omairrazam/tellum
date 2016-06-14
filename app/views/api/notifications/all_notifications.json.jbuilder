@@ -22,7 +22,7 @@ json.response do
 
           json.notification_id noti.id
           json.is_anonymous_user noti.is_anonymous_user
-          json.notification_created_at noti.try(:created_at) - 9.minutes
+          json.notification_created_at noti.try(:created_at)
           json.is_seen noti.is_seen
           json.object_name noti.object_name
         elsif noti.object_name == "Follow User Request" || noti.object_name == "Accpted Follow Request" || noti.object_name == "New Follower"
@@ -91,7 +91,7 @@ json.response do
           json.is_revealed_viewed noti.try(:reveal).try(:is_revealed_viewed) || false
 
           json.notification_id noti.id
-          json.notification_created_at (noti.try(:created_at) - 9.minutes)
+          json.notification_created_at (noti.try(:created_at))
           json.is_anonymous_user noti.is_anonymous_user
           json.is_seen noti.is_seen
           json.object_name noti.object_name
