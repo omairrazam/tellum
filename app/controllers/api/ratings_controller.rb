@@ -11,6 +11,7 @@ class Api::RatingsController < Api::ApplicationController
     @user = current_user
     anonymous_rating = params[:request][:rating][:is_anonymous_rating]
     if @rating.save
+      
       #@rating.update_attribute :created_at, @rating.created_at - (9.minutes + 55.seconds)
       #@rating.update_attribute :created_at, @rating.created_at - (9.minutes + 55.seconds)
       @rating.update_attribute :is_box_locked, params[:request][:rating][:is_box_locked]
