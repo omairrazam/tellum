@@ -88,7 +88,10 @@ class User < ActiveRecord::Base
     Rating.where("user_id IN (?) AND is_box_locked is false AND is_anonymous_rating = ?", following_users, false)
   end
 
-  def drop_story_hash_structure drops
+  def drop_story_hash_structure drops, exclude_hidden_drops = false
+    if exclude_hidden_drops
+      drops = drops.where('id NOT in(?)', self.user_hidden_drops)
+    end
     drops.collect { |drop|
       {box_id: drop.try(:tag).try(:id), is_drop_story: true, box_name: drop.try(:tag).try(:tag_line), sort_created_at: drop.try(:sort_date),
        box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.try(:tag).try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
