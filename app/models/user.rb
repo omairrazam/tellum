@@ -130,11 +130,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  def box_story_hash_structure boxes, exclude_hidden_drops = false, from_explore = false
+  def box_story_hash_structure boxes, exclude_hidden_drops = false, exclude_boxes = false
     if exclude_hidden_drops
       hiddenDrops = self.user_hidden_drops
       notIn = get_tag_ids_to_hide hiddenDrops
-      if !from_explore
+      if exclude_boxes
         boxes = boxes.where('id not in (?)', notIn)
       end
       boxes.collect do |tag|
@@ -158,7 +158,7 @@ class User < ActiveRecord::Base
     #Get the tags and eager load the user and ratings with specified limits and offset
     @tags=Tag.includes(:user).where("close_date is not NULL AND close_date >= ?", DateTime.now).limit(limit).offset(offset)
     #preparing the data to send the response
-    box_story_hash_structure @tags, true, true
+    box_story_hash_structure @tags, true
   end
 
   def explore_tab_boxes_count
