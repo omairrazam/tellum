@@ -117,7 +117,7 @@ class User < ActiveRecord::Base
   end
 
   def get_tag_ids_to_hide hiddenDrops
-    Rating.where(id: hiddenDrops).collect{ |drop|  drop.try(:tag_id) }
+    Rating.where(id: hiddenDrops).collect { |drop| drop.try(:tag_id) }
   end
 
   # updated by Kamran Hameed (Aesquares)
@@ -130,11 +130,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  def box_story_hash_structure boxes, exclude_hidden_drops = false
+  def box_story_hash_structure boxes, exclude_hidden_drops = false, from_explore = false
     if exclude_hidden_drops
       hiddenDrops = self.user_hidden_drops
       notIn = get_tag_ids_to_hide hiddenDrops
-      boxes = boxes.where('id not in (?)', notIn)
+      if !from_explore
+        boxes = boxes.where('id not in (?)', notIn)
+      end
       boxes.collect do |tag|
         {box_id: tag.try(:id), is_drop_story: false, box_creator_name: tag.try(:user).try(:full_name), box_name: tag.try(:tag_line), box_created_at: tag.try(:created_at), sort_created_at: tag.try(:created_at), box_title: tag.try(:tag_title), is_allow_anonymous: tag.try(:is_allow_anonymous), is_flagged: tag.try(:is_flagged), is_locked: tag.try(:is_locked), is_post_to_wall: tag.try(:is_post_to_wall), is_private: tag.try(:is_private), open_date: tag.try(:open_date), close_date: tag.try(:close_date), box_description: tag.try(:tag_description), box_creator_id: tag.try(:user_id), box_creator_image: tag.try(:user).try(:photo).try(:url), box_creator_user_name: tag.try(:user).try(:full_name), box_creator_user_name: tag.try(:user).try(:user_name), is_follower: check_user(tag.try(:user), self), box_expiry: tag.try(:expiry_time), box_total_drops: tag.try(:ratings).try(:count)}.merge({drops_count: tag.ratings.try(:count), drops: tag.try(:ratings).includes(:user, :comments).where("user_id = ? OR is_box_locked = ?", self.id, false).order("rating_like_count DESC").reject { |drop| hiddenDrops.include? drop.try(:id) }.collect { |drop| {drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), is_anonymous_rating: drop.try(:is_anonymous_rating), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), is_like: (UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false), drop_hidden_by_users: drop.drop_hidden_by_users} }})
       end
@@ -156,7 +158,7 @@ class User < ActiveRecord::Base
     #Get the tags and eager load the user and ratings with specified limits and offset
     @tags=Tag.includes(:user).where("close_date is not NULL AND close_date >= ?", DateTime.now).limit(limit).offset(offset)
     #preparing the data to send the response
-    box_story_hash_structure @tags, true
+    box_story_hash_structure @tags, true, true
   end
 
   def explore_tab_boxes_count
