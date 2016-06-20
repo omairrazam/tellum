@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
   end
 
   def following_drops_with_is_anonymous_false
-    Rating.where("user_id IN (?) AND is_box_locked is false AND is_anonymous_rating = ?", following_users, false)
+    Rating.where("user_id IN (?) AND is_box_locked is false AND is_anonymous_rating = ? AND id not in (?)", following_users, false, self.user_hidden_drops)
   end
 
   def drop_story_hash_structure drops, exclude_hidden_drops = false
