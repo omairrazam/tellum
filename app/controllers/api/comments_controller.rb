@@ -13,7 +13,7 @@ class Api::CommentsController < Api::ApplicationController
       rating_creator_user_id.try(:user).update_attributes badge_count: badge_count
       unless rating_creator_user_id.try(:user).id == @user
         APNS.send_notification(rating_creator_user_id.try(:user).try(:device_token), alert: "#{current_user.try(:full_name)} replied to your comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}", badge: badge_count, sound: "default")
-        if params[:is_anonymous_comment] == true
+        if @comment.is_anonymous_comment
           Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
         else
           Notification.create(user_id: rating_creator_user_id.try(:user).id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: false)
@@ -24,7 +24,7 @@ class Api::CommentsController < Api::ApplicationController
       commenters = rating_creator_user_id.commenters.uniq
       commenters.each do |commenter|
         if commenter.id != current_user.id && commenter.id != rating_creator_user_id.try(:user).id
-          if params[:is_anonymous_comment] == true
+          if @comment.is_anonymous_comment
             Notification.create(user_id: commenter.id, comment_id: @comment.id, object_name: "Comment", sender_id: @user, rating_id: rating_creator_user_id.id, is_anonymous_user: true)
             APNS.send_notification(commenter.try(:device_token), alert: "Anonymous also replied to Anonymous's comment in #{rating_creator_user_id.try(:tag).try(:tag_line)}.", badge: badge_count, sound: "default")
           else
