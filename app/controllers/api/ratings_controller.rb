@@ -26,12 +26,12 @@ class Api::RatingsController < Api::ApplicationController
         if current_user.id != tag_creator_user_id.id
           @not=Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Dropped", sender_id: current_user.id, is_anonymous_user: true)
           @not.update_attribute :is_anonymous_user, true
-          APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "Anonymous dropped on #{tag.try(:tag_line)}", badge: badge_count, sound: "default")
+          APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "Anonymous dropped in #{tag.try(:tag_line)}", badge: badge_count, sound: "default")
         end
       else
         if current_user.id != tag_creator_user_id.id
           Notification.create(tag_id: tag.id, user_id: tag.user_id, rating_id: @rating.id, object_name: "Dropped", sender_id: current_user.id, is_anonymous_user: false)
-          APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "#{current_user.try(:full_name)} dropped on #{tag.try(:tag_line)}", badge: badge_count, sound: "default")
+          APNS.send_notification(tag_creator_user_id.try(:device_token), alert: "#{current_user.try(:full_name)} dropped in #{tag.try(:tag_line)}", badge: badge_count, sound: "default")
         end
       end
       get_api_message "200", "Created"
