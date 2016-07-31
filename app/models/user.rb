@@ -74,7 +74,9 @@ class User < ActiveRecord::Base
 
   def user_created_and_following_drops
     hiddenDrops = self.user_hidden_drops
-    (Rating.where("user_id = ? AND id NOT IN (?)", self.id, hiddenDrops) + following_drops_with_is_anonymous_false).collect { |drop|
+    drops = Rating.where("user_id = ? ", self.id)
+    drops = drops.where("id NOT IN (?)", hiddenDrops) if hiddenDrops.length > 0
+    (drops + following_drops_with_is_anonymous_false).collect { |drop|
       {box_id: drop.try(:tag).try(:id), is_drop_story: true, box_name: drop.try(:tag).try(:tag_line), sort_created_at: drop.try(:sort_date),
        box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.try(:tag).try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
        is_locked: drop.try(:tag).try(:is_locked), is_post_to_wall: drop.try(:tag).try(:is_post_to_wall), is_private: drop.try(:tag).try(:is_private), open_date: drop.try(:tag).try(:open_date),
