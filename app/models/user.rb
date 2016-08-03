@@ -74,8 +74,8 @@ class User < ActiveRecord::Base
 
   def user_created_and_following_drops
     hiddenDrops = self.user_hidden_drops
-    drops = Rating.where("user_id = ? ", self.id)
-    drops = drops.where("id NOT IN (?)", hiddenDrops) if hiddenDrops.length > 0
+    drops = Rating.where("user_id = ? and close_date=? ", self.id,Date.today.to_s)
+    drops = drops.where("id NOT IN (?) ", hiddenDrops) if hiddenDrops.length > 0
     (drops + following_drops_with_is_anonymous_false).collect { |drop|
       {box_id: drop.try(:tag).try(:id), is_drop_story: true, box_name: drop.try(:tag).try(:tag_line), sort_created_at: drop.try(:sort_date),
        box_description: drop.try(:tag).try(:tag_description), is_allow_anonymous: drop.try(:tag).try(:is_allow_anonymous), is_flagged: drop.try(:tag).try(:is_flagged),
@@ -127,7 +127,7 @@ class User < ActiveRecord::Base
   def user_created_and_following_boxes
     hiddenDrops = self.user_hidden_drops
     notIn = get_tag_ids_to_hide hiddenDrops
-    @tags=Tag.where('(user_id = ? OR user_id IN (?)) AND close_date is NOT NULL AND open_date is not NULL', self.id, following_users)
+    @tags = Tag.where('(user_id = ? OR user_id IN (?)) AND close_date=? AND open_date is not NULL', self.id, following_users, Date.today.to_s)
     @tags = @tags.where('id not in (?)',notIn) if notIn.length > 0 
 
     @tags.map do |tag|
