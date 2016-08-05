@@ -84,6 +84,7 @@ class User < ActiveRecord::Base
        box_creator_name: drop.try(:tag).try(:user).try(:full_name), box_creator_user_name: drop.try(:tag).try(:user).try(:user_name), is_follower: check_user(drop.try(:tag).try(:user), self),
        box_created_at: drop.try(:tag).try(:created_at), box_expiry: drop.try(:tag).try(:expiry_time), box_total_drops: drop.try(:tag).try(:ratings).try(:count)}.merge({drops: [{drop_id: drop.try(:id), drop_creator_user_name: drop.try(:user).try(:user_name), drop_creator_name: drop.try(:user).try(:full_name), drop_created_at: drop.try(:created_at), drop_creator_user_id: drop.try(:user_id), drop_creator_profile_image: drop.try(:user).try(:photo).try(:url), drop_description: drop.try(:comment), drop_like_count: drop.try(:rating_like_count), drop_replies_count: drop.try(:comments).try(:count), sort_created_at: drop.try(:created_at), is_anonymous_rating: drop.try(:is_anonymous_rating), is_like: (UserRating.where(user_id: self.id, rating_id: drop.try(:id)).try(:last).try(:is_like) || false), drop_hidden_by_users: drop.drop_hidden_by_users}]})
     }
+    
   end
 
   def following_drops_with_is_anonymous_false
