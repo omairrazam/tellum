@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
     pf.keep_if { |k, v| !v.nil? }.keep_if { |k, v| k != "photo" }.merge!((User.find(pf["id"]).photo.url.present? rescue false) ? {"photo" => {"url" => User.find(pf["id"]).photo.url}} : {})
   end
   attr_accessor :skip_password_form
+
   has_many :user_ratings
   has_many :tags
   has_many :flagged_boxes, foreign_key: :user_id
@@ -140,7 +141,8 @@ class User < ActiveRecord::Base
     if exclude_hidden_drops
       hiddenDrops = self.user_hidden_drops
       notIn = get_tag_ids_to_hide hiddenDrops
-      if exclude_boxes
+
+      if exclude_boxes and notIn.present?
         boxes = boxes.where('id not in (?)', notIn)
       end
       boxes.collect do |tag|
