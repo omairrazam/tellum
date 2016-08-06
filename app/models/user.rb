@@ -128,7 +128,7 @@ class User < ActiveRecord::Base
   def user_created_and_following_boxes
     hiddenDrops = self.user_hidden_drops
     notIn = get_tag_ids_to_hide hiddenDrops
-    @tags = Tag.where('(user_id = ? OR user_id IN (?)) AND close_date is not NULL AND open_date is not NULL', self.id, following_users, Date.today.to_s)
+    @tags = Tag.where('(user_id = ? OR user_id IN (?)) AND close_date is not NULL AND open_date is not NULL', self.id, following_users)
     @tags = @tags.where('id not in (?)',notIn) if notIn.length > 0 
 
     @tags.map do |tag|
