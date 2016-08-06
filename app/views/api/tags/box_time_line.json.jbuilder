@@ -3,7 +3,11 @@ json.response do
     json.status 'Ok'
     json.code 200
     json.message "Successfully Fetched relevant boxes..."
-    json.boxes (@user.user_created_and_following_boxes + @user.user_created_and_following_drops).reject(&:blank?)
+    #json.boxes (@user.user_created_and_following_boxes + 
+    # @user.user_created_and_following_drops).reject(&:blank?)
+
+    json.boxes(@user)
+
     # json.boxes (@user.user_created_and_following_drops).reject(&:blank?)
     # json.boxes @user.user_created_and_following_boxes.reject(&:blank?)
     #json.drops @user.user_follow_drops + @user.user_created_drops
