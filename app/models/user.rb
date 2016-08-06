@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
   end
 
   def drop_story_hash_structure drops, exclude_hidden_drops = false
-    if exclude_hidden_drops
+    if exclude_hidden_drops and self.user_hidden_drops.present?
       drops = drops.where('id NOT in(?)', self.user_hidden_drops)
     end
     drops.collect { |drop|
