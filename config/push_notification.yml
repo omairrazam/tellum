@@ -10,11 +10,14 @@ development:
 #  pass: "1234"
 staging:
   host: "gateway.sandbox.push.apple.com"
-  file: "tellum-prod-cert.pem"
+  #file: "tellum-prod-cert.pem"
+  file: pushcert_dev.pem  
   port: "2195"
   pass: ""
+
 production:
   host: "gateway.push.apple.com"
-  file: "tellum-prod-cert.pem"
+  #file: "tellum-prod-cert.pem"
+  file: pushcert.pem
   port: "2195"
   pass: ""
