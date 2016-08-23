@@ -4,7 +4,7 @@ json.response do
       json.status 'Ok'
       json.code 200
       json.message 'Users Matched Successfully.'
-      json.users do
+      json.data do
         json.array! @users do |user|
           json.id user.try(:id)
           json.about_me user.try(:about_me)
