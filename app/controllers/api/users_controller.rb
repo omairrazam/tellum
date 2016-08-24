@@ -445,7 +445,7 @@ class Api::UsersController < Api::ApplicationController
 
     ids = params[:request][:ids].map(&:to_s)
 
-    tellum_followers_ids   = @user.user_follows.pluck(:follow_id)
+    tellum_followers_ids   = @user.following_users
 
     if params[:request][:facebook_ids].present?
       facebook_followers_ids = User.where( :facebook_user_id => ids).pluck(:id)
@@ -461,7 +461,7 @@ class Api::UsersController < Api::ApplicationController
 
     #params[:request][:facebook_ids] == 1 ? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
   end
-  
+
   def update_badge_count
     @user = User.find_by_authentication_token(params[:auth_token])
     @user.update_attribute :badge_count, 0 if @user.present?
