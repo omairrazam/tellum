@@ -418,11 +418,33 @@ class Api::UsersController < Api::ApplicationController
   end
 
   
+  # def twitter_or_facebook_users
+  #   #debugger
+  #   @user = User.find_by_authentication_token params[:auth_token]
+
+  #   ids = params[:request][:ids]
+  #   tellum_followers_ids   = @user.user_follows.pluck(:follow_id)
+
+  #   if params[:request][:facebook_ids].present?
+  #     facebook_followers_ids = User.where( :facebook_user_id => ids).pluck(:id)
+  #     final_ids = facebook_followers_ids - tellum_followers_ids
+  #     @users = User.where(:id => final_ids)
+  #   else
+  #     twitter_followers_ids = User.where( :twitter_user_id => ids).pluck(:id)
+  #     final_ids = twitter_followers_ids - tellum_followers_ids
+  #     @users    = User.where(:id => final_ids)
+  #   end
+  #   #params[:request][:facebook_ids]? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
+
+  #   #params[:request][:facebook_ids] == 1 ? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
+  # end
+
   def twitter_or_facebook_users
     #debugger
     @user = User.find_by_authentication_token params[:auth_token]
 
-    ids = params[:request][:ids]
+    ids = params[:request][:ids].map(&:to_s)
+
     tellum_followers_ids   = @user.user_follows.pluck(:follow_id)
 
     if params[:request][:facebook_ids].present?
@@ -430,6 +452,7 @@ class Api::UsersController < Api::ApplicationController
       final_ids = facebook_followers_ids - tellum_followers_ids
       @users = User.where(:id => final_ids)
     else
+      #debugger
       twitter_followers_ids = User.where( :twitter_user_id => ids).pluck(:id)
       final_ids = twitter_followers_ids - tellum_followers_ids
       @users    = User.where(:id => final_ids)
@@ -438,7 +461,7 @@ class Api::UsersController < Api::ApplicationController
 
     #params[:request][:facebook_ids] == 1 ? (@users = User.where("facebook_user_id IN (?)", params[:request][:ids])) : (@users = User.where("twitter_user_id IN (?)", params[:request][:ids]))
   end
-
+  
   def update_badge_count
     @user = User.find_by_authentication_token(params[:auth_token])
     @user.update_attribute :badge_count, 0 if @user.present?
