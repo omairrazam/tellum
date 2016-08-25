@@ -1,55 +1,61 @@
-# Simple Role Syntax
-# ==================
-# Supports bulk-adding hosts to roles, the primary server in each group
-# is considered to be the first unless any hosts have the primary
-# property set.  Don't declare `role :all`, it's a meta role.
-
-# role :app, %w{ubuntu@52.25.164.35}
-# role :web, %w{ubuntu@52.25.164.35}
-# role :db,  %w{ubuntu@52.25.164.35}
-
-role :app, %w{ubuntu@54.213.18.15}
-role :web, %w{ubuntu@54.213.18.15}
-role :db,  %w{ubuntu@54.213.18.15}
-
-
-set :repo_url, 'git@bitbucket.org:tellumapp/tellum_server.git'
-set :deploy_to, '/home/ubuntu/projects/staging/tellum_server'
-set :application, 'tellum_server'
-set :rvm_ruby_version, 'ruby-1.9.3-p551@tellum_server'
-
-
-# Extended Server Syntax
+# server-based syntax
 # ======================
-# This can be used to drop a more detailed server definition into the
-# server list. The second argument is a, or duck-types, Hash and is
-# used to set extended properties on the server.
+# Defines a single server with a list of roles and multiple properties.
+# You can define all roles on a single server, or split them:
 
-server 'ubuntu@54.213.18.15', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
+# server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
+# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
+# server 'db.example.com', user: 'deploy', roles: %w{db}
+
+server '52.43.71.49', user: 'deploy', roles: %w{web app db}
+
+# role-based syntax
+# ==================
+
+# Defines a role with one or multiple servers. The primary server in each
+# group is considered to be the first unless any  hosts have the primary
+# property set. Specify the username and a domain or IP for the server.
+# Don't use `:all`, it's a meta role.
+
+# role :app, %w{deploy@example.com}, my_property: :my_value
+# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
+# role :db,  %w{deploy@example.com}
+
+
+
+# Configuration
+# =============
+# You can set any configuration variable like in config/deploy.rb
+# These variables are then only loaded and set in this stage.
+# For available Capistrano configuration variables see the documentation page.
+# http://capistranorb.com/documentation/getting-started/configuration/
+# Feel free to add new variables to customise your setup.
+
 
 
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
-# limited set of options, consult[net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start).
+# limited set of options, consult the Net::SSH documentation.
+# http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 #
 # Global options
 # --------------
-server '54.213.18.15',
-       user: 'ubuntu',
-       roles: %w{web app},
-       ssh_options: {
-           user: 'root', # overrides user setting above
-           keys: %w(/home/vagrant/.ssh/.ssh/id_rsa),
-           forward_agent: false,
-           auth_methods: %w(publickey password)
-           # password: 'please use keys'
-       }
-# setting per server overrides global ssh_options
-namespace :paths do
-  desc "Link paths of required files"
-  task :link_paths do
-    #run "ln -sf #{shared_path}/database.yml #{release_path}/config/database.yml"
-    run "ln -sf #{shared_path}/uploads #{release_path}/public/uploads"
-  end
-end
+#  set :ssh_options, {
+#    keys: %w(/home/rlisowski/.ssh/id_rsa),
+#    forward_agent: false,
+#    auth_methods: %w(password)
+#  }
+#
+# The server-based syntax can be used to override options:
+# ------------------------------------
+# server 'example.com',
+#   user: 'user_name',
+#   roles: %w{web app},
+#   ssh_options: {
+#     user: 'user_name', # overrides user setting above
+#     keys: %w(/home/user_name/.ssh/id_rsa),
+#     forward_agent: false,
+#     auth_methods: %w(publickey password)
+#     # password: 'please use keys'
+#   }

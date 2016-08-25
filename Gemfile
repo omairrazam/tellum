@@ -6,8 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-
-
+gem "activerecord-mysql2-adapter"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -29,22 +28,20 @@ end
 gem 'jbuilder'
 gem 'carrierwave'
 
-# Use unicorn as the app server
-gem 'unicorn'
-
-# Deploy with Capistrano
-
-# To use debugger
-#gem 'debugger'
-gem 'therubyracer'
+gem 'therubyracer','~> 0.10.1'
 gem 'devise' , '3.0.2'
 gem "meta_search"  # Last officially released gem
-gem 'capistrano', '~> 3.2.0'
-gem 'capistrano-ssh-doctor', '~> 1.0'
-gem 'capistrano-rvm'
-gem 'capistrano-rails',   require: false
-gem 'capistrano-bundler', require: false
-gem 'capistrano3-puma',   require: false
+
+gem 'puma'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+end
+
 gem 'debugger'
 gem 'activeadmin', github: 'activeadmin', branch: '0-6-stable'
 gem 'jquery-rails', '~> 2.3.0'

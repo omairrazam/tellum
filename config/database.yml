@@ -2,22 +2,15 @@ defaults: &defaults
   adapter: mysql2
   host: localhost
   username: root
-  password: 1234
+  password: nothing
 
 development:
   <<: *defaults
   database: tellum_development
-  
-test:
-  <<: *defaults
-  database: tellum_test
 
 production:
   <<: *defaults
-  database: tellum_production
+  database: tellum_server_staging
 
-staging:
-  <<: *defaults
-  database: tellum_production
 
 
