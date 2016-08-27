@@ -20,8 +20,7 @@ Tellum::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_mailer.default_url_options = { :host => 'tellumapp.com' }
-
+  config.action_mailer.default_url_options = { :host => '54.213.18.15:6900' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -33,30 +32,17 @@ Tellum::Application.configure do
       :authentication       => 'login',
       :enable_starttls_auto => true
   }
-
-  
-
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #     :address => 'smtpout.secureserver.net',
-  #     :domain  => 'www.tellumapp.com',
-  #     :port      => 80,
-  #     :user_name => 'admin@tellumapp.com',
-  #     :password => 'Tellum2013',
-  #     :authentication => :plain
-  # }
-  # ActionMailer::Base.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = false
-  # ActionMailer::Base.smtp_settings = {
+  #ActionMailer::Base.delivery_method = :smtp
+  #config.action_mailer.perform_deliveries = true
+  #ActionMailer::Base.smtp_settings = {
   #    :address              => "smtp.gmail.com",
   #    :port                 => "587",
   #    :domain               => "gmail.com",
-  #    :user_name            => "email.tellumapp@gmail.com",
-  #    :password             => "Tellum2015",
+  #    :user_name            => "virtual.force.test@gmail.com",
+  #    :password             => "virtualforce-123",
   #    :authentication       => "plain",
   #    :enable_starttls_auto => true
-  # }
+  #}
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -83,13 +69,7 @@ Tellum::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
-  config.action_controller.asset_host = "http://tellumapp.com"
-  config.after_initialize do
-    APNS.host = PUSH_CONFIG["host"]
-    APNS.pem =  File.join( Rails.root,"config",PUSH_CONFIG["file"] )
-    APNS.pass = PUSH_CONFIG["pass"]
-    APNS.port = PUSH_CONFIG["port"]
-  end
+  #config.action_controller.asset_host = "http://198.199.65.232:6900"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
@@ -107,7 +87,7 @@ Tellum::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.base_url = 'http://tellumapp.com'
+  config.base_url = 'http://54.213.18.15:6900'
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
