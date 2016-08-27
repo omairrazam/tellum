@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem "activerecord-mysql2-adapter"
+#gem "activerecord-mysql2-adapter"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,7 +28,7 @@ end
 gem 'jbuilder'
 gem 'carrierwave'
 
-gem 'therubyracer','~> 0.10.1'
+gem 'therubyracer'
 gem 'devise' , '3.0.2'
 gem "meta_search"  # Last officially released gem
 
@@ -42,7 +42,7 @@ group :development do
   gem 'capistrano-rvm'
 end
 
-gem 'debugger'
+#gem 'debugger'
 gem 'activeadmin', github: 'activeadmin', branch: '0-6-stable'
 gem 'jquery-rails', '~> 2.3.0'
 gem 'apns'

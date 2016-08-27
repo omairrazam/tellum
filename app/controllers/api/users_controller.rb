@@ -147,6 +147,7 @@ class Api::UsersController < Api::ApplicationController
   end
 
   def twitter_login
+    debugger
     @user = User.find_by_twitter_user_id(params[:request][:user][:twitter_user_id])
     if @user.present?
       if @user.is_password_blank == true
