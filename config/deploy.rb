@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.6.1'
+lock '3.2.1'
 
 #deploy user password is also deploy on server
 
