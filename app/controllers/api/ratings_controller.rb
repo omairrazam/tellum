@@ -138,10 +138,13 @@ class Api::RatingsController < Api::ApplicationController
   end
 
   def ratings_of_a_tag
+    #debugger
     if params[:tag_id].present? && params[:auth_token].present? && params[:date].present?
       current_user = User.find_by_authentication_token params[:auth_token]
-      #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like =`1`)) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("ratings_comment_counts DESC")
+     
       @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
+      #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) ) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
+
       if @rating.present?
         get_api_message "200", "Created"
         respond_to do |format|
@@ -158,14 +161,16 @@ class Api::RatingsController < Api::ApplicationController
     else
       if params[:tag_id].present? && params[:auth_token].present?
         current_user = User.find_by_authentication_token params[:auth_token]
-        #@rating = Rating.where(tag_id:  params[:tag_id])
-        @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ?", params[:tag_id]).order("created_at DESC").limit(30)
+       
+        #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ?", params[:tag_id]).order("created_at DESC").limit(30)
+        @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) ) AS ratings_comment_counts").where("ratings.tag_id = ?", params[:tag_id]).order("created_at DESC").limit(30)
         if @rating.present?
           get_api_message "200", "Created"
           respond_to do |format|
             format.html { redirect_to @rating, notice: 'rating was successfully found.' }
             #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| k != "user_id"  }.merge!({ user: t.user })   } } } }
             #format.json { render json: {:response => {:status=>@message.status,:code=>@message.code,:message=>@message.custom_message, :rating => @rating.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k)  }.merge!({ user: t.user, tag_line: Tag.find(t.tag_id).attributes.keep_if{ |k, v|  !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user})   } )   } } } }
+            #debugger
             format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :rating => @rating.uniq.collect { |t| t.attributes.keep_if { |k, v| !["user_id", "tag_id"].include?(k) }.merge!({comments: t.comments.count, is_like: UserRating.where(user_id: current_user.id, rating_id: t.id).try(:last).try(:is_like) || false, user: t.user.hide_fields, drop_hidden_by_users: t.drop_hidden_by_users, tag_line: Tag.find(t.tag_id).attributes.keep_if { |k, v| !["user_id", "rating_id"].include?(k) }.merge!({user: Tag.find(t.tag_id).user.hide_fields, average_rating: Tag.find(t.tag_id).average_rating, total_rating: Tag.find(t.tag_id).total_rating})}) }}} }
           end
         else
