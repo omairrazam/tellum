@@ -142,9 +142,9 @@ class Api::RatingsController < Api::ApplicationController
     if params[:tag_id].present? && params[:auth_token].present? && params[:date].present?
       current_user = User.find_by_authentication_token params[:auth_token]
      
-      @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
+      #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) + ( select count(*) from user_ratings where user_ratings.rating_id = ratings.id and user_ratings.is_like ='1')) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
       #@rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) ) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
-
+      @rating = Rating.select("*, ( (select count(*) from comments where comments.rating_id = ratings.id) ) AS ratings_comment_counts").where("ratings.tag_id = ? AND ratings.updated_at < ?", params[:tag_id], params[:date]).order("created_at DESC")
       if @rating.present?
         get_api_message "200", "Created"
         respond_to do |format|
