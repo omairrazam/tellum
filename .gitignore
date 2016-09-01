@@ -20,4 +20,3 @@ tmp
 .idea/*
 .idea/workspace.xml
 log/
-/config/database.yml
