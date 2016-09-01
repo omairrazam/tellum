@@ -205,7 +205,11 @@ class Api::UserFollowsController < Api::ApplicationController
       current_user = User.find_by_authentication_token(params[:auth_token])
       @myfollowers, @follow = UserFollow.where(:user_id => current_user.id).order("created_at desc"), Array.new
       @myfollowers.each do |user|
-        @follow.push User.find_by_id(user.follow_id).hide_fields.merge!({is_approved: user.is_approved})
+        #@follow.push User.find_by_id(user.follow_id).hide_fields.merge!({is_approved: user.is_approved})
+         u_f = User.find_by_id(user.follow_id)
+        if u_f.present?
+          @follow.push u_f.hide_fields.merge!({is_approved: user.is_approved})
+        end
       end
       if @follow.present?
         get_api_message "200","Followers of mine."
