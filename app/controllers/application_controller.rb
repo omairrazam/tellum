@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_admin_timezone
+    #Time.zone = current_user.time_zone if current_user
+    Time.zone = 'Eastern Time (US & Canada)'
+  end
+
   private
 
   def validate_request_format
@@ -41,4 +46,6 @@ class ApplicationController < ActionController::Base
     error.push @errors.first
     render :json => {:response=>{:status=>@message.status,:code=>@message.code,:message=>@message.custom_message,:errors=>error}}
   end
+
+
 end
