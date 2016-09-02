@@ -88,7 +88,7 @@ Tellum::Application.configure do
   config.active_support.deprecation = :notify
 
   config.base_url = 'http://54.213.18.15:6900'
-  #config.assets.precompile += %w[active_admin.css active_admin.js]
+  config.assets.precompile += %w[active_admin.css active_admin.js]
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
