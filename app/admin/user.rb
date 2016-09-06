@@ -7,10 +7,11 @@ ActiveAdmin.register User, as: 'Tellum Users' do
     default_actions                   
   end                                 
 
-
+  #permit_params :email,:username, :password
   filter :email                       
 
-  form do |f|                         
+  form do |f|   
+    f.semantic_errors *f.object.errors.keys                      
     f.inputs "User Details" do
       f.input :email                  
       f.input :password               
