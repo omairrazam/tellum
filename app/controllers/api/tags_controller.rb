@@ -365,6 +365,27 @@ class Api::TagsController < Api::ApplicationController
     end
   end
 
+  def destroy
+    #debugger
+    @tag = Tag.find(params[:box_id]) rescue nil
+
+    if @tag.present? and @tag.user == current_user
+      @tag.destroy
+      get_api_message "200", "Tag removed"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @tag}} }
+      end
+    else
+      get_api_message "501", "Invalid request"
+      respond_to do |format|
+        format.html { redirect_to @tag, notice: 'Invalid request.' }
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @tag}} }
+      end
+    end
+
+  end
+
+
   def taglines_and_ratings_by_followings
     if params[:auth_token].present? && params[:date].present?
       #@rating = current_user.ratings.where("is_post_to_wall = ? AND updated_at < ?", true, params[:date]).order("updated_at desc")
