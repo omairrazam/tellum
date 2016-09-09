@@ -367,11 +367,23 @@ class Api::TagsController < Api::ApplicationController
 
   def destroy
     #debugger
+    #user = User.find_by_user_name('js6699921')
+    #sign_in(:user, user)
     @tag = Tag.find(params[:box_id]) rescue nil
-
+    #debugger
     if @tag.present? and @tag.user == current_user
       @tag.destroy
       get_api_message "200", "Tag removed"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @tag}} }
+      end
+    elsif @tag.user != current_user
+      get_api_message "401", " authorization invalid"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @tag}} }
+      end
+    elsif @tag.blank?
+      get_api_message "404", "box not found"
       respond_to do |format|
         format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @tag}} }
       end
