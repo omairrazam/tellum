@@ -366,9 +366,7 @@ class Api::TagsController < Api::ApplicationController
   end
 
   def destroy
-    #debugger
-    #user = User.find_by_user_name('js6699921')
-    #sign_in(:user, user)
+    
     @tag = Tag.find(params[:box_id]) rescue nil
     #debugger
     if @tag.present? and @tag.user == current_user
