@@ -3,7 +3,7 @@ class Tag < ActiveRecord::Base
                   :is_allow_anonymous, :is_post_to_wall, :user_id, :is_locked, :updated_time, :rating_id, :expiry_time
   attr_accessor :total_rating, :average_rating, :is_tag_line
   belongs_to :user
-  has_many :ratings, dependent: :destroy
+  has_many :ratings,inverse_of: :Tag, dependent: :destroy
   #belongs_to :rating
   #belongs_to :follow_user
   has_many :notifications
