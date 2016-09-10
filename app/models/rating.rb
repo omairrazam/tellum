@@ -23,6 +23,7 @@ class Rating < ActiveRecord::Base
   def most_popular_order
     self.comments.count + self.rating_like_count
   end
+
   def as_json(options=nil)
     if options.present?
       s = super(options.reverse_merge(except: :audio))
@@ -34,8 +35,11 @@ class Rating < ActiveRecord::Base
   def custom_audio_url
     self.try(:audio).try(:url)
   end
+  
   def attributes
+    #debugger
     s = super
-    s.keep_if {|t| t.to_s != "audio" }.merge!( audio: self.custom_audio_url )
+    s.merge!(audio:self.custom_audio_url)
+    #s.keep_if {|t| t.to_s != "audio" }.merge!( audio: self.custom_audio_url )
   end
 end

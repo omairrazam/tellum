@@ -318,6 +318,36 @@ class Api::RatingsController < Api::ApplicationController
     end
   end
 
+ def destroy
+    
+    @rating = Rating.find(params[:drop_id]) rescue nil
+    #debugger
+    if @rating.present? and @rating.user == current_user
+      @rating.destroy
+      get_api_message "200", "rating removed"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @rating}} }
+      end
+    elsif @rating.user != current_user
+      get_api_message "401", " authorization invalid"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @rating}} }
+      end
+    elsif @rating.blank?
+      get_api_message "404", "rating not found"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @rating}} }
+      end
+    else
+      get_api_message "501", "Invalid request"
+      respond_to do |format|
+        format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @rating}} }
+      end
+    end
+
+  end
+
+
 
   private
   def check_user(user, current_user)
