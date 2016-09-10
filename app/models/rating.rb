@@ -36,10 +36,10 @@ class Rating < ActiveRecord::Base
     self.try(:audio).try(:url)
   end
   
-  def attributes
+  #def attributes
     #debugger
-    s = super
-    s.merge!(audio:self.custom_audio_url)
+    #s = super
+    #s.merge!(audio:self.custom_audio_url.to_s)
     #s.keep_if {|t| t.to_s != "audio" }.merge!( audio: self.custom_audio_url )
-  end
+  #end
 end
