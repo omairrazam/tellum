@@ -370,7 +370,7 @@ class Api::TagsController < Api::ApplicationController
     @tag = Tag.find(params[:box_id]) rescue nil
     #debugger
     if @tag.present? and @tag.user == current_user
-      @tag.delete
+      @tag.destroy
       get_api_message "200", "Tag removed"
       respond_to do |format|
         format.json { render json: {:response => {:status => @message.status, :code => @message.code, :message => @message.custom_message, :tag => @tag}} }
